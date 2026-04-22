@@ -1,0 +1,280 @@
+/* === STEP 1: BASE & BACKGROUND === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #B95071 0%, #d68ba3 40%, #F5EDE3 100%);
+}
+
+.bg::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 300px;
+  background: rgba(177, 177, 177, 0.098);
+  border-radius: 50%;
+  top: 55%;
+  left: -10%;
+  filter: blur(60px);
+  transform: rotate(-15deg);
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  top: 30%;
+  right: -5%;
+  filter: blur(50px);
+  transform: rotate(10deg);
+}
+
+/* === STEP 2: THE CARD === */
+
+.logipage {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 30px 35px;
+  width: 100%;
+  max-width: 380px;
+  color: white;
+}
+
+/* === STEP 3: THE HEADER === */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.page-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 0;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+.back-arrow:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+/* === STEP 4: LABELS & INPUTS === */
+
+form label {
+  display: block;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 45px 14px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-wrapper input:focus {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.input-wrapper i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* === STEP 5: REMEMBER ROW === */
+
+.remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.remember-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  cursor: pointer;
+}
+
+.remember-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: white;
+  cursor: pointer;
+}
+
+.remember-row a {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.remember-row a:hover {
+  text-decoration: underline;
+}
+
+/* === STEP 6: SUBMIT BUTTON === */
+
+form input[type="submit"] {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: #8DC373;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+form input[type="submit"]:hover {
+  background: #7A8F6A;
+  transform: translateY(-1px);
+}
+
+form input[type="submit"]:active {
+  background: #495540;
+  transform: translateY(0px);
+}
+
+/* === STEP 7: DIVIDER === */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* === STEP 8: GOOGLE BUTTON === */
+
+form button {
+  width: 100%;
+  padding: 13px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+form button i {
+  font-size: 20px;
+  color: #4285F4;
+}
+
+form button:hover {
+  background: white;
+  transform: translateY(-1px);
+}
+
+form button:active {
+  transform: translateY(0px);
+}
+
+/* === STEP 9: BOTTOM TEXT === */
+
+form p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+form p a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* === STEP 10: HIDE SIGN IN PAGE BY DEFAULT === */
+
+#singpg {
+  display: none;
+}

@@ -25,13 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (empty($email) || empty($password)) {
             $_SESSION['error'] = "All fields required";
-            header('Location: login.php');
+            header('Location: index.html');
             exit();
         }
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error'] = "Invalid email";
-            header('Location: login.php');
+            header('Location: index.html');
             exit();
         }
         
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($result->num_rows === 0) {
             $_SESSION['error'] = "Invalid email or password";
-            header('Location: login.php');
+            header('Location: index.html');
             exit();
         }
         
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (!password_verify($password, $account['password'])) {
             $_SESSION['error'] = "Invalid email or password";
-            header('Location: login.php');
+            header('Location: index.html');
             exit();
         }
         
