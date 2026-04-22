@@ -3,10 +3,10 @@ include 'database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // ============ LOGIN ============
+    //login
     if (isset($_POST['login'])) {
         
-        // Handle "Remember Me" BEFORE session_start()
+        // handle "Remember Me" BEFORE session_start()
         if (isset($_POST['remember'])) {
             $lifetime = 30 * 24 * 60 * 60;  // 30 days
             session_set_cookie_params($lifetime);
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     
-    // ============ SIGN UP ============
+    // sign up
     if (isset($_POST['signin'])) {
         
         session_start();
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
         
-        // Check if email already exists
+        // chheck if email already exists
         $query = "SELECT account_id FROM account WHERE email = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $email);
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
         
-        // Hash password and insert
+        // hash password and insert
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
         
         $query = "INSERT INTO account (email, password) VALUES (?, ?)";
