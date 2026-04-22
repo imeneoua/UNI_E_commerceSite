@@ -1,37 +1,31 @@
 <?php
 include 'database.php';
-//check if "remember me" was checked
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // LOGIN
+    // ============ LOGIN ============
     if (isset($_POST['login'])) {
         
         // Handle "Remember Me" BEFORE session_start()
         if (isset($_POST['remember'])) {
-            // Remember for 30 days
-            $lifetime = 30 * 24 * 60 * 60;
+            $lifetime = 30 * 24 * 60 * 60;  // 30 days
             session_set_cookie_params($lifetime);
         } else {
-            // Session ends when browser closes
             session_set_cookie_params(0);
         }
         
-        // NOW start the session
         session_start();
         
         $email = trim($_POST['email']);
         $password = $_POST['password'];
         
         if (empty($email) || empty($password)) {
-            $_SESSION['error'] = "All fields required";
-            header('Location: index.html');
+            header('Location: index.html?error=empty_fields');
             exit();
         }
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['error'] = "Invalid email";
-            header('Location: index.html');
+            header('Location: index.html?error=invalid_email');
             exit();
         }
         
@@ -42,16 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $stmt->get_result();
         
         if ($result->num_rows === 0) {
-            $_SESSION['error'] = "Invalid email or password";
-            header('Location: index.html');
+            header('Location: index.html?error=invalid_login');
             exit();
         }
         
         $account = $result->fetch_assoc();
         
         if (!password_verify($password, $account['password'])) {
-            $_SESSION['error'] = "Invalid email or password";
-            header('Location: index.html');
+            header('Location: index.html?error=invalid_login');
             exit();
         }
         
@@ -65,34 +57,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     
-    // SIGN UP 
+    // ============ SIGN UP ============
     if (isset($_POST['signin'])) {
         
-        // Start session (no remember me for signup)
         session_start();
         
         $email = trim($_POST['email']);
         $password = $_POST['password'];
         
         if (empty($email) || empty($password)) {
-            $_SESSION['error'] = "All fields required";
-            header('Location: login.php');
+            header('Location: index.html?error=empty_fields');
             exit();
         }
         
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['error'] = "Invalid email format";
-            header('Location: login.php');
+            header('Location: index.html?error=invalid_email');
             exit();
         }
         
         if (strlen($password) < 8) {
-            $_SESSION['error'] = "Password must be at least 8 characters";
-            header('Location: login.php');
+            header('Location: index.html?error=short_password');
             exit();
         }
         
-        // Check if email exists
+        // Check if email already exists
         $query = "SELECT account_id FROM account WHERE email = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $email);
@@ -100,8 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $stmt->get_result();
         
         if ($result->num_rows > 0) {
-            $_SESSION['error'] = "Email already registered";
-            header('Location: login.php');
+            header('Location: index.html?error=email_exists');
             exit();
         }
         
@@ -122,8 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: main.html');
             exit();
         } else {
-            $_SESSION['error'] = "Registration failed: " . $conn->error;
-            header('Location: login.php');
+            header('Location: index.html?error=registration_failed');
             exit();
         }
     }
