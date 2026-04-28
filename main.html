@@ -6,99 +6,262 @@
     <title>Ecommerce website</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../images/image.jpg" type="image/x-icon">
+    <link rel="icon" href="images/logo_photo.png" type="image/x-icon">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
 </head>
 <body>
-    <!-- header section -->
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
 <header>
-    <div id="hdpart" class="hrosec">
-        <table  cellspacing="20" width="100%" >
-                <tr>
-                     <td width="20%" align="left">
-                    <img src="images/" alt="logo picture not found" title="logo picture">
-                    </td>
-                    <td width="60%" align="center">
+    <table width="100%">
+        <div id="hdpart" class="hrosec">
+            <tr>
+                <td width="20%" align="left">
+                    <img src="images/logo_photo.png" alt="logo" title="logo" width="100%">
+                </td>
+
+                <td width="50%" align="center">
                     <nav>
-                        <a href="#">Home</a>
+                        <a href="#" class="active">Home</a>
                         <a href="#">Categories</a>
                         <a href="#">Features</a>
                         <a href="#">Contact Us</a>
                     </nav>
-                    </td>
-                    <td align="right" width="20%">
-                    <span>
-                    <button>Sign in</button>
-                    </span>
-                    <span>
-                    <button>
-                    <i class="bx bx-cart" ></i>
-                    </button>
-                    </span>
+                </td>
 
-                    <span>
-                     <button >
-                        <i class="bx bx-user-circle"></i>
+                <td align="right" width="30%">
+                    <button>Sign in</button>
+
+                    <button>
+                        <i class="bx bx-cart"></i>
                     </button>
-                </span>
-                </td>
-                </div>
-                </tr>
-        </table>
-    </div>
-</header>
-   
-    <!-- main section -->
-<main>
-    <div id="mnpart" class="hrosec">
-        <table width="100%" border="0" cellpadding="5" cellspacing="5">
-            <tr>
-                <td width="50%" valign="middle">
-                    <h1>Create a Space That Tells Your Story</h1>
-                    <p>From blooming floral arrangements to carefully selected décor and captivating reads, discover pieces that turn your home into a reflection of who you are.</p>
-                    <button>Shop Now</button>
-                </td>
-                <td align="right" width="50%">
-                    <img src="images/"alt="hero picture not found" title="Hero photo">
+
+                    <button>
+                        <i class="bx bx-user-circle"></i>
+                        <aside>
+                            <a href="#">My Account</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Logout</a>
+                        </aside>
+                    </button>
                 </td>
             </tr>
-            </table>
-            <br>
-                    <H2 align="center">Categories</H2>
-            <br>
-            <table  width="100%" cellpadding="10" cellspacing="0">
-               <tr>
-                    <td width="33%" align="center" valign="top" >
-                        <i class="bx bx-book" ></i>
-                        <h3>Books</h3>
-                        <p>Click here to see our book collection</p>
-                    </td>
+        </div>
+    </table>
+</header>
 
-                    <td  width="33%" align="center" valign="top">
-                        <i class="bx bx-leaf" ></i>
-                        <h3>Flowers</h3> 
-                        <p>Click here to see our flowers collection</p>
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main>
+    <article>
+        <div id="mnpart" class="hrosec">
+
+            <!-- HERO -->
+            <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td width="50%" valign="middle">
+                        <h1>Create a Space That Tells Your Story</h1>
+                        <p>From blooming floral arrangements to carefully selected décor and captivating reads, discover pieces that turn your home into a reflection of who you are.</p>
+                        <button>Shop Now</button>
                     </td>
-                        
-                    <td width="34%" align="center" valign="top" >
-                      <i class="bx bx-palette" ></i>
-                        <h3>Decorations</h3>
-                        <p>Click here to see our decoration collection</p>
+                    <td align="right" width="50%">
+                        <img src="images/hero_section_photo.png" alt="hero picture" title="Hero photo">
                     </td>
                 </tr>
             </table>
-       </div>
-</main>
-        <!-- Footer section -->
-    <footer>
-        <div id="ftpart"class="hrosec">
-            
 
+            <!-- CATEGORIES HEADING -->
+            <br>
+            <h2 align="center"><u>Categories</u></h2>
+            <br>
 
+            <!-- CATEGORIES TABLE -->
+            <table width="100%" cellpadding="10" cellspacing="0">
+                <tr>
+                    <td width="33%" align="center" valign="top">
+                        <i class="bx bx-book"></i>
+                        <h3>Books</h3>
+                        <p>Transform Your Mind, One Page at a Time</p>
+                    </td>
+                    <td width="33%" align="center" valign="top">
+                        <i class="bx bx-leaf"></i>
+                        <h3>Flowers</h3>
+                        <p>Fresh Blooms for Every Occasion</p>
+                    </td>
+                    <td width="34%" align="center" valign="top">
+                        <i class="bx bx-palette"></i>
+                        <h3>Decorations</h3>
+                        <p>Unique Pieces for Every Room</p>
+                    </td>
+                </tr>
+            </table>
 
+            <!-- FEATURES HEADING -->
+            <h2 align="center"><u>Features</u></h2>
+            <h3>Our Best Sellers:</h3>
 
+            <!-- PRODUCTS GRID -->
+            <section>
+                <div class="products-grid">
+                    <table width="100%" align="center">
 
+                        <!-- ROW 1 -->
+                        <tr>
+                            <!-- Product 1 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/flower18.jpg" alt="pink cherry blossoms">
+                                </div>
+                                <h4 class="prd-title">Pink Cherry Blossoms</h4>
+                                <p class="prd-desc">Delicate pink blooms to brighten any space or occasion.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 4.5</span>
+                                    <span class="prd-price">1000 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 2 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/flower7.jpg" alt="lavender">
+                                </div>
+                                <h4 class="prd-title">Lavender</h4>
+                                <p class="prd-desc">Calming lavender sprigs with a soothing, fresh scent.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 5.0</span>
+                                    <span class="prd-price">2000 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 3 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/book4.jpg" alt="Harry Potter">
+                                </div>
+                                <h4 class="prd-title">Harry Potter</h4>
+                                <p class="prd-desc">The timeless wizarding saga that captivates every age.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 5.0</span>
+                                    <span class="prd-price">4000 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 4 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/book2.jpg" alt="قواعد جارتين">
+                                </div>
+                                <h4 class="prd-title">قواعد جارتين</h4>
+                                <p class="prd-desc">رواية رائعة تأخذك في رحلة مليئة بالمشاعر والأحداث.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 4.0</span>
+                                    <span class="prd-price">2500 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+                        </tr>
+
+                        <!-- ROW 2 -->
+                        <tr>
+                            <!-- Product 5 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/study2.jpg" alt="Cool Lamp">
+                                </div>
+                                <h4 class="prd-title">Cool Lamp</h4>
+                                <p class="prd-desc">A stylish desk lamp to light up your study or bedside.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 3.0</span>
+                                    <span class="prd-price">5200 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 6 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/study17.jpg" alt="Beautiful Boards">
+                                </div>
+                                <h4 class="prd-title">Beautiful Writing Boards</h4>
+                                <p class="prd-desc">Elegant boards perfect for notes, plans, and creativity.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 4.5</span>
+                                    <span class="prd-price">4000 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 7 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/study13.jpg" alt="Felt Pens">
+                                </div>
+                                <h4 class="prd-title">Colourful Felt Pens</h4>
+                                <p class="prd-desc">Vibrant felt pens for journaling, art, and school work.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 5.0</span>
+                                    <span class="prd-price">4080 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+
+                            <!-- Product 8 -->
+                            <td width="25%" valign="top">
+                                <div class="prd-image">
+                                    <img src="images/study3.jpg" alt="Nice Watch">
+                                </div>
+                                <h4 class="prd-title">Nice and Small Watch</h4>
+                                <p class="prd-desc">A compact, elegant watch for everyday style and function.</p>
+                                <div class="prd-meta">
+                                    <span class="rating">⭐ 4.0</span>
+                                    <span class="prd-price">3520 DA</span>
+                                </div>
+                                <button class="cart-btn">Add to cart</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- COMMENT SECTION -->
+            <section>
+                <div class="Comentprt" align="center">
+                    <h3>Add your Comment</h3>
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </section>
 
         </div>
-    </footer> 
+    </article>
+</main>
+
+<br>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+    <hr>
+    <div id="ftpart" class="hrosec">
+        <img src="images/logo_photo.png" alt="logo" title="logo">
+        <p>A curated space for fresh blooms, thoughtful décor, and stories that make your home feel complete.</p>
+        <div>
+            <i class="fi fi-brands-linkedin"></i>
+            <i class="fi fi-brands-github"></i>
+            <i class="fi fi-brands-instagram"></i>
+            <i class="fi fi-brands-twitter-alt-square"></i>
+        </div>
+        <hr width="25%">
+        <p>© 2026 All rights are reserved</p>
+    </div>
+</footer>
+
 </body>
 </html>
