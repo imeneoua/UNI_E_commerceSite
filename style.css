@@ -1,4 +1,6 @@
-/* === STEP 1: BASE & BACKGROUND === */
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
 
 * {
   margin: 0;
@@ -10,282 +12,13 @@ body {
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(160deg, #B95071 0%, #d68ba3 50%, #F5EDE3 100%);
+  background-attachment: fixed;
   color: white;
 }
 
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, #B95071 0%, #d68ba3 40%, #F5EDE3 100%);
-}
-
-/* login page only */
-.login-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.bg::before {
-  content: '';
-  position: absolute;
-  width: 700px;
-  height: 300px;
-  background: rgba(177, 177, 177, 0.098);
-  border-radius: 50%;
-  top: 55%;
-  left: -10%;
-  filter: blur(60px);
-  transform: rotate(-15deg);
-}
-
-.bg::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 250px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  top: 30%;
-  right: -5%;
-  filter: blur(50px);
-  transform: rotate(10deg);
-}
-
-/* === STEP 2: THE CARD === */
-
-.logipage {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  padding: 30px 35px;
-  width: 100%;
-  max-width: 380px;
-  color: white;
-}
-
-/* === STEP 3: THE HEADER === */
-
-.page-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.page-header h2 {
-  font-size: 26px;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.5px;
-}
-
-.back-arrow {
-  position: absolute;
-  left: 0;
-  font-size: 22px;
-  color: white;
-  cursor: pointer;
-}
-
-.back-arrow:hover {
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-/* === STEP 4: LABELS & INPUTS === */
-
-form label {
-  display: block;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  margin-top: 20px;
-}
-
-.input-wrapper {
-  position: relative;
-}
-
-.input-wrapper input {
-  width: 100%;
-  padding: 14px 45px 14px 16px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  color: white;
-  font-size: 14px;
-  outline: none;
-  transition: border 0.2s ease, background 0.2s ease;
-}
-
-.input-wrapper input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.input-wrapper input:focus {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-.input-wrapper i {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 18px;
-  pointer-events: none;
-}
-
-/* === STEP 5: REMEMBER ROW === */
-
-.remember-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
-}
-
-.remember-row label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: white;
-  margin: 0;
-  cursor: pointer;
-}
-
-.remember-row input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: white;
-  cursor: pointer;
-}
-
-.remember-row a {
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-}
-
-.remember-row a:hover {
-  text-decoration: underline;
-}
-
-/* === STEP 6: SUBMIT BUTTON === */
-
-form input[type="submit"] {
-  width: 100%;
-  margin-top: 24px;
-  padding: 14px;
-  background: #8DC373;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
-form input[type="submit"]:hover {
-  background: #7A8F6A;
-  transform: translateY(-1px);
-}
-
-form input[type="submit"]:active {
-  background: #495540;
-  transform: translateY(0px);
-}
-
-/* === STEP 7: DIVIDER === */
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 20px 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* === STEP 8: GOOGLE BUTTON === */
-
-form button {
-  width: 100%;
-  padding: 13px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
-form button i {
-  font-size: 20px;
-  color: #4285F4;
-}
-
-form button:hover {
-  background: white;
-  transform: translateY(-1px);
-}
-
-form button:active {
-  transform: translateY(0px);
-}
-
-/* === STEP 9: BOTTOM TEXT === */
-
-form p {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-form p a {
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-form p a:hover {
-  text-decoration: underline;
-}
-
-/* === STEP 10: HIDE SIGN IN PAGE BY DEFAULT === */
-
-#singpg {
-  display: none;
-}
-
-/* === NAVBAR === */
+/* ============================================================
+   HEADER / NAVBAR
+   ============================================================ */
 
 header {
   position: fixed;
@@ -293,233 +26,530 @@ header {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 10px 30px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 40px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   background: rgba(185, 80, 113, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.navbar-table {
+header table {
   border-collapse: collapse;
+  width: 100%;
 }
 
-.nav-logo {
+header table td {
+  vertical-align: middle;
+  padding: 0;
+}
+
+/* Logo */
+header table td:first-child img {
   width: 50px;
   height: 50px;
   object-fit: contain;
   background: #8DC373;
   border-radius: 12px;
   padding: 6px;
+  display: block;
 }
 
-.nav-links {
+/* Nav pill */
+header table td nav {
   display: inline-flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 30px;
-  padding: 6px 10px;
-  gap: 4px;
+  padding: 5px 8px;
+  gap: 2px;
 }
 
-.nav-links a {
+header table td nav a {
   text-decoration: none;
   color: white;
   font-size: 14px;
   font-weight: 500;
-  padding: 6px 16px;
+  padding: 6px 18px;
   border-radius: 20px;
   transition: background 0.2s ease;
+  white-space: nowrap;
 }
 
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.nav-links a.active {
+header table td nav a:hover,
+header table td nav a.active {
   background: rgba(255, 255, 255, 0.25);
 }
 
-.signin-btn {
+/* Right-side buttons */
+header table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+header table td:last-child button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-left: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* Sign In button */
+header table td:last-child button:first-child {
   padding: 8px 22px;
   background: #8DC373;
   color: white;
   font-size: 14px;
   font-weight: 600;
-  border: none;
   border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.signin-btn:hover {
+header table td:last-child button:first-child:hover {
   background: #7A8F6A;
   transform: translateY(-1px);
 }
 
-.signin-btn:active {
-  background: #495540;
-  transform: translateY(0px);
-}
-
-.icon-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Cart & Profile icon buttons */
+header table td:last-child button:not(:first-child) {
   background: transparent;
-  border: none;
   color: white;
   font-size: 26px;
-  cursor: pointer;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 20px;
-  vertical-align: middle;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.1s ease;
 }
 
-.icon-btn:hover {
+header table td:last-child button:not(:first-child):hover {
   opacity: 0.7;
-  transform: translateY(-1px);
 }
 
-.icon-btn:active {
-  opacity: 0.5;
-  transform: translateY(0px);
+/* Profile dropdown */
+header table td:last-child button:last-child {
+  position: relative;
 }
 
-/* push main content below fixed header */
-main {
-  padding-top: 80px;
+header table td:last-child button:last-child aside {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(185, 80, 113, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 200;
+  flex-direction: column;
+  text-align: left;
 }
 
-/* === HERO === */
-
-.hero {
+header table td:last-child button:last-child:hover aside {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+}
+
+header table td:last-child button:last-child aside a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+header table td:last-child button:last-child aside a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+main {
+  padding-top: 72px;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+#mnpart > table:first-of-type {
+  width: 100%;
+  min-height: 88vh;
   padding: 60px 60px;
-  gap: 40px;
-  min-height: 90vh;
+  box-sizing: border-box;
 }
 
-.hero-text {
-  flex: 1;
-  max-width: 45%;
+#mnpart > table:first-of-type td {
+  vertical-align: middle;
+  padding: 20px 24px;
 }
 
-.hero-text h1 {
-  font-size: 46px;
+/* Hero heading */
+#mnpart > table:first-of-type td:first-child h1 {
+  font-size: 48px;
   font-weight: 800;
   color: white;
   line-height: 1.2;
   margin-bottom: 20px;
+  letter-spacing: -0.5px;
 }
 
-.hero-text p {
+/* Hero paragraph */
+#mnpart > table:first-of-type td:first-child p {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.7;
-  margin-bottom: 32px;
+  line-height: 1.75;
+  margin-bottom: 34px;
+  max-width: 440px;
 }
 
-.shop-btn {
-  padding: 14px 36px;
+/* Shop Now button */
+#mnpart > table:first-of-type td:first-child button {
+  padding: 14px 38px;
   background: #8DC373;
   color: white;
   font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  letter-spacing: 0.3px;
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.shop-btn:hover {
+#mnpart > table:first-of-type td:first-child button:hover {
   background: #7A8F6A;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-.shop-btn:active {
+#mnpart > table:first-of-type td:first-child button:active {
   background: #495540;
-  transform: translateY(0px);
+  transform: translateY(0);
 }
 
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.hero-image img {
+/* Hero image */
+#mnpart > table:first-of-type td:last-child img {
   width: 100%;
   max-width: 520px;
   object-fit: contain;
+  display: block;
+  margin-left: auto;
+  filter: drop-shadow(0 24px 48px rgba(185, 80, 113, 0.4));
 }
 
-/* === CATEGORIES SECTION === */
+/* ============================================================
+   SECTION HEADINGS (h2)
+   ============================================================ */
 
-.categories-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 60px;
-}
-
-.categories-section h2 {
+#mnpart h2 {
   font-size: 36px;
   font-weight: 700;
   color: white;
   text-align: center;
-  margin-bottom: 40px;
   letter-spacing: 1px;
-  text-decoration: underline;
-  text-underline-offset: 8px;
+  margin: 20px 0 10px;
 }
 
-.categories-section table {
+#mnpart h2 u {
+  text-decoration: none;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.45);
+  padding-bottom: 6px;
+}
+
+/* ============================================================
+   CATEGORIES TABLE
+   ============================================================ */
+
+#mnpart > table:nth-of-type(2) {
   border-collapse: separate;
   border-spacing: 20px;
+  padding: 10px 60px 60px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.categories-section table td {
+#mnpart > table:nth-of-type(2) td {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 16px;
-  padding: 40px 20px;
+  padding: 44px 20px;
+  text-align: center;
+  vertical-align: top;
   transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
-.categories-section table td:hover {
+#mnpart > table:nth-of-type(2) td:hover {
   background: rgba(255, 255, 255, 0.22);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
-.categories-section td i {
-  font-size: 42px;
+#mnpart > table:nth-of-type(2) td i {
+  font-size: 44px;
   color: rgba(255, 255, 255, 0.85);
   display: block;
   margin-bottom: 16px;
 }
 
-.categories-section td h3 {
+#mnpart > table:nth-of-type(2) td h3 {
   font-size: 20px;
   font-weight: 700;
   color: white;
   margin-bottom: 10px;
 }
 
-.categories-section td p {
+#mnpart > table:nth-of-type(2) td p {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+}
+
+/* ============================================================
+   "Our Best Sellers" label (h3 directly in #mnpart)
+   ============================================================ */
+
+#mnpart > section > div.products-grid,
+#mnpart > h3 {
+  padding-left: 60px;
+}
+
+#mnpart > h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 16px;
+  padding: 0 60px 16px;
+}
+
+/* ============================================================
+   PRODUCTS GRID
+   ============================================================ */
+
+.products-grid {
+  padding: 0 40px 70px;
+  box-sizing: border-box;
+}
+
+.products-grid table {
+  border-collapse: separate;
+  border-spacing: 16px;
+  width: 100%;
+}
+
+/* Product card — each <td> */
+.products-grid td {
+  vertical-align: top;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 20px;
+  padding: 16px 16px 20px;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.products-grid td:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.30);
+  box-shadow: 0 12px 32px rgba(185, 80, 113, 0.2);
+}
+
+/* Product image */
+.prd-image {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.prd-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Product title */
+.prd-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  /* allow wrapping so nothing is cut off */
+  white-space: normal;
+}
+
+/* Description */
+.prd-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Rating + Price row */
+.prd-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 2px;
+}
+
+.prd-meta .rating {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.prd-meta .prd-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Add to cart button */
+.cart-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background: #8DC373;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.cart-btn:hover {
+  background: #7A8F6A;
+  transform: translateY(-1px);
+}
+
+.cart-btn:active {
+  background: #495540;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   COMMENT SECTION
+   ============================================================ */
+
+.Comentprt {
+  padding: 50px 60px 70px;
+  text-align: center;
+}
+
+.Comentprt h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.Comentprt input[type="text"] {
+  width: 55%;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.Comentprt input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.Comentprt input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  background: rgba(150, 50, 80, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 44px 60px;
+}
+
+/* Hide the top <hr> */
+footer > hr:first-child {
+  display: none;
+}
+
+#ftpart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+#ftpart img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: #8DC373;
+  border-radius: 12px;
+  padding: 6px;
+}
+
+#ftpart p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 420px;
+  line-height: 1.65;
+}
+
+/* Social icons wrapper */
+#ftpart > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#ftpart i {
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+#ftpart i:hover {
+  opacity: 0.65;
+  transform: translateY(-2px);
+}
+
+/* Divider hr */
+#ftpart hr {
+  display: block;
+  width: 25%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* === CATEGORY SECTION === */
@@ -929,3 +959,4 @@ form {
 .popup-content > .add-btn {
   align-self: stretch;
 }
+
