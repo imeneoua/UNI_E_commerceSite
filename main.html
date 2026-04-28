@@ -6,86 +6,233 @@
     <title>Ecommerce website</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../images/image.jpg" type="image/x-icon">
+    <link rel="icon" href="images/logo_photo.png" type="image/x-icon">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
 </head>
 <body>
     <!-- header section -->
 <header>
-    <div id="hdpart" class="hrosec">
-        <table  class="navbar-table" cellspacing="20" width="100%" >
-                <tr>
-                     <td width="20%" align="left">
-                    <img src="images/" class="nav-logo" alt="logo picture not found" title="logo picture">
-                    </td>
-                    <td width="60%" align="center">
-                    <nav class="nav-links">
-                        <a href="#">Home</a>
-                        <a href="#">Categories</a>
-                        <a href="#">Features</a>
-                        <a href="#">Contact Us</a>
-                    </nav>
-                    </td>
-                    <td align="right" width="20%" class="nav-buttons">
-                    <span>
-                    <button class="signin-btn">Sign in</button>
-                    </span>
-                    <span>
-                    <a href="cart.html" class="icon-btn"><i class="bx bx-cart"></i></a>
-                    </span>
-                    <span>
-                    <a href="settings.html" class="icon-btn"><i class="bx bx-user-circle"></i></a>
-                    </span>
-                    </td>
-                </tr>
-        </table>
-    </div>
+    <table  width="100%" >
+        <div id="hdpart" class="hrosec">
+            <tr>
+                <td  width="20%"align="left">
+                    <img src="images/logo_photo.png" alt="logo picture not found" title="logo picture" width="100%">
+                </td>
+
+                <td width="50%" align="center">
+                        <nav>
+                            <a href="#">Home</a>
+                            <a href="#">Categories</a>
+                            <a href="#">Features</a>
+                            <a href="#">Contact Us</a>
+                        </nav>
+                </td>
+
+                <td align="right" width="30%">
+                        <button>
+                            Sign in
+                        </button>
+                
+                        <button>
+                            <i class="bx bx-cart" ></i>
+                        </button>
+                
+                       <button >
+                            <i class="bx bx-user-circle"></i>
+                                <aside>
+                                    <a href="#">My Account</a>
+                                    <a href="#">Settings</a>
+                                    <a href="#">Logout</a>
+                                </aside>
+                        </button>    
+                </td>
+            </tr>
+        </div>
+    </table>
 </header>
    
     <!-- main section -->
 <main>
-    <div id="mnpart" class="hrosec">
+    <article>
+            <div id="mnpart" class="hrosec">
+                <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                    <tr>
+                        <td width="50%" valign="middle">
+                            <h1>Create a Space That Tells Your Story</h1>
+                            <p>From blooming floral arrangements to carefully selected décor and captivating reads, discover pieces that turn your home into a reflection of who you are.</p>
+                            <button >Shop Now</button>
+                        </td>
+                        <td align="right" width="50%">
+                            <img src="images/hero_section_photo.png"alt="hero picture not found" title="Hero photo">
+                        </td>
+                    </tr>
+                </table>
 
-        <!-- HERO -->
-        <div class="hero">
-            <div class="hero-text">
-                <h1>Create a Space That Tells Your Story</h1>
-                <p>From blooming floral arrangements to carefully selected décor and captivating reads, discover pieces that turn your home into a reflection of who you are.</p>
-                <button class="shop-btn">Shop Now</button>
-            </div>
-            <div class="hero-image">
-                <img src="images/" alt="hero picture not found" title="Hero photo">
-            </div>
-        </div>
+                        <br>
+                            <h2 align="center" width="100%"><u>Categories</u></h2>
+                        <br>
+                <table  width="100%" cellpadding="10" cellspacing="0">
+                    <tr>
+                        <td width="33%" align="center" valign="top" >
+                                <i class="bx bx-book" ></i>
+                                <h3 class="bk-prt">Books</h3>
+                                <p class="bkpa-prt">Click here to see our book collection</p>
+                        </td>
 
-        <br>
-        <section class="categories-section">
-        <H2 align="center">Categories</H2>
-        <br>
-        <table width="100%" cellpadding="10" cellspacing="0">
-           <tr>
-                <td width="33%" align="center" valign="top">
-                    <i class="bx bx-book"></i>
-                    <h3>Books</h3>
-                    <p>Click here to see our book collection</p>
-                </td>
-                <td width="33%" align="center" valign="top">
-                    <i class="bx bx-leaf"></i>
-                    <h3>Flowers</h3> 
-                    <p>Click here to see our flowers collection</p>
-                </td>
-                <td width="34%" align="center" valign="top">
-                    <i class="bx bx-palette"></i>
-                    <h3>Decorations</h3>
-                    <p>Click here to see our decoration collection</p>
-                </td>
-            </tr>
-        </table>
-        </section>
-    </div>
+                        <td  width="33%" align="center" valign="top">
+                                <i class="bx bx-leaf" ></i>
+                                <h3 class="flwr-prt">Flowers</h3> 
+                                <p class="flwrpa-prt">Click here to see our flowers collection</p>
+                        </td>
+                                
+                        <td width="34%" align="center" valign="top" >
+                            <i class="bx bx-palette"></i>
+                                <h3 class="deco-prt">Decorations</h3>
+                                <p class="decopa-prt">Click here to see our decoration collection</p>
+                        </td>
+                    </tr>
+                </table>
+
+                    <h2 align="center"><u>Features</u></h2>
+                    <h3>Our Best Sellers:</h3>
+                        <!-- Our Best Sellers Section -->
+                            <section >
+                                <div class="products-grid">
+                                        <table width="100%" align="center">
+                                            <tr>
+                                               <!-- Product 1 -->
+                                                <td width="25%" valign="left">
+                                                    <div class="prdo-card">
+                                                        <div class="prd-image">
+                                                            <img src="images/flower18.jpg" alt="pink cherry blossoms picture not found" width="25%">
+                                                        </div>
+                                                        <h4 class="product-title">pink cherry blossoms</h4>
+                                                        <span class="rating"> 4.5⭐️</span>
+                                                        <p class="prd-price">1000 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </div>
+                                                </td>    
+                                                <!-- Product 2 -->
+                                                <td width="25%" align="center">
+                                                    <div class="prdt-card"></div>
+                                                        <div class="prd-image">
+                                                            <img src="images/flower7.jpg" alt="lavender picture not found"width="25%">
+                                                        </div>
+                                                        <h4 class="prd-title">Lavender</h4>
+                                                        <span >5⭐️ </span>
+                                                        <p class="prd-price">2000 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </div>
+                                                </td>
+
+                                                <!-- Product 3 -->
+                                                <div class="prdth-card">
+                                                    <td width="25%" align="center">
+                                                        <div class="prd-image">
+                                                            <img src="images/book4.jpg"width="25%">
+                                                        </div>
+                                                        <h4 class="prd-title">Harry potter</h4>
+                                                        <span class="rating">5⭐️ </span>
+                                                        <p class="prd-price">4000 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </td>
+                                                </div>
+                                    
+                                                <!-- Product 4 -->
+                                                <div class="prdf-card">
+                                                    <td width="25%" align="right">
+                                                        <div class="prd-image">
+                                                         <img src="images/book2.jpg" alt="Not foundقواعد جارتين>"width="25%">
+                                                        </div>
+                                                        <h4 class="prd-title">قواعد جارتين</h4>
+                                                        <span>4⭐️ </span>
+                                                        <p class="prd-price">2500 Da</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </td>
+                                                </div>
+                                            </tr>
+                                                   
+                                            <tr>
+                                                <!-- Product 5 -->
+                                                    <td width="25%" align="left">
+                                                        <div class="prdfi-card">
+                                                            <div class="prd-image">
+                                                                <img src="images/study2.jpg"width="25%" alt="Lamp photo not exist">
+                                                            </div>
+                                                            <h4 class="prd-title">Cool lamp</h4>
+                                                            <span >3⭐️ </span>
+                                                            <p class="prd-price">5200 DA</p>
+                                                            <button class="cart-btn">Add to cart</button>
+                                                        </div>
+                                                    </td>
+                                            
+                                                <!-- Product 6 -->
+                                                <td width="25%" align="center">
+                                                    <div class="prds-card">
+                                                        <div class="prd-image">
+                                                            <img src="images/study17.jpg" width="25%"alt="Boards photo not exist">
+                                                        </div>
+                                                        <h4 class="prd-title">Beautiful Boards to write</h4>
+                                                        <span >4.5⭐️</span>
+                                                        <p class="prd-price">4000 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </div>
+                                                </td>
+
+                                                <!-- Product 7 -->
+                                                <td width="25%" align="center">
+                                                    <div class="prdse-card">
+                                                        <div class="prd-image">
+                                                            <img src="images/study13.jpg"width="25%"alt="felt pens photo not exist">
+                                                        </div>
+                                                        <h4 class="prd-title"> Colourful Felt pens</h4>
+                                                        <span>5⭐️</span>
+                                                        <p class="prd-price">4080 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </div>
+                                                </td>
+
+                                                <!-- Product 8 -->
+                                                <td width="25%" align="right">
+                                                    <div class="prde-card">
+                                                        <div class="prd-image">
+                                                            <img src="images/study3.jpg"width="25%"alt="Watch photo not exist">
+                                                        </div>
+                                                        <h4 class="prd-title">Nice and small watch</h4>
+                                                        <span >4⭐️ </span>
+                                                        <p class="prd-price">3520 DA</p>
+                                                        <button class="cart-btn">Add to cart</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    </table>
+                                </div>
+                            </section>
+
+                        <section>
+                            <div class="Comentprt" align="center">
+                                <h3>Add your Comment</h3>
+                                <input type="text"placeholder="Add a comment...">
+                            </div>
+                        </section>
+            </div>
+
+    </article>
 </main>
-        <!-- Footer section -->
+<br>
+
+<!--Footer section-->
     <footer>
-        <div id="ftpart"class="hrosec">
+        <hr>
+        <div id="ftpart"class="hrosec" align="center" width="100%">
+            <img src="images/logo_photo.png" alt="logo picture not found" title="logo picture" width="20%">
+            <p>A curated space for fresh blooms, thoughtful décor, and stories that make your home feel complete.</p>
+            <i class="fi fi-brands-linkedin"></i>
+            <i class="fi fi-brands-github"></i>
+            <i class="fi fi-brands-instagram"></i>
+            <i class="fi fi-brands-twitter-alt-square"></i>
+            <hr width="25%">
+            <p>©  2026 Copy rights are reserved</p>
         </div>
     </footer> 
 </body>
