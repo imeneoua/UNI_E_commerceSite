@@ -1,664 +1,784 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Fantasy</h2>
+          <hr class="category-line" />
+        </div>
 
-        <section class="category-section">
+        <div class="slider-wrapper">
+          <div class="items-display" id="FantasySlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book1.jpg" alt="Amareta" width="200" />
+              </div>
 
-            <div class="category-header">
-                <h2 class="category-title">Fantasy</h2>
-                <hr class="category-line">
+              <div class="item-details">
+                <h3 class="item-title">Amareta</h3>
+                <p class="item-description">
+                  Secrets buried beneath the land of zikola.
+                </p>
+                <p class="full-description">
+                  Welcome to Zikola. Whenever I looked at those moments, I saw
+                  Zikola as if it were below the shadows, the strong Zikola that
+                  always followed its power. They burned when they first tried,
+                  real faces, shocked, withered faces, fearing what was coming.
+                  The land of dance and celebrations was no longer just that;
+                  inside them, since the leak of the news, they cursed Asil,
+                  knowing that it was the reason for what was happening to them,
+                  but they avoided it, as if they were clever enough to seize it
+                  all without harming one of them one day.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.65</span>
+                  <span class="price">1000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="1" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book2.jpg" alt="Laws of Jartin " width="200" />
+              </div>
 
-                <div class="items-display" id="FantasySlider">
+              <div class="item-details">
+                <h3 class="item-title">Laws of Jartin</h3>
+                <p class="item-description">
+                  Bloody rules rule the land of two jartin ,would a doctor dare
+                  to challenge this system.
+                </p>
+                <p class="full-description">
+                  What if you found yourself in a land where your maximum
+                  lifespan was only fifty years? That is not the only rule;
+                  there is far more to it than that..
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book1.jpg" alt="Amareta" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Amareta</h3>
-                            <p class="item-description">Secrets buried beneath the land of zikola.</p>
-                            <p class="full-description">Welcome to Zikola. Whenever I looked at those moments, I saw
-                                Zikola as if it were below the shadows, the strong Zikola that always followed its
-                                power. They burned when they first tried, real faces, shocked, withered faces, fearing
-                                what was coming. The land of dance and celebrations was no longer just that; inside
-                                them, since the leak of the news, they cursed Asil, knowing that it was the reason for
-                                what was happening to them, but they avoided it, as if they were clever enough to seize
-                                it all without harming one of them one day.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.65</span>
-                                <span class="price">1000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="1">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book2.jpg" alt="Laws of Jartin " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Laws of Jartin</h3>
-                            <p class="item-description"> Bloody rules rule the land of two jartin ,would a doctor dare
-                                to challenge this system.</p>
-                            <p class="full-description">What if you found yourself in a land where your maximum lifespan
-                                was only fifty years? That is not the only rule; there is far more to it than that..</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">1100 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="2">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book3.jpg" alt="Searraush" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Searraush</h3>
-                            <p class="item-description">An epic fantasy adventure in the kingdom of rhetoic.</p>
-                            <p class="full-description">He was feeling a piercing pain gnawing at his bones and head. He
-                                began striking his forehead with his fist like a madman; his eyes darted around as if
-                                they had broken free from their restraints. A sense of fear overcame him, and he started
-                                trembling like a leaf in the wind. Suddenly, his arms convulsed, and he pushed his
-                                parents away, causing them both to fall to the ground. Then, he stood in the middle of
-                                his room as a shimmering, multi-colored light erupted, surrounding his body. He remained
-                                radiant and glowing without knowing why, only to realize later the truth—that he was
-                                different!
-                                Sometimes, I am astonished by what I see and what I go through; doubt creeps into my
-                                soul from a thousand doors. But then I remember that it is the Kingdom of Wondrous
-                                Eloquence, and quickly, my amazement fades.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.83</span>
-                                <span class="price">1200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="3">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book4.jpg" alt="Harry Potter" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Harry Potter</h3>
-                            <p class="item-description">A boy dicovers a magical world at Hogwarts school.</p>
-                            <p class="full-description">What if you discovered that the world you lived in was merely a
-                                thin veil covering a reality filled with wonder and danger? Harry Potter, an orphaned
-                                boy living a miserable life with his cruel relatives, receives a mysterious letter on
-                                his eleventh birthday that changes his fate forever.
-                                He is whisked away to Hogwarts School of Witchcraft and Wizardry, a place of moving
-                                staircases, talking portraits, and ancient secrets. But beneath the magic lies a dark
-                                shadow: the return of a dark sorcerer so feared that his name is never spoken. Alongside
-                                his loyal friends, Harry must face deadly trials and uncover the truth of his past. Will
-                                the boy who lived be able to stand against the ultimate darkness, or is some destiny too
-                                heavy to carry?</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="4">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book5.jpg" alt="The Name of The Wind" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">The Name of The Wind</h3>
-                            <p class="item-description">The journey of a legendary wizard.</p>
-                            <p class="full-description">My name is Kvothe, pronounced nearly the same as 'Quothe.' Names
-                                are important as they tell you a great deal about a person."
-                                So begins the tale of a legend. Behind the quiet exterior of a humble innkeeper lies the
-                                truth of a man who was a hero, a villain, and a fugitive. This is the story of a gifted
-                                young boy who grew up in a traveling troupe, only to see his world shattered by a
-                                mysterious and ancient evil.
-                                Follow Kvothe's journey from a homeless orphan on the streets of a city to a brilliant
-                                student at the University of Magic. Driven by the need to find the truth behind his
-                                family's murder, he must master the arcane arts and learn the secret of the wind itself.
-                                But in a world where legends are often darker than the stories tell, can one man truly
-                                control his own destiny?</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.5</span>
-                                <span class="price">2800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="5">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book6.jpg" alt="Dead Until Dark" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Dead Until Dark</h3>
-                            <p class="item-description">Everyone here is smilling.. but no one is blinking</p>
-                            <p class="full-description">Sookie Stackhouse works as a waitress in a modest bar within the
-                                small town of Bon Temps. She is a quiet girl, keeps to herself, and tends toward
-                                isolation, minding only her own business. This nature is a result of her possessing a
-                                special ability: reading the thoughts of others. However, this was not a blessing as
-                                much as it was a hindrance to forming social relationships in her life—until a person
-                                named Bill Compton appeared. He was tall, handsome, and most importantly, Sookie could
-                                not hear a single word he thought!</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="6">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">1100 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title">Horror</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="2" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book3.jpg" alt="Searraush" width="200" />
+              </div>
 
-                <div class="items-display" id="HorrorSlider">
+              <div class="item-details">
+                <h3 class="item-title">Searraush</h3>
+                <p class="item-description">
+                  An epic fantasy adventure in the kingdom of rhetoic.
+                </p>
+                <p class="full-description">
+                  He was feeling a piercing pain gnawing at his bones and head.
+                  He began striking his forehead with his fist like a madman;
+                  his eyes darted around as if they had broken free from their
+                  restraints. A sense of fear overcame him, and he started
+                  trembling like a leaf in the wind. Suddenly, his arms
+                  convulsed, and he pushed his parents away, causing them both
+                  to fall to the ground. Then, he stood in the middle of his
+                  room as a shimmering, multi-colored light erupted, surrounding
+                  his body. He remained radiant and glowing without knowing why,
+                  only to realize later the truth—that he was different!
+                  Sometimes, I am astonished by what I see and what I go
+                  through; doubt creeps into my soul from a thousand doors. But
+                  then I remember that it is the Kingdom of Wondrous Eloquence,
+                  and quickly, my amazement fades.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book7.jpg" alt="Write Lest The Devil Devour Me" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Write Lest The Devil Devour Me</h3>
-                            <p class="item-description">word or death</p>
-                            <p class="full-description">The novel tells the story of Mariana, a highly successful horror
-                                writer living a life of fame and acclaim. That is, until the day she is kidnapped by a
-                                mysterious figure known only as 'The Devil.'
-                                Rumors whisper that this man has murdered many horror authors without leaving a single
-                                trace or body, leading people to believe that 'The Devil' devours the writers whose
-                                stories fail to impress him. Mariana's journey into his literal hell begins when she
-                                wakes up to find herself forced to write endless horror stories for him or face a
-                                gruesome death. Will Mariana survive, and will her writing be the key to saving her from
-                                this living nightmare?</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.72</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="7">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book8.jpg" alt="It Happens at Night in the Locked Room" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">It Happens at Night in the Locked Room</h3>
-                            <p class="item-description">Behind the locked door,secrets dwell in the dark.. dare you open
-                                it</p>
-                            <p class="full-description">"Mariam" travels to study in a strange city in Upper Egypt.
-                                There, she and her friends rent an apartment, where the landlady strictly warns them
-                                never to open Room "4," no matter what happens. Four girls live in a vast, gloomy, and
-                                peculiar four-room apartment, forcing two of them to share a single room, and with...
-                            </p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.35</span>
-                                <span class="price">1600 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="8">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book9.jpg" alt="Fear" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Fear</h3>
-                            <p class="item-description">Between what is seen and what is hidden, one word rules them
-                                all:Fear.</p>
-                            <p class="full-description">The events of the novel 'Fear' revolve around the protagonist,
-                                who rebels against the customs and ideas of his Arab society. He escapes through his
-                                love and passion for reading and books, only to find himself entangled in a world full
-                                of war, intrigue, and revenge but in a world different from ours. A strange world... its
-                                people and tribes are not human, but a collection of demons and companions. A world with
-                                only an entrance, and no exit...!!</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">2500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="9">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book10.jpg" alt="I Am Rotting with Fear" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">I Am Rotting with Fear</h3>
-                            <p class="item-description">In the darkness of silence, I am slowly rotting with fear</p>
-                            <p class="full-description">Some fears don't kill you instantly; they leave you to decay
-                                slowly while you're still alive. It's a silence that gnaws at the walls and memories
-                                that crawl out to consume your soul, until you realize you aren't just afraid... you are
-                                rotting with fear.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">1800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="10">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book11.jpg" alt="The Abyss" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">The Abyss</h3>
-                            <p class="item-description">The Abyss.. where darkness is the only escape.</p>
-                            <p class="full-description">In a merciless conflict, wars ignite between kings of jinns and
-                                sorcerers, opening doors that should have stayed forever shut. 'The Abyss' is not merely
-                                darkness; it is a prison of cursed secrets lying in wait for anyone who dares to
-                                approach. There, where great powers collide, only those who master playing with demons
-                                will survive... Are you ready to enter a world with no return?</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.64</span>
-                                <span class="price">2000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="11">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book12.jpg" alt="The Far Lady's House" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">The Far Lady's House </h3>
-                            <p class="item-description">In this house.. the walls don't just listen, they start closing
-                                in.</p>
-                            <p class="full-description">The novel dives deep into human fear through a tale that begins
-                                in a seemingly ordinary place, but quickly transforms into a prison of nightmares. Here,
-                                reality blurs with hallucinations, and escaping the 'house' becomes impossible—not
-                                because of locked doors, but because of the memories and secrets waiting in the dark
-                                corners that refuse to die</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.5</span>
-                                <span class="price">1700 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="12">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.83</span>
+                  <span class="price">1200 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title">Crime Fiction</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="3" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book4.jpg" alt="Harry Potter" width="200" />
+              </div>
 
-                <div class="items-display" id="CrimeSlider">
+              <div class="item-details">
+                <h3 class="item-title">Harry Potter</h3>
+                <p class="item-description">
+                  A boy dicovers a magical world at Hogwarts school.
+                </p>
+                <p class="full-description">
+                  What if you discovered that the world you lived in was merely
+                  a thin veil covering a reality filled with wonder and danger?
+                  Harry Potter, an orphaned boy living a miserable life with his
+                  cruel relatives, receives a mysterious letter on his eleventh
+                  birthday that changes his fate forever. He is whisked away to
+                  Hogwarts School of Witchcraft and Wizardry, a place of moving
+                  staircases, talking portraits, and ancient secrets. But
+                  beneath the magic lies a dark shadow: the return of a dark
+                  sorcerer so feared that his name is never spoken. Alongside
+                  his loyal friends, Harry must face deadly trials and uncover
+                  the truth of his past. Will the boy who lived be able to stand
+                  against the ultimate darkness, or is some destiny too heavy to
+                  carry?
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book13.jpg" alt="The Streets Murderer" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">The Streets Murderer</h3>
-                            <p class="item-description">In darkness he hides... in alleys he strikes... beware, for you
-                                might be his next prize.</p>
-                            <p class="full-description">The novel plunges into a dark world inhabited by a psychopath
-                                who sees murder as art and narrow alleys as a stage for his gruesome operations. Crime
-                                threads intertwine with distorted memories from the past, placing the reader in a direct
-                                confrontation with a merciless human monster. It is a terrifying journey searching for
-                                the hidden motives behind every drop of blood spilled in the forgotten passages of the
-                                city.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.1</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="13">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book14.jpg" alt="Murder on the Orient Express" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Murder on the Orient Express</h3>
-                            <p class="item-description">Every is a suspect.. even the truth</p>
-                            <p class="full-description">Murder on the Orient Express" is a detective novel by Agatha
-                                Christie. First published in 1934 in English, it is considered one of her most famous
-                                works. Its hero is the renowned Belgian detective, Hercule Poirot.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">1200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="14">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book15.jpg" alt="The Silent Patient" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">The Silent Patient</h3>
-                            <p class="item-description">the door i locked forever.. just opened from the inside.</p>
-                            <p class="full-description">A wonderful novel that made my blood boil I couldn't stop
-                                reading it no matter what. I said to myself: I will surrender to it. After eleven
-                                hours it is now 5:47 AM I have finished it and I am truly dazzled. <br>
-                                — A. J. Finn: "A novel you cannot stop reading, spine-chilling, powerful, with a
-                                gripping progression of events".</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.52</span>
-                                <span class="price">1900 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="15">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book16.jpg" alt="And Then There Were None" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">And Then There Were None</h3>
-                            <p class="item-description">They played,they laughed,,then in silence.. they passed.</p>
-                            <p class="full-description">The story begins with ten strangers lured by an old melody to a
-                                secluded island, only to find themselves protagonists in an ill-fated nursery rhyme.
-                                With every verse, a guest vanishes, and from every corner echoes a cold laugh,
-                                whispering that the countdown to death has begun—and the melody will not rest until the
-                                last one draws their final breath... and then there were none.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.28</span>
-                                <span class="price">1200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="16">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book17.jpg" alt="Blood on the Red Carpet" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Blood on the Red Carpet</h3>
-                            <p class="item-description">A white dress... red stains... and the killer laughs... in the
-                                shadows.</p>
-                            <p class="full-description">A legendary wedding night that everyone dreamed of turns into a
-                                chilling nightmare as the red carpet is stained with blood instead of roses. Amidst the
-                                shock of the guests and the flash of cameras, fake masks fall to reveal greed and
-                                grudges buried for years. You find yourself facing a complex puzzle where everyone
-                                whispers: Is the killer the one crying in agony, or the one smiling in silence?</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.1</span>
-                                <span class="price">2000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="17">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/book18.jpg" alt="A Study In Scarlet" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">A Study In Scarlet</h3>
-                            <p class="item-description">A body with no wounds, and a word written in blood.. Holmes's
-                                first challenge.</p>
-                            <p class="full-description">The story begins with a mysterious body found in a deserted
-                                London house no visible wounds, yet the walls are stained with a single word written in
-                                blood. In that moment, the most brilliant mind in the history of investigation, Sherlock
-                                Holmes, begins his 'Study in Scarlet.' A journey that takes us from the foggy streets of
-                                London to distant memories of revenge across continents, where no small detail can
-                                escape Holmes's magnifying glass.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.15</span>
-                                <span class="price">1000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="book_id" value="18">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">2200 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="4" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
-        </section>
 
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book5.jpg"
+                  alt="The Name of The Wind"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">The Name of The Wind</h3>
+                <p class="item-description">
+                  The journey of a legendary wizard.
+                </p>
+                <p class="full-description">
+                  My name is Kvothe, pronounced nearly the same as 'Quothe.'
+                  Names are important as they tell you a great deal about a
+                  person." So begins the tale of a legend. Behind the quiet
+                  exterior of a humble innkeeper lies the truth of a man who was
+                  a hero, a villain, and a fugitive. This is the story of a
+                  gifted young boy who grew up in a traveling troupe, only to
+                  see his world shattered by a mysterious and ancient evil.
+                  Follow Kvothe's journey from a homeless orphan on the streets
+                  of a city to a brilliant student at the University of Magic.
+                  Driven by the need to find the truth behind his family's
+                  murder, he must master the arcane arts and learn the secret of
+                  the wind itself. But in a world where legends are often darker
+                  than the stories tell, can one man truly control his own
+                  destiny?
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.5</span>
+                  <span class="price">2800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="5" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book6.jpg" alt="Dead Until Dark" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Dead Until Dark</h3>
+                <p class="item-description">
+                  Everyone here is smilling.. but no one is blinking
+                </p>
+                <p class="full-description">
+                  Sookie Stackhouse works as a waitress in a modest bar within
+                  the small town of Bon Temps. She is a quiet girl, keeps to
+                  herself, and tends toward isolation, minding only her own
+                  business. This nature is a result of her possessing a special
+                  ability: reading the thoughts of others. However, this was not
+                  a blessing as much as it was a hindrance to forming social
+                  relationships in her life—until a person named Bill Compton
+                  appeared. He was tall, handsome, and most importantly, Sookie
+                  could not hear a single word he thought!
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">2200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="6" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Horror</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="HorrorSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book7.jpg"
+                  alt="Write Lest The Devil Devour Me"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Write Lest The Devil Devour Me</h3>
+                <p class="item-description">word or death</p>
+                <p class="full-description">
+                  The novel tells the story of Mariana, a highly successful
+                  horror writer living a life of fame and acclaim. That is,
+                  until the day she is kidnapped by a mysterious figure known
+                  only as 'The Devil.' Rumors whisper that this man has murdered
+                  many horror authors without leaving a single trace or body,
+                  leading people to believe that 'The Devil' devours the writers
+                  whose stories fail to impress him. Mariana's journey into his
+                  literal hell begins when she wakes up to find herself forced
+                  to write endless horror stories for him or face a gruesome
+                  death. Will Mariana survive, and will her writing be the key
+                  to saving her from this living nightmare?
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.72</span>
+                  <span class="price">2200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="7" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book8.jpg"
+                  alt="It Happens at Night in the Locked Room"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">
+                  It Happens at Night in the Locked Room
+                </h3>
+                <p class="item-description">
+                  Behind the locked door,secrets dwell in the dark.. dare you
+                  open it
+                </p>
+                <p class="full-description">
+                  "Mariam" travels to study in a strange city in Upper Egypt.
+                  There, she and her friends rent an apartment, where the
+                  landlady strictly warns them never to open Room "4," no matter
+                  what happens. Four girls live in a vast, gloomy, and peculiar
+                  four-room apartment, forcing two of them to share a single
+                  room, and with...
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.35</span>
+                  <span class="price">1600 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="8" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book9.jpg" alt="Fear" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Fear</h3>
+                <p class="item-description">
+                  Between what is seen and what is hidden, one word rules them
+                  all:Fear.
+                </p>
+                <p class="full-description">
+                  The events of the novel 'Fear' revolve around the protagonist,
+                  who rebels against the customs and ideas of his Arab society.
+                  He escapes through his love and passion for reading and books,
+                  only to find himself entangled in a world full of war,
+                  intrigue, and revenge but in a world different from ours. A
+                  strange world... its people and tribes are not human, but a
+                  collection of demons and companions. A world with only an
+                  entrance, and no exit...!!
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">2500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="9" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book10.jpg"
+                  alt="I Am Rotting with Fear"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">I Am Rotting with Fear</h3>
+                <p class="item-description">
+                  In the darkness of silence, I am slowly rotting with fear
+                </p>
+                <p class="full-description">
+                  Some fears don't kill you instantly; they leave you to decay
+                  slowly while you're still alive. It's a silence that gnaws at
+                  the walls and memories that crawl out to consume your soul,
+                  until you realize you aren't just afraid... you are rotting
+                  with fear.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">1800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="10" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/book11.jpg" alt="The Abyss" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">The Abyss</h3>
+                <p class="item-description">
+                  The Abyss.. where darkness is the only escape.
+                </p>
+                <p class="full-description">
+                  In a merciless conflict, wars ignite between kings of jinns
+                  and sorcerers, opening doors that should have stayed forever
+                  shut. 'The Abyss' is not merely darkness; it is a prison of
+                  cursed secrets lying in wait for anyone who dares to approach.
+                  There, where great powers collide, only those who master
+                  playing with demons will survive... Are you ready to enter a
+                  world with no return?
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.64</span>
+                  <span class="price">2000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="11" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book12.jpg"
+                  alt="The Far Lady's House"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">The Far Lady's House</h3>
+                <p class="item-description">
+                  In this house.. the walls don't just listen, they start
+                  closing in.
+                </p>
+                <p class="full-description">
+                  The novel dives deep into human fear through a tale that
+                  begins in a seemingly ordinary place, but quickly transforms
+                  into a prison of nightmares. Here, reality blurs with
+                  hallucinations, and escaping the 'house' becomes
+                  impossible—not because of locked doors, but because of the
+                  memories and secrets waiting in the dark corners that refuse
+                  to die
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.5</span>
+                  <span class="price">1700 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="12" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Crime Fiction</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="CrimeSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book13.jpg"
+                  alt="The Streets Murderer"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">The Streets Murderer</h3>
+                <p class="item-description">
+                  In darkness he hides... in alleys he strikes... beware, for
+                  you might be his next prize.
+                </p>
+                <p class="full-description">
+                  The novel plunges into a dark world inhabited by a psychopath
+                  who sees murder as art and narrow alleys as a stage for his
+                  gruesome operations. Crime threads intertwine with distorted
+                  memories from the past, placing the reader in a direct
+                  confrontation with a merciless human monster. It is a
+                  terrifying journey searching for the hidden motives behind
+                  every drop of blood spilled in the forgotten passages of the
+                  city.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.1</span>
+                  <span class="price">2200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="13" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book14.jpg"
+                  alt="Murder on the Orient Express"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Murder on the Orient Express</h3>
+                <p class="item-description">
+                  Every is a suspect.. even the truth
+                </p>
+                <p class="full-description">
+                  Murder on the Orient Express" is a detective novel by Agatha
+                  Christie. First published in 1934 in English, it is considered
+                  one of her most famous works. Its hero is the renowned Belgian
+                  detective, Hercule Poirot.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">1200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="14" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book15.jpg"
+                  alt="The Silent Patient"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">The Silent Patient</h3>
+                <p class="item-description">
+                  the door i locked forever.. just opened from the inside.
+                </p>
+                <p class="full-description">
+                  A wonderful novel that made my blood boil I couldn't stop
+                  reading it no matter what. I said to myself: I will surrender
+                  to it. After eleven hours it is now 5:47 AM I have finished it
+                  and I am truly dazzled. <br />
+                  — A. J. Finn: "A novel you cannot stop reading,
+                  spine-chilling, powerful, with a gripping progression of
+                  events".
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.52</span>
+                  <span class="price">1900 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="15" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book16.jpg"
+                  alt="And Then There Were None"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">And Then There Were None</h3>
+                <p class="item-description">
+                  They played,they laughed,,then in silence.. they passed.
+                </p>
+                <p class="full-description">
+                  The story begins with ten strangers lured by an old melody to
+                  a secluded island, only to find themselves protagonists in an
+                  ill-fated nursery rhyme. With every verse, a guest vanishes,
+                  and from every corner echoes a cold laugh, whispering that the
+                  countdown to death has begun—and the melody will not rest
+                  until the last one draws their final breath... and then there
+                  were none.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.28</span>
+                  <span class="price">1200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="16" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book17.jpg"
+                  alt="Blood on the Red Carpet"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Blood on the Red Carpet</h3>
+                <p class="item-description">
+                  A white dress... red stains... and the killer laughs... in the
+                  shadows.
+                </p>
+                <p class="full-description">
+                  A legendary wedding night that everyone dreamed of turns into
+                  a chilling nightmare as the red carpet is stained with blood
+                  instead of roses. Amidst the shock of the guests and the flash
+                  of cameras, fake masks fall to reveal greed and grudges buried
+                  for years. You find yourself facing a complex puzzle where
+                  everyone whispers: Is the killer the one crying in agony, or
+                  the one smiling in silence?
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.1</span>
+                  <span class="price">2000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="17" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/book18.jpg"
+                  alt="A Study In Scarlet"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">A Study In Scarlet</h3>
+                <p class="item-description">
+                  A body with no wounds, and a word written in blood.. Holmes's
+                  first challenge.
+                </p>
+                <p class="full-description">
+                  The story begins with a mysterious body found in a deserted
+                  London house no visible wounds, yet the walls are stained with
+                  a single word written in blood. In that moment, the most
+                  brilliant mind in the history of investigation, Sherlock
+                  Holmes, begins his 'Study in Scarlet.' A journey that takes us
+                  from the foggy streets of London to distant memories of
+                  revenge across continents, where no small detail can escape
+                  Holmes's magnifying glass.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.15</span>
+                  <span class="price">1000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="book_id" value="18" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="item-popup" id="popup">
-        <div class="popup-content">
-            <span class="close-btn">✖️</span>
-            <img class="popup-image" src="" alt="">
-            <h2 class="popup-title"></h2>
-            <p class="popup-subdescription"></p>
+      <div class="popup-content">
+        <span class="close-btn">✖️</span>
+        <img class="popup-image" src="" alt="" />
+        <h2 class="popup-title"></h2>
+        <p class="popup-subdescription"></p>
 
-            <div class="price-rating">
-                <span class="popup-rating"></span>
-                <span class="popup-price"></span>
-            </div>
-
-            <h3>Description</h3>
-            <p class="popup-description"></p>
-
-            <div class="quantity">
-                <button class="minus">-</button>
-                <span class="count">1</span>
-                <button class="plus">+</button>
-            </div>
-
-            <button class="card-btn">🛒</button>
-            <button class="add-btn"> Add to cart</button>
+        <div class="price-rating">
+          <span class="popup-rating"></span>
+          <span class="popup-price"></span>
         </div>
+
+        <h3>Description</h3>
+        <p class="popup-description"></p>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="count">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+          <button class="card-btn">🛒</button>
+          <button class="add-btn">Add to cart</button>
+        </div>
+      </div>
     </div>
 
-
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

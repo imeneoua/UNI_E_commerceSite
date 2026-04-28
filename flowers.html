@@ -1,669 +1,765 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Romantic Bouquets</h2>
+          <hr class="category-line" />
+        </div>
 
-        <section class="category-section">
+        <div class="slider-wrapper">
+          <div class="items-display" id="RomanticSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower1.jpg" alt="Red Roses" width="200" />
+              </div>
 
-            <div class="category-header">
-                <h2 class="category-title">Romantic Bouquets</h2>
-                <hr class="category-line">
+              <div class="item-details">
+                <h3 class="item-title">Red Roses</h3>
+                <p class="item-description">
+                  Express your love with the classic Red Rose.
+                </p>
+                <p class="full-description">
+                  Our premium Red Roses are hand-picked at the peak of their
+                  bloom to ensure lasting beauty. Each bouquet features deep
+                  crimson petals and a delicate fragrance, making it the perfect
+                  gift for anniversaries, birthdays, or simply to say 'I love
+                  you'. These elegant flowers are more than just a gift; they
+                  are a classic masterpiece of nature that brings passion and
+                  warmth to any space.
+                </p>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.0</span>
+                  <span class="price">1500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="19" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower2.jpg" alt="White Lilies" width="200" />
+              </div>
 
-                <div class="items-display" id="RomanticSlider">
+              <div class="item-details">
+                <h3 class="item-title">White Lilies</h3>
+                <p class="item-description">
+                  A grand bouquet of pure serenity and grace.
+                </p>
+                <p class="full-description">
+                  Our majestic White Lilies are known for their large,
+                  star-shaped petals and their heavenly, sweet scent.
+                  Symbolizing virtue and peace, these stunning flowers create a
+                  sophisticated atmosphere in any home. Each stem is carefully
+                  selected to provide a long-lasting display of grace, making
+                  them an ideal choice for celebrations, sympathy gifts, or
+                  simply to add a touch of refined beauty to your living space.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower1.jpg" alt="Red Roses" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Red Roses</h3>
-                            <p class="item-description">Express your love with the classic Red Rose.</p>
-                            <p class="full-description">Our premium Red Roses are hand-picked at the peak of their bloom
-                                to ensure lasting beauty. Each bouquet features deep crimson petals and a delicate
-                                fragrance, making it the perfect gift for anniversaries, birthdays, or simply to say 'I
-                                love you'. These elegant flowers are more than just a gift; they are a classic
-                                masterpiece of nature that brings passion and warmth to any space.</p>
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.0</span>
-                                <span class="price">1500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="19">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower2.jpg" alt="White Lilies" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">White Lilies</h3>
-                            <p class="item-description">A grand bouquet of pure serenity and grace.</p>
-                            <p class="full-description">Our majestic White Lilies are known for their large, star-shaped
-                                petals and their heavenly, sweet scent. Symbolizing virtue and peace, these stunning
-                                flowers create a sophisticated atmosphere in any home. Each stem is carefully selected
-                                to provide a long-lasting display of grace, making them an ideal choice for
-                                celebrations, sympathy gifts, or simply to add a touch of refined beauty to your living
-                                space.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">7500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="20">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower3.jpg" alt="Pink Peonies " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Pink Peonies</h3>
-                            <p class="item-description">Softness and charm wrapped in a bouquet.</p>
-                            <p class="full-description">Our Pink Peony Luxury Bouquet is the personification of romance
-                                and prosperity. Known for their lush, rounded blooms and incredibly soft petals, these
-                                peonies are carefully arranged to create a voluminous and dreamy look. Wrapped in
-                                premium blush-toned paper, this bouquet is the perfect choice for showing deep
-                                affection, celebrating a new beginning, or adding a touch of luxury to a special day.
-                                Their sweet, subtle fragrance and stunning appearance make them an unforgettable gift.
-                            </p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">9500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="21">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower4.jpg" alt="Red Tulips" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Red Tulips</h3>
-                            <p class="item-description">Simple elegance, profound love.</p>
-                            <p class="full-description">Our Red Tulip Bouquet is the perfect embodiment of grace and
-                                modern beauty. These sleek, bell-shaped flowers are celebrated for their vibrant crimson
-                                color and clean lines, making them a refreshing alternative to traditional roses.
-                                Arranged in a minimalist yet sophisticated style, this bouquet is ideal for expressing a
-                                declaration of love or celebrating a special milestone. Known for their ability to
-                                continue growing even after being cut, these tulips bring a sense of life and constant
-                                renewal to any setting.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">5500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="22">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower5.jpg" alt="Purple Orchids" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Purple Orchids</h3>
-                            <p class="item-description">A touch of exotic luxury and rare beauty.</p>
-                            <p class="full-description">Our Exotic Purple Orchid Bouquet is designed for those who
-                                appreciate the finer things in life. These stunning, long-lasting flowers represent
-                                strength, royalty, and admiration. Each bloom features a deep, mysterious purple hue
-                                that stands out beautifully against minimalist packaging. Unlike traditional flowers,
-                                orchids offer a unique architectural shape that remains fresh for a long time, making
-                                this bouquet a premium choice for high-end gifting or as a spectacular decorative piece
-                                for any modern home.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">11000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="23">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower6.jpg" alt="Sunflowers" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Sunflowers</h3>
-                            <p class="item-description">Bring a piece of sunshine to someone's heart.</p>
-                            <p class="full-description">Our Golden Sunflower Bouquet is a vibrant explosion of joy and
-                                energy. Known for their large, sun-like faces and bright yellow petals, these flowers
-                                are the universal symbol of happiness and loyalty. This bouquet is artfully combined
-                                with rustic touches like craft paper or jute, making it the perfect gift to brighten a
-                                friend's day, celebrate a graduation, or send a message of positivity. With their strong
-                                stems and radiant presence, these sunflowers bring a natural warmth that lasts.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">4800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="24">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">7500 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title">Home Decor Flowers</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="20" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower3.jpg" alt="Pink Peonies " width="200" />
+              </div>
 
-                <div class="items-display" id="DecorSlider">
+              <div class="item-details">
+                <h3 class="item-title">Pink Peonies</h3>
+                <p class="item-description">
+                  Softness and charm wrapped in a bouquet.
+                </p>
+                <p class="full-description">
+                  Our Pink Peony Luxury Bouquet is the personification of
+                  romance and prosperity. Known for their lush, rounded blooms
+                  and incredibly soft petals, these peonies are carefully
+                  arranged to create a voluminous and dreamy look. Wrapped in
+                  premium blush-toned paper, this bouquet is the perfect choice
+                  for showing deep affection, celebrating a new beginning, or
+                  adding a touch of luxury to a special day. Their sweet, subtle
+                  fragrance and stunning appearance make them an unforgettable
+                  gift.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower7.jpg" alt="Lavender" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Lavender</h3>
-                            <p class="item-description">Calm your soul with the scent of serenity.</p>
-                            <p class="full-description">Our Scented Lavender Bundle is the ultimate addition to any
-                                living space seeking tranquility. Known for its iconic purple hue and therapeutic
-                                fragrance, lavender is more than just a flower; it is a natural stress-reliever. This
-                                home decor set features premium dried or fresh sprigs that can be placed in a minimalist
-                                vase to create a peaceful atmosphere. Ideal for bedrooms or study areas, these flowers
-                                maintain their soothing scent for months, bringing the essence of a Mediterranean garden
-                                directly into your home.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">3000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="25">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower8.jpg" alt="Hydrangea" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Hydrangea</h3>
-                            <p class="item-description">Bold blooms for a vibrant home.</p>
-                            <p class="full-description">Our Lush Hydrangea Arrangement is a masterpiece of volume and
-                                color. Featuring large, cloud-like clusters of delicate petals, these flowers are
-                                perfect for creating a stunning focal point in your living room or dining area.
-                                Available in a variety of shades from sky blue to soft pink, hydrangeas symbolize
-                                gratitude and abundance. This decor-focused arrangement is designed to bring a fresh,
-                                garden-inspired elegance to your interior, making any room feel more welcoming and
-                                sophisticated with its magnificent presence.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">7000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="26">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower9.jpg" alt=" White Daisy " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">White Daisy</h3>
-                            <p class="item-description">Simple joy in every petal.</p>
-                            <p class="full-description">Our White Daisy Collection brings a refreshing and cheerful vibe
-                                to any corner of your home. With their bright white petals and golden centers, these
-                                flowers are the ultimate symbol of innocence and new beginnings. This decor arrangement
-                                is perfect for kitchen counters, side tables, or sunlit windowsills. Their natural,
-                                rustic charm fits perfectly with modern or country-style interiors, offering a clean and
-                                crisp look that brightens the mood and adds a touch of outdoor freshness to your indoor
-                                living space.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">3500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="27">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower10.jpg" alt="Yellow Chrysanthemum" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Yellow Chrysanthemum</h3>
-                            <p class="item-description">Energy and longevity for your home.</p>
-                            <p class="full-description">Our Radiant Yellow Chrysanthemum set is chosen for its
-                                incredible durability and bright, sunny appearance. These multi-layered blooms are not
-                                only beautiful but are also known for their air-purifying qualities, making them a
-                                healthy and stylish choice for indoor decor. Their dense, golden petals create a rich
-                                texture that complements any room, from office spaces to living areas. Whether placed in
-                                a ceramic pot or a glass vase, these chrysanthemums bring a lasting glow of positivity
-                                and warmth to your home environment.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">3600 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="28">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower11.jpg" alt="Red Anthurium" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Red Anthurium</h3>
-                            <p class="item-description">Bold, exotic, and heart-shaped elegance.</p>
-                            <p class="full-description">The Red Anthurium is a true statement piece for any modern
-                                interior. Featuring glossy, heart-shaped red leaves and a distinctive spiked center,
-                                this exotic plant brings a tropical feel to your home. It is highly valued in interior
-                                design for its architectural look and its ability to bloom almost year-round. This
-                                arrangement is perfect for those looking for low-maintenance beauty that stands out.
-                                Whether placed in a sleek white pot or a dark stone container, the Anthurium adds a
-                                sophisticated pop of color and a touch of the tropics to your living space.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">7000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="29">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower12.jpg" alt="Gardenia" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Gardenia</h3>
-                            <p class="item-description">A natural perfume for your elegant home.</p>
-                            <p class="full-description">Our Heavenly Gardenia arrangement is the pinnacle of sensory
-                                home decor. Renowned for their creamy white petals and an intoxicating, sweet fragrance
-                                that can fill an entire room, these flowers are a symbol of secret love and purity. This
-                                selection is designed to provide not just visual beauty, but a complete aromatic
-                                experience. Perfect for a bedside table or a grand entrance, the Gardenia brings a touch
-                                of classic sophistication. Its glossy green leaves and velvet-like blooms make it a
-                                luxurious living accessory for any refined interior.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">5500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="30">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">9500 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title">Exotic & Luxury Selection</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="21" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower4.jpg" alt="Red Tulips" width="200" />
+              </div>
 
-                <div class="items-display" id="ELSlider">
+              <div class="item-details">
+                <h3 class="item-title">Red Tulips</h3>
+                <p class="item-description">Simple elegance, profound love.</p>
+                <p class="full-description">
+                  Our Red Tulip Bouquet is the perfect embodiment of grace and
+                  modern beauty. These sleek, bell-shaped flowers are celebrated
+                  for their vibrant crimson color and clean lines, making them a
+                  refreshing alternative to traditional roses. Arranged in a
+                  minimalist yet sophisticated style, this bouquet is ideal for
+                  expressing a declaration of love or celebrating a special
+                  milestone. Known for their ability to continue growing even
+                  after being cut, these tulips bring a sense of life and
+                  constant renewal to any setting.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower13.jpg" alt="Black Bacaara Rose" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Black Bacaara Rose</h3>
-                            <p class="item-description">Unveil the mystery of rare elegance.</p>
-                            <p class="full-description">The Black Baccara Rose is the crown jewel of our luxury
-                                collection. Known for its deep, velvety petals that appear almost black under certain
-                                lights, this rose is a symbol of absolute mystery and sophisticated power. This is not
-                                just a bouquet; it is a rare statement of prestige. Each rose is selected for its
-                                intense, dark crimson hue and silk-like texture. Perfectly suited for high-end events or
-                                as a legendary gift for someone truly unique, the Black Baccara brings an unparalleled
-                                sense of drama and elite beauty to any collection.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">18000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="31">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower14.jpg" alt="Ghost Orchid" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Ghost Orchid</h3>
-                            <p class="item-description">Own a piece of nature's most beautiful mystery.</p>
-                            <p class="full-description">The Ghost Orchid is an ethereal masterpiece, widely considered
-                                one of the rarest flowers on Earth. Named for its hauntingly beautiful white shape that
-                                appears to float in mid-air, this flower possesses a delicate, spider-like elegance and
-                                a captivating fragrance that only emerges at night. This is the ultimate collector's
-                                item in the floral world. Each orchid is handled with extreme care and presented in a
-                                luxury glass case to preserve its fragile beauty. To gift a Ghost Orchid is to offer
-                                something truly extraordinary and legendary.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">35000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="32">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower15.jpg" alt="Bird of Paradise " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Bird of Paradise</h3>
-                            <p class="item-description">Unleash the vibrant colors of paradise.</p>
-                            <p class="full-description">The Bird of Paradise is the ultimate symbol of joy and
-                                magnificence. With its striking shape that resembles a colorful bird in flight, this
-                                flower brings a bold, architectural elegance to any luxury setting. Featuring brilliant
-                                orange and deep midnight-blue petals, it is a favorite for high-end interior design and
-                                grand celebrations. This majestic flower is not only famous for its exotic beauty but
-                                also for its incredible durability, lasting much longer than traditional blooms. It is
-                                the perfect choice for someone looking to make a powerful and unforgettable impression.
-                            </p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">10000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="33">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower16.jpg" alt="Blue Poppy" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Blue Poppy</h3>
-                            <p class="item-description">A rare dream of sapphire blue.</p>
-                            <p class="full-description">The Himalayan Blue Poppy is one of the most sought-after flowers
-                                by enthusiasts worldwide. Known for its mesmerizing sky-blue petals and golden center,
-                                this flower is a true botanical miracle. It represents rarity, serenity, and a
-                                connection to the extraordinary. Because it only grows in specific high-altitude
-                                climates, offering this bouquet is a gesture of profound exclusivity. Its delicate,
-                                silk-like texture and ethereal color make it a breathtaking centerpiece for any
-                                high-profile event or a legendary gift that will be remembered for a lifetime.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">21000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="34">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower17.jpg" alt="Caspian Lotus" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">King Protea</h3>
-                            <p class="item-description">The crown jewel of the floral world.</p>
-                            <p class="full-description">Our Royal King Protea Bouquet is the ultimate statement of
-                                strength and magnificence. As the largest of all proteas, its massive, crown-like bloom
-                                and pointed petals create a bold, architectural look that is impossible to ignore. This
-                                exotic flower is highly prized in luxury floral design for its unique texture and
-                                incredible longevity. Representing courage and transformation, the King Protea is the
-                                perfect choice for a grand celebration or as a high-end gift for someone who commands
-                                respect and admiration. It is more than a flower; it is a majestic work of art.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">12000 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="35">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/flower18.jpg" alt="name of book" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Cherry Blossom</h3>
-                            <p class="item-description">A fleeting moment of pure elegance.</p>
-                            <p class="full-description">Our Imperial Cherry Blossom Bouquet captures the breathtaking
-                                beauty of spring's most celebrated bloom. These delicate, pale pink blossoms represent
-                                renewal and the stunning nature of life. Arranged in graceful, sweeping branches, this
-                                luxury bouquet brings an airy, sophisticated atmosphere to any space. Highly sought
-                                after for their poetic beauty and soft fragrance, our cherry blossoms are carefully
-                                handled to preserve their fragile petals. This is the ultimate gift for someone who
-                                appreciates rare, natural artistry and the serene beauty of the East.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">15500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="flower_id" value="36">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">5500 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="22" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
-        </section>
 
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower5.jpg"
+                  alt="Purple Orchids"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Purple Orchids</h3>
+                <p class="item-description">
+                  A touch of exotic luxury and rare beauty.
+                </p>
+                <p class="full-description">
+                  Our Exotic Purple Orchid Bouquet is designed for those who
+                  appreciate the finer things in life. These stunning,
+                  long-lasting flowers represent strength, royalty, and
+                  admiration. Each bloom features a deep, mysterious purple hue
+                  that stands out beautifully against minimalist packaging.
+                  Unlike traditional flowers, orchids offer a unique
+                  architectural shape that remains fresh for a long time, making
+                  this bouquet a premium choice for high-end gifting or as a
+                  spectacular decorative piece for any modern home.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">11000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="23" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower6.jpg" alt="Sunflowers" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Sunflowers</h3>
+                <p class="item-description">
+                  Bring a piece of sunshine to someone's heart.
+                </p>
+                <p class="full-description">
+                  Our Golden Sunflower Bouquet is a vibrant explosion of joy and
+                  energy. Known for their large, sun-like faces and bright
+                  yellow petals, these flowers are the universal symbol of
+                  happiness and loyalty. This bouquet is artfully combined with
+                  rustic touches like craft paper or jute, making it the perfect
+                  gift to brighten a friend's day, celebrate a graduation, or
+                  send a message of positivity. With their strong stems and
+                  radiant presence, these sunflowers bring a natural warmth that
+                  lasts.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">4800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="24" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Home Decor Flowers</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="DecorSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower7.jpg" alt="Lavender" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Lavender</h3>
+                <p class="item-description">
+                  Calm your soul with the scent of serenity.
+                </p>
+                <p class="full-description">
+                  Our Scented Lavender Bundle is the ultimate addition to any
+                  living space seeking tranquility. Known for its iconic purple
+                  hue and therapeutic fragrance, lavender is more than just a
+                  flower; it is a natural stress-reliever. This home decor set
+                  features premium dried or fresh sprigs that can be placed in a
+                  minimalist vase to create a peaceful atmosphere. Ideal for
+                  bedrooms or study areas, these flowers maintain their soothing
+                  scent for months, bringing the essence of a Mediterranean
+                  garden directly into your home.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">3000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="25" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower8.jpg" alt="Hydrangea" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Hydrangea</h3>
+                <p class="item-description">Bold blooms for a vibrant home.</p>
+                <p class="full-description">
+                  Our Lush Hydrangea Arrangement is a masterpiece of volume and
+                  color. Featuring large, cloud-like clusters of delicate
+                  petals, these flowers are perfect for creating a stunning
+                  focal point in your living room or dining area. Available in a
+                  variety of shades from sky blue to soft pink, hydrangeas
+                  symbolize gratitude and abundance. This decor-focused
+                  arrangement is designed to bring a fresh, garden-inspired
+                  elegance to your interior, making any room feel more welcoming
+                  and sophisticated with its magnificent presence.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">7000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="26" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower9.jpg" alt=" White Daisy " width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">White Daisy</h3>
+                <p class="item-description">Simple joy in every petal.</p>
+                <p class="full-description">
+                  Our White Daisy Collection brings a refreshing and cheerful
+                  vibe to any corner of your home. With their bright white
+                  petals and golden centers, these flowers are the ultimate
+                  symbol of innocence and new beginnings. This decor arrangement
+                  is perfect for kitchen counters, side tables, or sunlit
+                  windowsills. Their natural, rustic charm fits perfectly with
+                  modern or country-style interiors, offering a clean and crisp
+                  look that brightens the mood and adds a touch of outdoor
+                  freshness to your indoor living space.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">3500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="27" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower10.jpg"
+                  alt="Yellow Chrysanthemum"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Yellow Chrysanthemum</h3>
+                <p class="item-description">
+                  Energy and longevity for your home.
+                </p>
+                <p class="full-description">
+                  Our Radiant Yellow Chrysanthemum set is chosen for its
+                  incredible durability and bright, sunny appearance. These
+                  multi-layered blooms are not only beautiful but are also known
+                  for their air-purifying qualities, making them a healthy and
+                  stylish choice for indoor decor. Their dense, golden petals
+                  create a rich texture that complements any room, from office
+                  spaces to living areas. Whether placed in a ceramic pot or a
+                  glass vase, these chrysanthemums bring a lasting glow of
+                  positivity and warmth to your home environment.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">3600 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="28" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower11.jpg"
+                  alt="Red Anthurium"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Red Anthurium</h3>
+                <p class="item-description">
+                  Bold, exotic, and heart-shaped elegance.
+                </p>
+                <p class="full-description">
+                  The Red Anthurium is a true statement piece for any modern
+                  interior. Featuring glossy, heart-shaped red leaves and a
+                  distinctive spiked center, this exotic plant brings a tropical
+                  feel to your home. It is highly valued in interior design for
+                  its architectural look and its ability to bloom almost
+                  year-round. This arrangement is perfect for those looking for
+                  low-maintenance beauty that stands out. Whether placed in a
+                  sleek white pot or a dark stone container, the Anthurium adds
+                  a sophisticated pop of color and a touch of the tropics to
+                  your living space.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">7000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="29" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower12.jpg" alt="Gardenia" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Gardenia</h3>
+                <p class="item-description">
+                  A natural perfume for your elegant home.
+                </p>
+                <p class="full-description">
+                  Our Heavenly Gardenia arrangement is the pinnacle of sensory
+                  home decor. Renowned for their creamy white petals and an
+                  intoxicating, sweet fragrance that can fill an entire room,
+                  these flowers are a symbol of secret love and purity. This
+                  selection is designed to provide not just visual beauty, but a
+                  complete aromatic experience. Perfect for a bedside table or a
+                  grand entrance, the Gardenia brings a touch of classic
+                  sophistication. Its glossy green leaves and velvet-like blooms
+                  make it a luxurious living accessory for any refined interior.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">5500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="30" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Exotic & Luxury Selection</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="ELSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower13.jpg"
+                  alt="Black Bacaara Rose"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Black Bacaara Rose</h3>
+                <p class="item-description">
+                  Unveil the mystery of rare elegance.
+                </p>
+                <p class="full-description">
+                  The Black Baccara Rose is the crown jewel of our luxury
+                  collection. Known for its deep, velvety petals that appear
+                  almost black under certain lights, this rose is a symbol of
+                  absolute mystery and sophisticated power. This is not just a
+                  bouquet; it is a rare statement of prestige. Each rose is
+                  selected for its intense, dark crimson hue and silk-like
+                  texture. Perfectly suited for high-end events or as a
+                  legendary gift for someone truly unique, the Black Baccara
+                  brings an unparalleled sense of drama and elite beauty to any
+                  collection.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">18000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="31" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower14.jpg" alt="Ghost Orchid" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Ghost Orchid</h3>
+                <p class="item-description">
+                  Own a piece of nature's most beautiful mystery.
+                </p>
+                <p class="full-description">
+                  The Ghost Orchid is an ethereal masterpiece, widely considered
+                  one of the rarest flowers on Earth. Named for its hauntingly
+                  beautiful white shape that appears to float in mid-air, this
+                  flower possesses a delicate, spider-like elegance and a
+                  captivating fragrance that only emerges at night. This is the
+                  ultimate collector's item in the floral world. Each orchid is
+                  handled with extreme care and presented in a luxury glass case
+                  to preserve its fragile beauty. To gift a Ghost Orchid is to
+                  offer something truly extraordinary and legendary.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">35000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="32" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower15.jpg"
+                  alt="Bird of Paradise "
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Bird of Paradise</h3>
+                <p class="item-description">
+                  Unleash the vibrant colors of paradise.
+                </p>
+                <p class="full-description">
+                  The Bird of Paradise is the ultimate symbol of joy and
+                  magnificence. With its striking shape that resembles a
+                  colorful bird in flight, this flower brings a bold,
+                  architectural elegance to any luxury setting. Featuring
+                  brilliant orange and deep midnight-blue petals, it is a
+                  favorite for high-end interior design and grand celebrations.
+                  This majestic flower is not only famous for its exotic beauty
+                  but also for its incredible durability, lasting much longer
+                  than traditional blooms. It is the perfect choice for someone
+                  looking to make a powerful and unforgettable impression.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">10000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="33" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower16.jpg" alt="Blue Poppy" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Blue Poppy</h3>
+                <p class="item-description">A rare dream of sapphire blue.</p>
+                <p class="full-description">
+                  The Himalayan Blue Poppy is one of the most sought-after
+                  flowers by enthusiasts worldwide. Known for its mesmerizing
+                  sky-blue petals and golden center, this flower is a true
+                  botanical miracle. It represents rarity, serenity, and a
+                  connection to the extraordinary. Because it only grows in
+                  specific high-altitude climates, offering this bouquet is a
+                  gesture of profound exclusivity. Its delicate, silk-like
+                  texture and ethereal color make it a breathtaking centerpiece
+                  for any high-profile event or a legendary gift that will be
+                  remembered for a lifetime.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">21000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="34" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/flower17.jpg"
+                  alt="Caspian Lotus"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">King Protea</h3>
+                <p class="item-description">
+                  The crown jewel of the floral world.
+                </p>
+                <p class="full-description">
+                  Our Royal King Protea Bouquet is the ultimate statement of
+                  strength and magnificence. As the largest of all proteas, its
+                  massive, crown-like bloom and pointed petals create a bold,
+                  architectural look that is impossible to ignore. This exotic
+                  flower is highly prized in luxury floral design for its unique
+                  texture and incredible longevity. Representing courage and
+                  transformation, the King Protea is the perfect choice for a
+                  grand celebration or as a high-end gift for someone who
+                  commands respect and admiration. It is more than a flower; it
+                  is a majestic work of art.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">12000 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="35" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img src="images/flower18.jpg" alt="name of book" width="200" />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Cherry Blossom</h3>
+                <p class="item-description">
+                  A fleeting moment of pure elegance.
+                </p>
+                <p class="full-description">
+                  Our Imperial Cherry Blossom Bouquet captures the breathtaking
+                  beauty of spring's most celebrated bloom. These delicate, pale
+                  pink blossoms represent renewal and the stunning nature of
+                  life. Arranged in graceful, sweeping branches, this luxury
+                  bouquet brings an airy, sophisticated atmosphere to any space.
+                  Highly sought after for their poetic beauty and soft
+                  fragrance, our cherry blossoms are carefully handled to
+                  preserve their fragile petals. This is the ultimate gift for
+                  someone who appreciates rare, natural artistry and the serene
+                  beauty of the East.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">15500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="flower_id" value="36" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
     </div>
-
 
     <div class="item-popup" id="popup">
-        <div class="popup-content">
-            <span class="close-btn">✖️</span>
-            <img class="popup-image" src="" alt="">
-            <h2 class="popup-title"></h2>
-            <p class="popup-subdescription"></p>
+      <div class="popup-content">
+        <span class="close-btn">✖️</span>
+        <img class="popup-image" src="" alt="" />
+        <h2 class="popup-title"></h2>
+        <p class="popup-subdescription"></p>
 
-            <div class="price-rating">
-                <span class="popup-rating"></span>
-                <span class="popup-price"></span>
-            </div>
-
-            <h3>Description</h3>
-            <p class="popup-description"></p>
-
-            <div class="quantity">
-                <button class="minus">-</button>
-                <span class="count">1</span>
-                <button class="plus">+</button>
-            </div>
-
-            <button class="card-btn">🛒</button>
-            <button class="add-btn"> Add to cart</button>
+        <div class="price-rating">
+          <span class="popup-rating"></span>
+          <span class="popup-price"></span>
         </div>
+
+        <h3>Description</h3>
+        <p class="popup-description"></p>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="count">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+          <button class="card-btn">🛒</button>
+          <button class="add-btn">Add to cart</button>
+        </div>
+      </div>
     </div>
 
-
-
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

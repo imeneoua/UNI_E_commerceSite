@@ -1,599 +1,714 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Smart Desk Gadgets</h2>
+          <hr class="category-line" />
+        </div>
 
-        <section class="category-section">
+        <div class="slider-wrapper">
+          <div class="items-display" id="SmartSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study1.jpg"
+                  alt="Retro Mechanical Keyboard "
+                  width="200"
+                />
+              </div>
 
-            <div class="category-header">
-                <h2 class="category-title">Smart Desk Gadgets</h2>
-                <hr class="category-line">
+              <div class="item-details">
+                <h3 class="item-title">Retro Mechanical Keyboard</h3>
+                <p class="item-description">Vintage vibes, modern clicks.</p>
+                <p class="full-description">
+                  A stunning mechanical keyboard with rounded keycaps inspired
+                  by vintage typewriters. It features soft aesthetic colors and
+                  a satisfying tactile feel. Perfect for adding a nostalgic yet
+                  stylish touch to your desk setup.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">8500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="37" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study2.jpg"
+                  alt="Sunset Projection Lamp"
+                  width="200"
+                />
+              </div>
 
-                <div class="items-display" id="SmartSlider">
+              <div class="item-details">
+                <h3 class="item-title">Sunset Projection Lamp</h3>
+                <p class="item-description">
+                  Bring the magic of the golden hour to your room.
+                </p>
+                <p class="full-description">
+                  Transform your space into a dreamy sanctuary with this viral
+                  Sunset Lamp. It projects a realistic, warm sunset glow,
+                  perfect for creating a cozy atmosphere or taking aesthetic
+                  photos for social media.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study1.jpg" alt="Retro Mechanical Keyboard " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Retro Mechanical Keyboard </h3>
-                            <p class="item-description">Vintage vibes, modern clicks.</p>
-                            <p class="full-description">A stunning mechanical keyboard with rounded keycaps inspired by
-                                vintage typewriters. It features soft aesthetic colors and a satisfying tactile feel.
-                                Perfect for adding a nostalgic yet stylish touch to your desk setup.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">8500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="37">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study2.jpg" alt="Sunset Projection Lamp" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Sunset Projection Lamp</h3>
-                            <p class="item-description">Bring the magic of the golden hour to your room.</p>
-                            <p class="full-description">Transform your space into a dreamy sanctuary with this viral
-                                Sunset Lamp. It projects a realistic, warm sunset glow, perfect for creating a cozy
-                                atmosphere or taking aesthetic photos for social media.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">1800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="38">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study3.jpg" alt="Digital Flip Clock" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Digital Flip Clock</h3>
-                            <p class="item-description">Classic timekeeping with a mechanical twist.</p>
-                            <p class="full-description">This minimalist flip clock combines vintage mechanical style
-                                with modern precision. Watch the minutes flip with a satisfying sound. A standout piece
-                                that keeps you on track with timeless elegance.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">3500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="39">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study4.jpg" alt="Wireless Bluetooth Mouse" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Wireless Bluetooth Mouse</h3>
-                            <p class="item-description">Silent clicks, elegant movements.</p>
-                            <p class="full-description">An ultra-slim wireless mouse designed for comfort and style. It
-                                features a silent-click mechanism and a smooth aesthetic finish. Connects effortlessly
-                                via Bluetooth to your laptop or tablet for a clutter-free desk.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="40">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study5.jpg" alt="USB Silent Cooling Fan" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Aesthetic Desk Humidifier</h3>
-                            <p class="item-description">Refresh your workspace and your mood.</p>
-                            <p class="full-description">A compact and cute humidifier that keeps your air fresh. It
-                                features a soft LED mood light and a whisper-quiet mist. Its sleek design makes it look
-                                like a piece of decor while helping you stay focused during long study hours.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.5</span>
-                                <span class="price">2800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="41">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study6.jpg" alt="Mini Photo Printer" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Mini Photo Printer</h3>
-                            <p class="item-description">Print your memories instantly, anywhere.</p>
-                            <p class="full-description">Turn your favorite phone photos into physical stickers in
-                                seconds. This portable thermal printer is ink-free and fits in your pocket. Perfect for
-                                decorating your journal or room with your best memories directly from your phone.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">9500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="42">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">1800 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title"> Desk Organization</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="38" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study3.jpg"
+                  alt="Digital Flip Clock"
+                  width="200"
+                />
+              </div>
 
-                <div class="items-display" id="OrganizationSlider">
+              <div class="item-details">
+                <h3 class="item-title">Digital Flip Clock</h3>
+                <p class="item-description">
+                  Classic timekeeping with a mechanical twist.
+                </p>
+                <p class="full-description">
+                  This minimalist flip clock combines vintage mechanical style
+                  with modern precision. Watch the minutes flip with a
+                  satisfying sound. A standout piece that keeps you on track
+                  with timeless elegance.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study7.jpg" alt="Aesthetic Storage Crate " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Aesthetic Storage Crate </h3>
-                            <p class="item-description">Foldable style for a tidy desk.</p>
-                            <p class="full-description">These colorful, mini foldable crates are perfect for organizing
-                                small items. They are durable, stackable, and add a vibrant aesthetic touch to any shelf
-                                or desk. Ideal for stationery, skincare, or accessories.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.0</span>
-                                <span class="price">1500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="43">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study8.jpg" alt="Acrylic Monitor Stand" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Acrylic Monitor Stand</h3>
-                            <p class="item-description">Elevate your screen and your style.</p>
-                            <p class="full-description">A minimalist monitor stand made from high-quality clear acrylic.
-                                It raises your screen to eye level for better posture while creating extra storage space
-                                underneath for your keyboard or notebooks.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">3800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="44">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study9.jpg" alt="Pegboard Desk Organizer" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Pegboard Desk Organizer</h3>
-                            <p class="item-description">Infinite ways to organize your wall.</p>
-                            <p class="full-description">The ultimate space-saver for your home office. This modular
-                                pegboard allows you to hang shelves and hooks to store everything from pens to
-                                headphones in a beautiful vertical layout.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">4500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="45">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study10.jpg" alt="Minimalist Pen Holder" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Minimalist Pen Holder</h3>
-                            <p class="item-description">Simplicity meets functionality.</p>
-                            <p class="full-description">A sleek, geometric pen holder designed to keep your favorite
-                                writing tools organized. Its minimalist design fits any desk theme, making it a perfect
-                                essential for every student or professional.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">850 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="46">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study11.jpg" alt="Transparent Desk Mat" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Transparent Desk Mat</h3>
-                            <p class="item-description">Protect your desk, showcase your style.</p>
-                            <p class="full-description">A large transparent mat that protects your desk from scratches.
-                                It allows you to place photos or notes underneath for a personalized look while
-                                providing a smooth surface for writing.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">1900 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="47">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study12.jpg" alt="Kawaii Storage Drawers" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Kawaii Storage Drawers</h3>
-                            <p class="item-description">Store your treasures in a cute way.</p>
-                            <p class="full-description">Small, adorable storage drawers perfect for accessories and
-                                stickers. Decorated with cute designs, these drawers help keep your desk clutter-free
-                                while acting as a beautiful piece of decor.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">1500 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="48">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">3500 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="category-section">
-
-            <div class="category-header">
-                <h2 class="category-title">Stationery & Paper</h2>
-                <hr class="category-line">
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="39" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
 
-            <div class="slider-wrapper">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study4.jpg"
+                  alt="Wireless Bluetooth Mouse"
+                  width="200"
+                />
+              </div>
 
-                <div class="items-display" id="PaperSlider">
+              <div class="item-details">
+                <h3 class="item-title">Wireless Bluetooth Mouse</h3>
+                <p class="item-description">
+                  Silent clicks, elegant movements.
+                </p>
+                <p class="full-description">
+                  An ultra-slim wireless mouse designed for comfort and style.
+                  It features a silent-click mechanism and a smooth aesthetic
+                  finish. Connects effortlessly via Bluetooth to your laptop or
+                  tablet for a clutter-free desk.
+                </p>
 
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study13.jpg" alt="Morandi Gel Pens" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Morandi Gel Pens</h3>
-                            <p class="item-description">Smooth writing in every shade.</p>
-                            <p class="full-description">A premium set of gel pens with a soft-touch grip for comfortable
-                                writing. The Morandi color palette provides a sophisticated and calm look, making them
-                                perfect for journaling, note-taking, and artistic projects.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 5.0</span>
-                                <span class="price">950 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="49">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study14.jpg" alt="Vintage Scrapbook Paper" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Vintage Scrapbook Paper</h3>
-                            <p class="item-description">Add a touch of history to your journal.</p>
-                            <p class="full-description">High-quality decorative papers with a classic vintage aesthetic.
-                                These papers are ideal for scrapbooking and bullet journaling, helping you create
-                                beautiful, nostalgic layouts with ease.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="50">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study15.jpg" alt="Aesthetic Spiral Planner" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Aesthetic Spiral Planner</h3>
-                            <p class="item-description">Plan your dreams, beautifully.</p>
-                            <p class="full-description">Stay organized with this stylish spiral-bound planner. It
-                                features high-quality paper and a minimalist cover design. Perfect for tracking your
-                                daily tasks, goals, and appointments with an aesthetic touch.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.9</span>
-                                <span class="price">2200 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="51">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study16.jpg" alt="Flower Petal Washi Tape" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Flower Petal Washi Tape</h3>
-                            <p class="item-description">Decorate with nature's beauty.</p>
-                            <p class="full-description">Unique washi tape designed as delicate individual flower petals.
-                                Easy to peel and reposition, these tapes allow you to create stunning floral patterns
-                                and accents on your notebooks and cards.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.8</span>
-                                <span class="price">550 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="52">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study17.jpg" alt="Clear Acrylic Clipboard " width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Clear Acrylic Clipboard </h3>
-                            <p class="item-description">The modern way to take notes.</p>
-                            <p class="full-description">A sleek and durable clipboard made from crystal-clear acrylic.
-                                It offers a sturdy surface for writing while adding a professional, minimalist look to
-                                your office or classroom setup.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.6</span>
-                                <span class="price">1800 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="53">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="item-image">
-                            <img src="images/study18.jpg" alt="Pastel Sticky Notes" width="200">
-                        </div>
-
-                        <div class="item-details">
-                            <h3 class="item-title">Pastel Sticky Notes</h3>
-                            <p class="item-description">Colorful reminders that stick.</p>
-                            <p class="full-description">High-quality sticky notes in soft pastel colors. Perfect for
-                                highlighting important information or leaving quick notes without blocking the text,
-                                keeping your study materials organized and aesthetic.</p>
-
-                            <div class="price-rating">
-                                <span class="rating">⭐️ 4.7</span>
-                                <span class="price">450 DA</span>
-                            </div>
-
-                            <form action="cart.php" method="POST">
-                                <input type="hidden" name="study_id" value="54">
-                                <button type="submit" class="add-to-cart-btn">
-                                    Add to cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">2200 DA</span>
                 </div>
 
-                <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
-                    <button class="arrow-btn">❮</button>
-                </div>
-
-                <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
-                    <button class="arrow-btn">❯</button>
-                </div>
-
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="40" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
             </div>
-        </section>
 
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study5.jpg"
+                  alt="USB Silent Cooling Fan"
+                  width="200"
+                />
+              </div>
 
+              <div class="item-details">
+                <h3 class="item-title">Aesthetic Desk Humidifier</h3>
+                <p class="item-description">
+                  Refresh your workspace and your mood.
+                </p>
+                <p class="full-description">
+                  A compact and cute humidifier that keeps your air fresh. It
+                  features a soft LED mood light and a whisper-quiet mist. Its
+                  sleek design makes it look like a piece of decor while helping
+                  you stay focused during long study hours.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.5</span>
+                  <span class="price">2800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="41" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study6.jpg"
+                  alt="Mini Photo Printer"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Mini Photo Printer</h3>
+                <p class="item-description">
+                  Print your memories instantly, anywhere.
+                </p>
+                <p class="full-description">
+                  Turn your favorite phone photos into physical stickers in
+                  seconds. This portable thermal printer is ink-free and fits in
+                  your pocket. Perfect for decorating your journal or room with
+                  your best memories directly from your phone.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">9500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="42" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Desk Organization</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="OrganizationSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study7.jpg"
+                  alt="Aesthetic Storage Crate "
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Aesthetic Storage Crate</h3>
+                <p class="item-description">Foldable style for a tidy desk.</p>
+                <p class="full-description">
+                  These colorful, mini foldable crates are perfect for
+                  organizing small items. They are durable, stackable, and add a
+                  vibrant aesthetic touch to any shelf or desk. Ideal for
+                  stationery, skincare, or accessories.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.0</span>
+                  <span class="price">1500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="43" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study8.jpg"
+                  alt="Acrylic Monitor Stand"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Acrylic Monitor Stand</h3>
+                <p class="item-description">
+                  Elevate your screen and your style.
+                </p>
+                <p class="full-description">
+                  A minimalist monitor stand made from high-quality clear
+                  acrylic. It raises your screen to eye level for better posture
+                  while creating extra storage space underneath for your
+                  keyboard or notebooks.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">3800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="44" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study9.jpg"
+                  alt="Pegboard Desk Organizer"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Pegboard Desk Organizer</h3>
+                <p class="item-description">
+                  Infinite ways to organize your wall.
+                </p>
+                <p class="full-description">
+                  The ultimate space-saver for your home office. This modular
+                  pegboard allows you to hang shelves and hooks to store
+                  everything from pens to headphones in a beautiful vertical
+                  layout.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">4500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="45" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study10.jpg"
+                  alt="Minimalist Pen Holder"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Minimalist Pen Holder</h3>
+                <p class="item-description">Simplicity meets functionality.</p>
+                <p class="full-description">
+                  A sleek, geometric pen holder designed to keep your favorite
+                  writing tools organized. Its minimalist design fits any desk
+                  theme, making it a perfect essential for every student or
+                  professional.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">850 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="46" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study11.jpg"
+                  alt="Transparent Desk Mat"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Transparent Desk Mat</h3>
+                <p class="item-description">
+                  Protect your desk, showcase your style.
+                </p>
+                <p class="full-description">
+                  A large transparent mat that protects your desk from
+                  scratches. It allows you to place photos or notes underneath
+                  for a personalized look while providing a smooth surface for
+                  writing.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">1900 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="47" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study12.jpg"
+                  alt="Kawaii Storage Drawers"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Kawaii Storage Drawers</h3>
+                <p class="item-description">
+                  Store your treasures in a cute way.
+                </p>
+                <p class="full-description">
+                  Small, adorable storage drawers perfect for accessories and
+                  stickers. Decorated with cute designs, these drawers help keep
+                  your desk clutter-free while acting as a beautiful piece of
+                  decor.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">1500 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="48" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">Stationery & Paper</h2>
+          <hr class="category-line" />
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="items-display" id="PaperSlider">
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study13.jpg"
+                  alt="Morandi Gel Pens"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Morandi Gel Pens</h3>
+                <p class="item-description">Smooth writing in every shade.</p>
+                <p class="full-description">
+                  A premium set of gel pens with a soft-touch grip for
+                  comfortable writing. The Morandi color palette provides a
+                  sophisticated and calm look, making them perfect for
+                  journaling, note-taking, and artistic projects.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 5.0</span>
+                  <span class="price">950 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="49" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study14.jpg"
+                  alt="Vintage Scrapbook Paper"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Vintage Scrapbook Paper</h3>
+                <p class="item-description">
+                  Add a touch of history to your journal.
+                </p>
+                <p class="full-description">
+                  High-quality decorative papers with a classic vintage
+                  aesthetic. These papers are ideal for scrapbooking and bullet
+                  journaling, helping you create beautiful, nostalgic layouts
+                  with ease.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="50" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study15.jpg"
+                  alt="Aesthetic Spiral Planner"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Aesthetic Spiral Planner</h3>
+                <p class="item-description">Plan your dreams, beautifully.</p>
+                <p class="full-description">
+                  Stay organized with this stylish spiral-bound planner. It
+                  features high-quality paper and a minimalist cover design.
+                  Perfect for tracking your daily tasks, goals, and appointments
+                  with an aesthetic touch.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.9</span>
+                  <span class="price">2200 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="51" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study16.jpg"
+                  alt="Flower Petal Washi Tape"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Flower Petal Washi Tape</h3>
+                <p class="item-description">Decorate with nature's beauty.</p>
+                <p class="full-description">
+                  Unique washi tape designed as delicate individual flower
+                  petals. Easy to peel and reposition, these tapes allow you to
+                  create stunning floral patterns and accents on your notebooks
+                  and cards.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.8</span>
+                  <span class="price">550 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="52" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study17.jpg"
+                  alt="Clear Acrylic Clipboard "
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Clear Acrylic Clipboard</h3>
+                <p class="item-description">The modern way to take notes.</p>
+                <p class="full-description">
+                  A sleek and durable clipboard made from crystal-clear acrylic.
+                  It offers a sturdy surface for writing while adding a
+                  professional, minimalist look to your office or classroom
+                  setup.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.6</span>
+                  <span class="price">1800 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="53" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="item-image">
+                <img
+                  src="images/study18.jpg"
+                  alt="Pastel Sticky Notes"
+                  width="200"
+                />
+              </div>
+
+              <div class="item-details">
+                <h3 class="item-title">Pastel Sticky Notes</h3>
+                <p class="item-description">Colorful reminders that stick.</p>
+                <p class="full-description">
+                  High-quality sticky notes in soft pastel colors. Perfect for
+                  highlighting important information or leaving quick notes
+                  without blocking the text, keeping your study materials
+                  organized and aesthetic.
+                </p>
+
+                <div class="price-rating">
+                  <span class="rating">⭐️ 4.7</span>
+                  <span class="price">450 DA</span>
+                </div>
+
+                <form action="cart.php" method="POST">
+                  <input type="hidden" name="study_id" value="54" />
+                  <button type="submit" class="add-to-cart-btn">
+                    Add to cart
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-left-arrow" onclick="slideLeft('fantasySlider')">
+            <button class="arrow-btn">❮</button>
+          </div>
+
+          <div class="slider-right-arrow" onclick="slideRight('fantasySlider')">
+            <button class="arrow-btn">❯</button>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="item-popup" id="popup">
-        <div class="popup-content">
-            <span class="close-btn">✖️</span>
-            <img class="popup-image" src="" alt="">
-            <h2 class="popup-title"></h2>
-            <p class="popup-subdescription"></p>
+      <div class="popup-content">
+        <span class="close-btn">✖️</span>
+        <img class="popup-image" src="" alt="" />
+        <h2 class="popup-title"></h2>
+        <p class="popup-subdescription"></p>
 
-            <div class="price-rating">
-                <span class="popup-rating"></span>
-                <span class="popup-price"></span>
-            </div>
-
-            <h3>Description</h3>
-            <p class="popup-description"></p>
-
-            <div class="quantity">
-                <button class="minus">-</button>
-                <span class="count">1</span>
-                <button class="plus">+</button>
-            </div>
-
-            <button class="card-btn">🛒</button>
-            <button class="add-btn"> Add to cart</button>
+        <div class="price-rating">
+          <span class="popup-rating"></span>
+          <span class="popup-price"></span>
         </div>
+
+        <h3>Description</h3>
+        <p class="popup-description"></p>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="count">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+          <button class="card-btn">🛒</button>
+          <button class="add-btn">Add to cart</button>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
