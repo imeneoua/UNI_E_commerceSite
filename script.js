@@ -1,4 +1,4 @@
-const $ = (selector) => document.querySelector(selector);
+function login(){}const $ = (selector) => document.querySelector(selector);
 //PAGES 
 const loginPage = $("#logpg");
 const signPage  = $("#singpg");
