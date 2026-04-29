@@ -1,90 +1,86 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ecommerce website</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet"/>
+    <title>Ecommerce website</title>
+  </head>
+  <body>
+    <div class="bg"></div>
 
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
-</head>
+    <!-- Login page -->
+    <div id="logpg" class="logipage active">
+      <div class="page-header">
+        <span class="back-arrow">&#8592;</span>
+        <h2>Login</h2>
+      </div>
+      <form method="post" onsubmit="return false">
+        <label>Email</label>
+        <div class="input-wrapper">
+          <input type="email" required placeholder="Enter your email" />
+          <i class="bx bx-envelope"></i>
+        </div>
 
-<body>
+        <label>Password</label>
+        <div class="input-wrapper">
+          <input type="password" required placeholder="Enter your password" />
+          <i class="bx bx-lock"></i>
+        </div>
 
-  <div class="bg"></div>
+        <div class="remember-row">
+          <label><input type="checkbox" /> Remember Me</label>
+          <a href="#">Forgot password?</a>
+        </div>
 
-  <!-- Login page -->
-  <div id="logpg" class="logipage">
-    <div class="page-header">
-      <span class="back-arrow">&#8592;</span>
-      <h2>Login</h2>
+        <input type="submit" value="Login" />
+
+        <div class="divider"><span>or</span></div>
+
+        <button><i class="bx bxl-google"></i> Connect with google</button>
+        <p>Don't have an account? <a href="#" onclick="show('singpg')"> Sign in</a></p>
+      </form>
     </div>
 
-    <form method="post" action="login.php">
-      <label>Email</label>
-      <div class="input-wrapper">
-        <input type="email" name="email" required placeholder="Enter your email" />
-        <i class="bx bx-envelope"></i>
+    <!-- Sign in page -->
+    <div id="singpg" class="logipage">
+      <div class="page-header">
+        <span class="back-arrow">&#8592;</span>
+        <h2>Sign in</h2>
       </div>
+      <form method="post" onsubmit="return false">
+        <label>Email</label>
+        <div class="input-wrapper">
+          <input type="email" required placeholder="Enter your email" />
+          <i class="bx bx-envelope"></i>
+        </div>
 
-      <label>Password</label>
-      <div class="input-wrapper">
-        <input type="password" name="password" required placeholder="Enter your password" />
-        <i class="bx bx-lock"></i>
-      </div>
+        <label>Password</label>
+        <div class="input-wrapper">
+          <input type="password" required placeholder="Enter your password" />
+          <i class="bx bx-lock"></i>
+        </div>
 
-      <div class="remember-row">
-        <label><input type="checkbox" name="remember" class="remember-btn"/> Remember Me</label>
-        <a href="#">Forgot password?</a>
-      </div>
+        <div class="remember-row">
+          <a href="#">Forgot password?</a>
+        </div>
 
-      <input type="submit" value="Login" name="login" />
+        <input type="submit" value="Sign in" />
 
-      <div class="divider"><span>or</span></div>
+        <div class="divider"><span>or</span></div>
 
-      <button type="button">
-        <i class="bx bxl-google"></i> Connect with google
-      </button>
-
-      <p>Don't have an account? <a href="#"> Sign in</a></p>
-    </form>
-  </div>
-
-  <!-- Sign in page -->
-  <div id="singpg" class="logipage">
-    <div class="page-header">
-      <span class="back-arrow">&#8592;</span>
-      <h2>Sign in</h2>
+        <button><i class="bx bxl-google"></i> Connect with Google</button>
+        <p>Already have an account? <a href="#" onclick="show('logpg')">Login</a></p>
+      </form>
     </div>
 
-    <form method="post" action="login.php">
-      <label>Email</label>
-      <div class="input-wrapper">
-        <input type="email" name="email" required placeholder="Enter your email" />
-        <i class="bx bx-envelope"></i>
-      </div>
-
-      <label>Password</label>
-      <div class="input-wrapper">
-        <input type="password" name="password" required placeholder="Enter your password" />
-        <i class="bx bx-lock"></i>
-      </div>
-
-      <div class="remember-row">
-        <a href="#">Forgot password?</a>
-      </div>
-
-      <input type="submit" value="Sign in" name="signin" />
-
-      <div class="divider"><span>or</span></div>
-
-      <button type="button">
-        <i class="bx bxl-google"></i> Connect with Google
-      </button>
-
-      <p>Already have an account? <a href="#">Login</a></p>
-    </form>
-  </div>
-
-</body>
+    <script src="script.js">
+      function show(id) {
+        document.querySelectorAll('.logipage').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        return false;
+      }
+    </script>
+  </body>
 </html>
