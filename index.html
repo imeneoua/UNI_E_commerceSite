@@ -11,7 +11,7 @@
     <div class="bg"></div>
 
     <!-- Login page -->
-    <div id="logpg" class="logipage">
+    <div id="logpg" class="logipage active">
       <div class="page-header">
         <span class="back-arrow">&#8592;</span>
         <h2>Login</h2>
@@ -39,7 +39,7 @@
         <div class="divider"><span>or</span></div>
 
         <button><i class="bx bxl-google"></i> Connect with google</button>
-        <p>Don't have an account? <a href="#"> Sign in</a></p>
+        <p>Don't have an account? <a href="#" onclick="show('singpg')"> Sign in</a></p>
       </form>
     </div>
 
@@ -71,9 +71,16 @@
         <div class="divider"><span>or</span></div>
 
         <button><i class="bx bxl-google"></i> Connect with Google</button>
-        <p>Already have an account? <a href="#">Login</a></p>
+        <p>Already have an account? <a href="#" onclick="show('logpg')">Login</a></p>
       </form>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+      function show(id) {
+        document.querySelectorAll('.logipage').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        return false;
+      }
+    </script>
   </body>
 </html>
