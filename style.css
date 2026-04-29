@@ -12,13 +12,13 @@ body {
   background: linear-gradient(160deg, #B95071 0%, #d68ba3 50%, #F5EDE3 100%);
   background-attachment: fixed;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
+.hrosec {
+  width: 100%;
+  display: block;
+}
 
 /* ── Glass card shared ── */
 .logipage {
@@ -263,8 +263,6 @@ form > p a:hover {
    RESET & BASE
    ============================================================ */
 
-
-
 /* ============================================================
    HEADER / NAVBAR
    ============================================================ */
@@ -281,7 +279,25 @@ header {
   background: rgba(185, 80, 113, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-
+.header-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  
+  border-radius: 12px;
+  
+  display: block;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-inner img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
 header table {
   border-collapse: collapse;
   width: 100%;
@@ -297,9 +313,7 @@ header table td:first-child img {
   width: 50px;
   height: 50px;
   object-fit: contain;
-  background: #8DC373;
   border-radius: 12px;
-  padding: 6px;
   display: block;
 }
 
@@ -420,45 +434,46 @@ header table td:last-child button:last-child aside a:hover {
 
 main {
   padding-top: 72px;
+  width: 100%;
+  display: block;
+  
 }
 
 /* ============================================================
    HERO SECTION
    ============================================================ */
 
-#mnpart > table:first-of-type {
-  width: 100%;
+   .hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 88vh;
-  padding: 60px 60px;
-  box-sizing: border-box;
+  padding: 60px 80px;
+  gap: 40px;
 }
 
-#mnpart > table:first-of-type td {
-  vertical-align: middle;
-  padding: 20px 24px;
+.hero-text {
+  flex: 1;
+  max-width: 500px;
 }
 
-/* Hero heading */
-#mnpart > table:first-of-type td:first-child h1 {
+.hero-text h1 {
   font-size: 48px;
   font-weight: 800;
   color: white;
   line-height: 1.2;
   margin-bottom: 20px;
-  letter-spacing: -0.5px;
 }
 
-/* Hero paragraph */
-#mnpart > table:first-of-type td:first-child p {
+.hero-text p {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255,255,255,0.85);
   line-height: 1.75;
   margin-bottom: 34px;
   max-width: 440px;
 }
 
-/* Shop Now button */
-#mnpart > table:first-of-type td:first-child button {
+.btn-shopnow {
   padding: 14px 38px;
   background: #8DC373;
   color: white;
@@ -467,52 +482,78 @@ main {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: background 0.2s, transform 0.1s;
 }
 
-#mnpart > table:first-of-type td:first-child button:hover {
+.btn-shopnow:hover {
   background: #7A8F6A;
   transform: translateY(-2px);
 }
 
-#mnpart > table:first-of-type td:first-child button:active {
-  background: #495540;
-  transform: translateY(0);
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Hero image */
-#mnpart > table:first-of-type td:last-child img {
+.hero-image img {
   width: 100%;
   max-width: 520px;
   object-fit: contain;
-  display: block;
-  margin-left: auto;
-  filter: drop-shadow(0 24px 48px rgba(185, 80, 113, 0.4));
-}
-
-/* ============================================================
-   SECTION HEADINGS (h2)
-   ============================================================ */
-
-#mnpart h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: white;
-  text-align: center;
-  letter-spacing: 1px;
-  margin: 20px 0 10px;
-}
-
-#mnpart h2 u {
-  text-decoration: none;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.45);
-  padding-bottom: 6px;
+  filter: drop-shadow(0 24px 48px rgba(185,80,113,0.4));
 }
 
 /* ============================================================
    CATEGORIES TABLE
    ============================================================ */
+
+   .categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 10px 60px 60px;
+  overflow-y: auto;        /* allow vertical scroll if content overflows */
+  max-height: 600px;
+  min-height: 160px;
+}
+
+.category-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 44px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.category-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-5px);
+}
+
+.category-card i {
+  font-size: 44px;
+  color: rgba(255,255,255,0.85);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.category-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.category-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/*product */
 
 #mnpart > table:nth-of-type(2) {
   border-collapse: separate;
@@ -520,6 +561,36 @@ main {
   padding: 10px 60px 60px;
   box-sizing: border-box;
   width: 100%;
+}
+.products-grid {
+  padding: 0 40px 70px;
+}
+
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.product-card {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.32);
+  border-radius: 20px;
+  padding: 16px 16px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+  /* REMOVE min-width/max-width — the grid handles sizing */
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.30);
+  box-shadow: 0 12px 32px rgba(185,80,113,0.2);
 }
 
 #mnpart > table:nth-of-type(2) td {
@@ -581,30 +652,31 @@ main {
    PRODUCTS GRID
    ============================================================ */
 
+   .product-card {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.32);
+  border-radius: 20px;
+  padding: 16px 16px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+  /* NO min-width, NO max-width — let the grid control sizing */
+}
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
 .products-grid {
   padding: 0 40px 70px;
   box-sizing: border-box;
 }
 
-.products-grid table {
-  border-collapse: separate;
-  border-spacing: 16px;
-  width: 100%;
-}
-
-/* Product card — each <td> */
-.products-grid td {
-  vertical-align: top;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 20px;
-  padding: 16px 16px 20px;
-  text-align: center;
-  transition: transform 0.2s ease, background 0.2s ease;
-  cursor: pointer;
-}
 
 .products-grid td:hover {
   transform: translateY(-6px);
@@ -696,53 +768,16 @@ main {
 }
 
 /* ============================================================
-   COMMENT SECTION
-   ============================================================ */
-
-.Comentprt {
-  padding: 50px 60px 70px;
-  text-align: center;
-}
-
-.Comentprt h3 {
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
-}
-
-.Comentprt input[type="text"] {
-  width: 55%;
-  padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: border 0.2s ease, background 0.2s ease;
-}
-
-.Comentprt input[type="text"]::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.Comentprt input[type="text"]:focus {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* ============================================================
    FOOTER
    ============================================================ */
 
 footer {
+  width: 100%;
   background: rgba(150, 50, 80, 0.4);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255,255,255,0.15);
   padding: 44px 60px;
+  display: block; /* ensure it's not flexed weirdly */
 }
 
 /* Hide the top <hr> */
@@ -834,48 +869,12 @@ footer > hr:first-child {
   border-top: 1.5px solid rgba(255, 255, 255, 0.35);
 }
 
-/* SLIDER WRAPPER */
-.slider-wrapper {
-  position: relative;
-  padding: 0 30px;
-}
-
-/* ITEMS DISPLAY */
-.items-display {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;
-  padding: 8px 4px;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
-  padding: 12px;
-  min-width: calc((100% - 48px) / 4);
-  max-width: calc((100% - 48px) / 4);
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
 .product-card:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.22);
 }
 
 /* ITEM IMAGE */
-.item-image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
 
 .item-image img {
   width: 100%;
@@ -884,52 +883,11 @@ footer > hr:first-child {
   border-radius: 10px;
 }
 
-/* ITEM DETAILS — flex column with space-between to push button to bottom */
-.item-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 0;
-}
-
-.item-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 4px;
-
-  /* clamp to 1 line */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.item-description {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.3;
-  margin-bottom: 6px;
-
-  /* clamp to 2 lines */
-  display: -webkit-box;
- line-clamp: 2;
- -webkit-line-clamp: 2;
- -webkit-box-orient: vertical;
- overflow: hidden;
-}
-
 .full-description {
   display: none;
 }
 
-/* PRICE & RATING */
-.price-rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  margin-top: auto;
-}
+
 
 .rating {
   font-size: 12px;
@@ -948,20 +906,6 @@ form {
   display: block;
 }
 
-.add-to-cart-btn {
-  display: block;
-  width: 100%;
-  padding: 9px 0;
-  background: #8DC373;
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
 
 .add-to-cart-btn:hover {
   background: #7A8F6A;
@@ -973,39 +917,7 @@ form {
   transform: translateY(0);
 }
 
-/* ARROWS */
-.slider-left-arrow,
-.slider-right-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
 
-.slider-left-arrow {
-  left: -6px;
-}
-
-.slider-right-arrow {
-  right: -6px;
-}
-
-.arrow-btn {
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
 
 .arrow-btn:hover {
   background: rgba(255, 255, 255, 0.35);
@@ -1017,40 +929,11 @@ form {
   transform: scale(0.97);
 }
 
-/* === POPUP OVERLAY === */
-.item-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-}
 
 .item-popup.active {
   display: flex;
 }
 
-/* POPUP CARD */
-.popup-content {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  padding: 24px;
-  width: 90%;
-  max-width: 420px;
-  max-height: 85vh;
-  overflow-y: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
 /* CLOSE BUTTON */
 .close-btn {
@@ -1209,3 +1092,175 @@ form {
   align-self: stretch;
 }
 
+/* cart*/
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  height: 100vh;
+  background: rgba(185, 80, 113, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 500;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  padding: 24px;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 499;
+}
+
+.cart-overlay.open {
+  display: block;
+}
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.header-nav {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  padding: 5px 8px;
+  gap: 2px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  background: rgba(255,255,255,0.25);
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-signin {
+  padding: 8px 22px;
+  background: #8DC373;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 20px;
+  position: relative;
+}
+.profile-btn {
+  position: relative;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(185, 80, 113, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 200;
+  flex-direction: column;
+}
+
+.profile-btn:hover .profile-dropdown {
+  display: flex;
+}
+
+.profile-dropdown a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(255,255,255,0.15);
+}
+.auth-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-overlay .logipage {
+  display: block;
+}
+.section-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.bestsellers-label {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  padding: 0 60px 16px;
+}
+
+.comment-section {
+  padding: 50px 60px 70px;
+  text-align: center;
+}
+
+.comment-section h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.comment-section input[type="text"] {
+  width: 55%;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
