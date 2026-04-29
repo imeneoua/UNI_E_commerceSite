@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce website</title>
+    <title>NOKHBA</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo_photo.png" type="image/x-icon">
@@ -242,91 +242,64 @@
 </main>
 
 <!-------Shooping Cart-------------------------------------------------------------------------------------->
-    <div class="cart-wrapper">
-                    <!--- LEFT: Cart Items -->
-                    <div class="cart-left">
-                        <div class="cart-header">
-                            <a class="back-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
-                                    Shopping Cart
-                            </a>
-                            <span class="item-count" id="totalItems">2 items</span>
-                        </div>
-                    <div class="divider"></div>
 
-                    <div class="table-head">
-                        <span>Product</span>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                        <span>Total</span>
-                    </div>
- 
-                        <!----- Item 1 -->
-                        <div class="cart-item" id="item-1">
-                            <div class="item-img-placeholder">💐</div>
-                            <div>
-                                <div class="item-name">Special multi flower bouquet</div>
-                                <div class="qty-control">
-                                    <button class="qty-btn" onclick="changeQty(1, -1)">−</button>
-                                    <span class="qty-box" id="qty-1">2</span>
-                                    <button class="qty-btn" onclick="changeQty(1, 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="item-price">1500 DA</div>
-                            <div class="item-total" id="total-1">3000 DA</div>
-                        </div>
-                    
-                    <!------- Item 2 -->
-                    <div class="cart-item" id="item-2">
-                        <div class="item-img-placeholder">💐</div>
-                        <div>
-                            <div class="item-name">Special multi flower bouquet</div>
-                            <div class="qty-control">
-                                <button class="qty-btn" onclick="changeQty(2, -1)">−</button>
-                                <span class="qty-box" id="qty-2">2</span>
-                                <button class="qty-btn" onclick="changeQty(2, 1)">+</button>
-                            </div>
-                        </div>
-                        <div class="item-price">1500 DA</div>
-                        <div class="item-total" id="total-2">3000 DA</div>
-                    </div>
- 
-            <!---- RIGHT: Order Summary -->
-                <div class="cart-right">
-                            <div class="order-title">Your Order</div>
-                            <div class="order-divider"></div>
-        
-                            <div class="order-row">
-                                <span>Items</span>
-                                <span id="summaryItems">2</span>
-                            </div>
-                        <div>
-                            <div class="card-label">Card type</div>
-                            <select class="card-select">
-                                    <option>Visa</option>
-                                    <option>Mastercard</option>
-                                    <option>PayPal</option>
-                            </select>
-                        </div>
- 
-                        <div>
-                            <div class="card-label">Promo code</div>
-                            <input class="promo-input" type="text" placeholder="Enter your code" id="promoInput"/>
-                            <button class="apply-btn" onclick="applyPromo()">Apply</button>
-                        </div>
- 
-                        <div class="order-divider"></div>
- 
-                    <div class="total-row">
-                        <span>Total cost</span>
-                        <span id="totalCost">3000 DA</span>
-                    </div>
-                   
-                      <button class="checkout-btn">Checkout</button>
-                </div>
- 
+<div class="cart-wrapper">
+    <!-- LEFT: Cart Items -->
+    <div class="cart-left">
+        <div class="cart-header">
+            <a class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M19 12H5M5 12l7 7M5 12l7-7"/>
+                </svg>
+                Shopping Cart
+            </a>
+            <span class="item-count" id="totalItems">0 items</span>
+        </div>
+        <div class="divider"></div>
+        <div class="table-head">
+            <span>Product</span>
+            <span>Quantity</span>
+            <span>Price</span>
+            <span>Total</span>
+        </div>
+        <!-- Cart items are injected here dynamically by JS -->
     </div>
 
+    <!-- RIGHT: Order Summary -->
+    <div class="cart-right">
+        <div class="order-title">Your Order</div>
+        <div class="order-divider"></div>
+
+        <div class="order-row">
+            <span>Items</span>
+            <span id="summaryItems">0</span>
+        </div>
+
+        <div>
+            <div class="card-label">Card type</div>
+            <select class="card-select">
+                <option>Visa</option>
+                <option>Mastercard</option>
+                <option>PayPal</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="card-label">Promo code</div>
+            <input class="promo-input" type="text" placeholder="Enter your code" id="promoInput"/>
+            <button class="apply-btn" onclick="applyPromo()">Apply</button>
+        </div>
+
+        <div class="order-divider"></div>
+
+        <div class="total-row">
+            <span>Total cost</span>
+            <span id="totalCost">0 DA</span>
+        </div>
+
+        <button class="checkout-btn">Checkout</button>
+    </div>
+</div>
 <!-- ============================================================
      FOOTER
   
@@ -346,6 +319,6 @@
         <p>© 2026 All rights are reserved</p>
     </div>
 </footer>
-
+<script src="script.js"></script>
 </body>
 </html>
