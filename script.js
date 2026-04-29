@@ -1,4 +1,4 @@
-/*CART HELPERS  (localStorage)*/
+/*CART HELPERS */
 
 function getCart() {
   return JSON.parse(localStorage.getItem("cart") || "[]");
@@ -57,7 +57,7 @@ function showToast(text, type = "success") {
   setTimeout(() => div.remove(), 3000);
 }
 
-/*PAGE DETECTION — run the right init on load*/
+/*PAGE DETECTION*/
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("logpg"))              initLogin();
@@ -65,19 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
   else if (document.querySelector(".items-display")) initCategory();
 });
 
-
 /*LOGIN PAGE  (index.html)*/
 
 function initLogin() {
   const loginPage = document.getElementById("logpg");
   const signPage  = document.getElementById("singpg");
-  let accounts    = JSON.parse(localStorage.getItem("accounts") || "[]");
 
-  /* show only login at start */
   loginPage.classList.add("active");
   signPage.classList.remove("active");
 
-  /* switch between login and sign-up with slide animation */
+  /* slide animation between panels */
   function goTo(show, hide, fromRight) {
     hide.classList.remove("active");
     show.style.transform  = `translateX(${fromRight ? "120%" : "-120%"}) translateY(-50%)`;
@@ -91,7 +88,6 @@ function initLogin() {
     }));
   }
 
-  /* navigation links */
   loginPage.querySelector("p a").onclick = e => { e.preventDefault(); goTo(signPage, loginPage, true);  };
   signPage.querySelector("p a").onclick  = e => { e.preventDefault(); goTo(loginPage, signPage, false); };
   document.querySelectorAll(".back-arrow").forEach(el => {
@@ -105,19 +101,44 @@ function initLogin() {
       .insertAdjacentHTML("afterend", `
         <label style="color:white;font-size:15px;font-weight:700;margin-top:14px;display:block;">Confirm Password</label>
         <div class="input-wrapper">
-          <input type="password" id="confirmPass" placeholder="Repeat your password" />
+          <input type="password" id="confirmPass" name="confirm_password" placeholder="Repeat your password" />
           <i class="bx bx-lock-alt"></i>
         </div>
         <p id="passMsg" style="margin-top:6px;font-size:13px;font-weight:600;display:none;"></p>
       `);
   }
 
+  /* set PHP action targets on both forms */
+  loginPage.querySelector("form").setAttribute("action", "login.php");
+  loginPage.querySelector("form").setAttribute("method", "POST");
+  loginPage.querySelector("form").removeAttribute("onsubmit");
+
+  /* ✅ FIX: sign-up also posts to login.php (register.php does not exist)
+     A hidden input tells login.php this is a registration request          */
+  signPage.querySelector("form").setAttribute("action", "login.php");
+  signPage.querySelector("form").setAttribute("method", "POST");
+  signPage.querySelector("form").removeAttribute("onsubmit");
+
+  if (!signPage.querySelector("input[name='action']")) {
+    const hidden = document.createElement("input");
+    hidden.type  = "hidden";
+    hidden.name  = "action";
+    hidden.value = "register";
+    signPage.querySelector("form").appendChild(hidden);
+  }
+
+  /* add name attributes so PHP receives the fields */
+  loginPage.querySelector("input[type='email']").setAttribute("name", "email");
+  loginPage.querySelector("input[type='password']").setAttribute("name", "password");
+  signPage.querySelector("input[type='email']").setAttribute("name", "email");
+  signPage.querySelector("input[type='password']").setAttribute("name", "password");
+
+  /* client-side password match check (UX only) */
   const signPass    = signPage.querySelector("input[type='password']");
   const confirmPass = document.getElementById("confirmPass");
   const passMsg     = document.getElementById("passMsg");
   const signBtn     = signPage.querySelector("input[type='submit']");
 
-  /* disable sign-up button until passwords match */
   signBtn.disabled      = true;
   signBtn.style.opacity = "0.5";
 
@@ -133,39 +154,26 @@ function initLogin() {
   signPass.addEventListener("input", checkPasswords);
   confirmPass.addEventListener("input", checkPasswords);
 
-  /* sign-up submit */
+  /* prevent sign-up submit if passwords don't match */
   signPage.querySelector("form").addEventListener("submit", e => {
-    e.preventDefault();
-    const email = signPage.querySelector("input[type='email']").value.trim();
-    const pass  = signPass.value.trim();
-    if (!email || !pass) return showToast("Please fill all fields", "error");
-    if (accounts.find(a => a.email === email)) return showToast("Email already registered", "error");
-    accounts.push({ email, password: pass });
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-    showToast("Account created! Please log in.");
-    setTimeout(() => {
-      signPage.querySelector("form").reset();
-      passMsg.style.display = "none";
-      signBtn.disabled      = true;
-      signBtn.style.opacity = "0.5";
-      goTo(loginPage, signPage, false);
-    }, 1600);
-  });
-
-  /* login submit */
-  loginPage.querySelector("form").addEventListener("submit", e => {
-    e.preventDefault();
-    const email = loginPage.querySelector("input[type='email']").value.trim();
-    const pass  = loginPage.querySelector("input[type='password']").value.trim();
-    const user  = accounts.find(a => a.email === email && a.password === pass);
-    if (user) {
-      localStorage.setItem("currentUser", JSON.stringify(user));
-      showToast("Login successful! Redirecting…");
-      setTimeout(() => window.location.href = "main.html", 1500);
-    } else {
-      showToast("Wrong email or password", "error");
+    if (signPass.value !== confirmPass.value) {
+      e.preventDefault();
+      showToast("Passwords do not match", "error");
     }
   });
+
+  /* show PHP error messages passed via URL (?error=...) */
+  const params = new URLSearchParams(window.location.search);
+  const error  = params.get("error");
+  const errorMessages = {
+    wrong_password:  "Wrong email or password",
+    email_exists:    "Email already registered",
+    missing_fields:  "Please fill all fields",
+    server_error:    "Something went wrong, try again",
+  };
+  if (error && errorMessages[error]) {
+    showToast(errorMessages[error], "error");
+  }
 }
 
 /*MAIN PAGE  (main.html)*/
@@ -174,6 +182,36 @@ let promoDiscount = 0;
 let promoUsed     = false;
 
 function initMain() {
+
+  /*Email avatar on Sign In button*/
+  const sessionEmail =
+    document.body.dataset.userEmail ||
+    document.getElementById("sessionEmail")?.value ||
+    "";
+
+  const signinBtn = document.querySelector(".btn-signin");
+
+  if (sessionEmail && signinBtn) {
+    const firstLetter = sessionEmail[0].toUpperCase();
+
+    /* replace button text with a circular avatar */
+    signinBtn.innerHTML = `
+      <span style="
+        display:inline-flex;align-items:center;justify-content:center;
+        width:32px;height:32px;border-radius:50%;
+        background:white;color:#B95071;
+        font-size:15px;font-weight:800;line-height:1;
+      ">${firstLetter}</span>
+    `;
+    signinBtn.title = sessionEmail;
+
+    /* clicking avatar → logout.php  (PHP destroys the session) */
+    signinBtn.onclick = () => window.location.href = "logout.php";
+
+  } else if (signinBtn) {
+    /* not logged in → go to login page */
+    signinBtn.addEventListener("click", () => window.location.href = "index.html");
+  }
 
   /* nav links smooth scroll */
   document.querySelectorAll(".header-nav a").forEach(link => {
@@ -232,16 +270,10 @@ function initMain() {
     });
   });
 
-  /* sign in button */
-  document.querySelector(".btn-signin")?.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-
-  /* render cart on load */
   renderCart();
 }
 
-/* open/close cart — called from HTML onclick attributes */
+/* open/close cart */
 function openCart() {
   renderCart();
   document.getElementById("cartSidebar")?.classList.add("open");
@@ -255,7 +287,7 @@ function closeCart() {
   document.body.style.overflow = "";
 }
 
-/* open/close auth modal — called from HTML onclick attributes */
+/* open/close auth modal */
 function openAuth() {
   const o = document.getElementById("authOverlay");
   if (o) { o.style.display = "flex"; document.body.style.overflow = "hidden"; }
@@ -266,7 +298,7 @@ function closeAuth() {
   if (o) { o.style.display = "none"; document.body.style.overflow = ""; }
 }
 
-/* promo code — called from HTML onclick */
+/* promo code */
 function applyPromo() {
   if (promoUsed) return showToast("Promo already applied", "error");
   const input = document.getElementById("promoInput");
@@ -281,12 +313,11 @@ function applyPromo() {
   updateSummary();
 }
 
-/* render all cart items into the sidebar */
+/* render cart items into the sidebar */
 function renderCart() {
   const sidebar = document.getElementById("cartSidebar");
   if (!sidebar) return;
 
-  /* remove previously rendered items */
   sidebar.querySelectorAll(".cart-item").forEach(el => el.remove());
 
   const cart = getCart();
@@ -328,15 +359,8 @@ function renderCart() {
   updateBadge();
 }
 
-function updateQty(id, delta) {
-  changeQty(id, delta);
-  renderCart();
-}
-
-function deleteItem(id) {
-  removeFromCart(id);
-  renderCart();
-}
+function updateQty(id, delta) { changeQty(id, delta); renderCart(); }
+function deleteItem(id)        { removeFromCart(id);   renderCart(); }
 
 function updateSummary() {
   const count = cartCount();
@@ -363,7 +387,7 @@ function updateBadge() {
   badge.style.display = count ? "flex" : "none";
 }
 
-/*CATEGORY PAGEs (books/flowers/study-product)*/
+/*CATEGORY PAGE (books/flowers/study-product)*/
 
 function initCategory() {
 
@@ -380,7 +404,6 @@ function initCategory() {
     });
   });
 
-  /* popup elements */
   const popup   = document.getElementById("popup");
   const countEl = popup?.querySelector(".count");
 
@@ -401,7 +424,6 @@ function initCategory() {
     });
   });
 
-  /* close popup */
   function closePopup() {
     popup?.classList.remove("active");
     document.body.style.overflow = "";
@@ -411,7 +433,6 @@ function initCategory() {
   popup?.addEventListener("click", e => { if (e.target === popup) closePopup(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup(); });
 
-  /* popup quantity +/- */
   popup?.querySelector(".minus")?.addEventListener("click", () => {
     if (countEl && parseInt(countEl.textContent) > 1) countEl.textContent--;
   });
@@ -419,7 +440,6 @@ function initCategory() {
     if (countEl) countEl.textContent = parseInt(countEl.textContent) + 1;
   });
 
-  /* popup add to cart (both buttons) */
   function addFromPopup() {
     const title = popup.querySelector(".popup-title").textContent.trim();
     const price = parseInt(popup.querySelector(".popup-price").textContent.replace(/[^\d]/g, ""));
@@ -432,7 +452,6 @@ function initCategory() {
   popup?.querySelector(".add-btn")?.addEventListener("click",  addFromPopup);
   popup?.querySelector(".card-btn")?.addEventListener("click", addFromPopup);
 
-  /* inline add-to-cart buttons on cards */
   document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
