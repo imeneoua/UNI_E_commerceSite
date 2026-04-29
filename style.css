@@ -1,25 +1,320 @@
 /* ============================================================
-   RESET & BASE
+   GOOGLE FONT IMPORT
+   Imports the Nunito font used on inputs, buttons, and forms
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
+/* ============================================================
+   GLOBAL RESET
+   Removes default margin/padding and uses border-box sizing
+   so padding doesn't break element widths
+   ============================================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ============================================================
+   BODY — BASE STYLES
+   Sets the pink gradient background, base font, and text color.
+   background-attachment: fixed keeps the gradient from scrolling.
+   overflow-y: auto ensures the page is scrollable.
+   ============================================================ */
 body {
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(160deg, #B95071 0%, #d68ba3 50%, #F5EDE3 100%);
   background-attachment: fixed;
   color: white;
+  overflow-y: auto;
 }
 
 /* ============================================================
-   HEADER / NAVBAR
+   HERO SECTION WRAPPER (legacy class, kept for compatibility)
    ============================================================ */
+.hrosec {
+  width: 100%;
+  display: block;
+}
 
+
+/* ============================================================
+   AUTH MODAL — GLASS CARD (Login / Sign In popup card)
+   The frosted glass card that appears when auth overlay is open.
+   Hidden by default, shown when .active is added via JS.
+   ============================================================ */
+.logipage {
+  display: none;
+  position: relative;
+  z-index: 1;
+  width: 420px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  padding: 40px 44px 36px;
+  box-shadow: 0 8px 40px rgba(180, 80, 100, 0.15);
+}
+
+.logipage.active {
+  display: block;
+}
+
+/* ============================================================
+   AUTH MODAL — PAGE HEADER (title row with back arrow)
+   ============================================================ */
+.page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* Back arrow "←" inside the auth modal */
+.back-arrow {
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  margin-right: 12px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.back-arrow:hover {
+  opacity: 1;
+}
+
+/* Modal title (e.g. "Sign In") — centered with margin offset for arrow */
+.page-header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.3px;
+  margin-right: 34px;
+}
+
+/* ============================================================
+   AUTH MODAL — FORM LAYOUT
+   Stacks labels and inputs vertically with spacing
+   ============================================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Form field labels (Email, Password, etc.) */
+form > label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  margin-top: 14px;
+}
+
+form > label:first-of-type {
+  margin-top: 0;
+}
+
+/* ============================================================
+   AUTH MODAL — INPUT WRAPPER
+   Wraps the text input + icon inside a relative container
+   so the icon can be positioned absolutely on the right
+   ============================================================ */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+/* The actual text/email/password input field */
+.input-wrapper input {
+  width: 100%;
+  padding: 14px 48px 14px 18px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 14px;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  color: #5a3a40;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(150, 100, 110, 0.7);
+}
+
+/* Brightens border and background when user clicks into the field */
+.input-wrapper input:focus {
+  border-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.38);
+}
+
+/* Icon (envelope / lock) — positioned inside the input on the right */
+.input-wrapper i {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* ============================================================
+   AUTH MODAL — REMEMBER ME / FORGOT PASSWORD ROW
+   ============================================================ */
+.remember-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 18px;
+  font-size: 13.5px;
+}
+
+.remember-row label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.remember-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #ffffff;
+  cursor: pointer;
+}
+
+/* "Forgot password?" link */
+.remember-row a,
+form .remember-row a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 13.5px;
+}
+
+.remember-row a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   AUTH MODAL — SUBMIT BUTTON (Sign In / Sign Up)
+   ============================================================ */
+input[type="submit"] {
+  width: 100%;
+  margin-top: 2px;
+  padding: 15px;
+  background: #6abf69;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 18px rgba(90, 170, 80, 0.35);
+}
+
+input[type="submit"]:hover {
+  background: #5aaf58;
+  transform: translateY(-1px);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   AUTH MODAL — OR DIVIDER
+   The "── OR ──" line between submit and Google button
+   ============================================================ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================================================
+   AUTH MODAL — GOOGLE SIGN-IN BUTTON
+   ============================================================ */
+form > button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+form > button:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+form > button i {
+  font-size: 20px;
+}
+
+/* ============================================================
+   AUTH MODAL — BOTTOM LINK ("Don't have an account? Sign Up")
+   ============================================================ */
+form > p {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(200, 160, 165, 0.9);
+  font-weight: 600;
+}
+
+form > p a {
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+form > p a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   HEADER / NAVBAR
+   Fixed at top with frosted glass effect.
+   Uses .header-inner flex layout for logo | nav | actions.
+   ============================================================ */
 header {
   position: fixed;
   top: 0;
@@ -33,6 +328,29 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Logo image in header */
+.header-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Flex row: logo on left, nav in center, actions on right */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-inner img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Legacy table-based header styles (kept for compatibility) */
 header table {
   border-collapse: collapse;
   width: 100%;
@@ -43,18 +361,15 @@ header table td {
   padding: 0;
 }
 
-/* Logo */
 header table td:first-child img {
   width: 50px;
   height: 50px;
   object-fit: contain;
-  background: #8DC373;
   border-radius: 12px;
-  padding: 6px;
   display: block;
 }
 
-/* Nav pill */
+/* Nav pill (the rounded pill containing nav links) */
 header table td nav {
   display: inline-flex;
   align-items: center;
@@ -76,12 +391,13 @@ header table td nav a {
   white-space: nowrap;
 }
 
+/* Active/hovered nav link gets a white tint highlight */
 header table td nav a:hover,
 header table td nav a.active {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Right-side buttons */
+/* Right side: Sign In + Cart + Profile */
 header table td:last-child {
   text-align: right;
   white-space: nowrap;
@@ -98,7 +414,7 @@ header table td:last-child button {
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-/* Sign In button */
+/* Green "Sign In" button */
 header table td:last-child button:first-child {
   padding: 8px 22px;
   background: #8DC373;
@@ -113,7 +429,7 @@ header table td:last-child button:first-child:hover {
   transform: translateY(-1px);
 }
 
-/* Cart & Profile icon buttons */
+/* Cart and profile icon buttons (transparent background) */
 header table td:last-child button:not(:first-child) {
   background: transparent;
   color: white;
@@ -126,11 +442,12 @@ header table td:last-child button:not(:first-child):hover {
   opacity: 0.7;
 }
 
-/* Profile dropdown */
+/* Profile button — has a dropdown inside */
 header table td:last-child button:last-child {
   position: relative;
 }
 
+/* Profile dropdown menu (shown on hover) */
 header table td:last-child button:last-child aside {
   display: none;
   position: absolute;
@@ -165,51 +482,55 @@ header table td:last-child button:last-child aside a:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* ============================================================
-   MAIN
-   ============================================================ */
 
+/* ============================================================
+   MAIN CONTENT WRAPPER
+   Adds top padding so content clears the fixed header
+   ============================================================ */
 main {
   padding-top: 72px;
+  width: 100%;
+  display: block;
 }
+
 
 /* ============================================================
    HERO SECTION
+   Two-column layout: text on left, image on right
    ============================================================ */
-
-#mnpart > table:first-of-type {
-  width: 100%;
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 88vh;
-  padding: 60px 60px;
-  box-sizing: border-box;
+  padding: 60px 80px;
+  gap: 40px;
 }
 
-#mnpart > table:first-of-type td {
-  vertical-align: middle;
-  padding: 20px 24px;
+/* Left side: heading, paragraph, Shop Now button */
+.hero-text {
+  flex: 1;
+  max-width: 500px;
 }
 
-/* Hero heading */
-#mnpart > table:first-of-type td:first-child h1 {
+.hero-text h1 {
   font-size: 48px;
   font-weight: 800;
   color: white;
   line-height: 1.2;
   margin-bottom: 20px;
-  letter-spacing: -0.5px;
 }
 
-/* Hero paragraph */
-#mnpart > table:first-of-type td:first-child p {
+.hero-text p {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255,255,255,0.85);
   line-height: 1.75;
   margin-bottom: 34px;
   max-width: 440px;
 }
 
-/* Shop Now button */
-#mnpart > table:first-of-type td:first-child button {
+/* "Shop Now" CTA button */
+.btn-shopnow {
   padding: 14px 38px;
   background: #8DC373;
   color: white;
@@ -218,53 +539,102 @@ main {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  letter-spacing: 0.3px;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: background 0.2s, transform 0.1s;
 }
 
-#mnpart > table:first-of-type td:first-child button:hover {
+.btn-shopnow:hover {
   background: #7A8F6A;
   transform: translateY(-2px);
 }
 
-#mnpart > table:first-of-type td:first-child button:active {
-  background: #495540;
-  transform: translateY(0);
+/* Right side: hero image */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Hero image */
-#mnpart > table:first-of-type td:last-child img {
+.hero-image img {
   width: 100%;
   max-width: 520px;
   object-fit: contain;
-  display: block;
-  margin-left: auto;
-  filter: drop-shadow(0 24px 48px rgba(185, 80, 113, 0.4));
+  filter: drop-shadow(0 24px 48px rgba(185,80,113,0.4));
 }
 
-/* ============================================================
-   SECTION HEADINGS (h2)
-   ============================================================ */
 
-#mnpart h2 {
-  font-size: 36px;
+/* ============================================================
+   CATEGORIES SECTION
+   Horizontal scrollable row of category cards (Books, Flowers, etc.)
+   overflow-x: auto enables the scroll when cards exceed container width
+   ============================================================ */
+.categories-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 60px 60px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Styled scrollbar to match the pink theme */
+.categories-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.categories-grid::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+.categories-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
+}
+
+/* Individual category card (Books / Flowers / Decorations) */
+.category-card {
+  flex: 0 0 280px;           /* fixed width so cards don't shrink */
+  scroll-snap-align: start;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 16px;
+  padding: 44px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.category-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-5px);
+}
+
+/* Category icon (e.g. book, leaf, palette) */
+.category-card i {
+  font-size: 44px;
+  color: rgba(255,255,255,0.85);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.category-card h3 {
+  font-size: 20px;
   font-weight: 700;
   color: white;
-  text-align: center;
-  letter-spacing: 1px;
-  margin: 20px 0 10px;
+  margin-bottom: 10px;
 }
 
-#mnpart h2 u {
-  text-decoration: none;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.45);
-  padding-bottom: 6px;
+.category-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
 }
+
 
 /* ============================================================
-   CATEGORIES TABLE
+   LEGACY PRODUCT TABLE (old table-based product grid)
+   Kept for compatibility — new layout uses .products-grid
    ============================================================ */
-
 #mnpart > table:nth-of-type(2) {
   border-collapse: separate;
   border-spacing: 20px;
@@ -311,10 +681,11 @@ main {
   line-height: 1.6;
 }
 
-/* ============================================================
-   "Our Best Sellers" label (h3 directly in #mnpart)
-   ============================================================ */
 
+/* ============================================================
+   "OUR BEST SELLERS" LABEL
+   The h3 label above the products grid
+   ============================================================ */
 #mnpart > section > div.products-grid,
 #mnpart > h3 {
   padding-left: 60px;
@@ -328,33 +699,43 @@ main {
   padding: 0 60px 16px;
 }
 
-/* ============================================================
-   PRODUCTS GRID
-   ============================================================ */
 
+/* ============================================================
+   PRODUCTS GRID — BEST SELLERS SECTION
+   4-column grid of product cards using CSS Grid
+   ============================================================ */
 .products-grid {
   padding: 0 40px 70px;
   box-sizing: border-box;
 }
 
-.products-grid table {
-  border-collapse: separate;
-  border-spacing: 16px;
-  width: 100%;
+/* Each row holds 4 product cards */
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
-/* Product card — each <td> */
-.products-grid td {
-  vertical-align: top;
-  background: rgba(255, 255, 255, 0.22);
+/* Individual product card — frosted glass style */
+.product-card {
+  background: rgba(255,255,255,0.22);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255,255,255,0.32);
   border-radius: 20px;
   padding: 16px 16px 20px;
   text-align: center;
-  transition: transform 0.2s ease, background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, background 0.2s;
   cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.30);
+  box-shadow: 0 12px 32px rgba(185,80,113,0.2);
 }
 
 .products-grid td:hover {
@@ -363,7 +744,7 @@ main {
   box-shadow: 0 12px 32px rgba(185, 80, 113, 0.2);
 }
 
-/* Product image */
+/* Product image container */
 .prd-image {
   width: 100%;
   margin-bottom: 14px;
@@ -377,18 +758,17 @@ main {
   display: block;
 }
 
-/* Product title */
+/* Product name / title */
 .prd-title {
   font-size: 15px;
   font-weight: 700;
   color: white;
   margin: 0 0 8px 0;
   line-height: 1.3;
-  /* allow wrapping so nothing is cut off */
   white-space: normal;
 }
 
-/* Description */
+/* Short description (clamped to 2 lines) */
 .prd-desc {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.78);
@@ -400,7 +780,7 @@ main {
   overflow: hidden;
 }
 
-/* Rating + Price row */
+/* Row showing star rating on left and price on right */
 .prd-meta {
   display: flex;
   justify-content: space-between;
@@ -420,7 +800,7 @@ main {
   color: white;
 }
 
-/* Add to cart button */
+/* Green "Add to cart" button on each product card */
 .cart-btn {
   display: block;
   width: 100%;
@@ -446,61 +826,26 @@ main {
   transform: translateY(0);
 }
 
-/* ============================================================
-   COMMENT SECTION
-   ============================================================ */
-
-.Comentprt {
-  padding: 50px 60px 70px;
-  text-align: center;
-}
-
-.Comentprt h3 {
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
-}
-
-.Comentprt input[type="text"] {
-  width: 55%;
-  padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: border 0.2s ease, background 0.2s ease;
-}
-
-.Comentprt input[type="text"]::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.Comentprt input[type="text"]:focus {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
-}
 
 /* ============================================================
    FOOTER
+   Semi-transparent dark pink footer with centered content
    ============================================================ */
-
 footer {
+  width: 100%;
   background: rgba(150, 50, 80, 0.4);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255,255,255,0.15);
   padding: 44px 60px;
+  display: block;
 }
 
-/* Hide the top <hr> */
+/* Hide the decorative top <hr> inside footer */
 footer > hr:first-child {
   display: none;
 }
 
+/* Footer inner column: logo, tagline, socials, copyright */
 #ftpart {
   display: flex;
   flex-direction: column;
@@ -509,6 +854,7 @@ footer > hr:first-child {
   text-align: center;
 }
 
+/* Footer logo with green background badge */
 #ftpart img {
   width: 60px;
   height: 60px;
@@ -518,6 +864,7 @@ footer > hr:first-child {
   padding: 6px;
 }
 
+/* Footer tagline paragraph */
 #ftpart p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.75);
@@ -525,13 +872,14 @@ footer > hr:first-child {
   line-height: 1.65;
 }
 
-/* Social icons wrapper */
+/* Social icons wrapper (LinkedIn, GitHub, Instagram, Twitter) */
 #ftpart > div {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+/* Social icon size and hover effect */
 #ftpart i {
   font-size: 26px;
   color: white;
@@ -544,7 +892,7 @@ footer > hr:first-child {
   transform: translateY(-2px);
 }
 
-/* Divider hr */
+/* Thin divider line above copyright text */
 #ftpart hr {
   display: block;
   width: 25%;
@@ -552,8 +900,11 @@ footer > hr:first-child {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* === CATEGORY SECTION === */
 
+/* ============================================================
+   CATEGORY PAGES (Books / Flowers / Decorations detail pages)
+   Used on the individual category listing pages
+   ============================================================ */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -564,7 +915,7 @@ footer > hr:first-child {
   margin-bottom: 60px;
 }
 
-/* CATEGORY HEADER */
+/* Category page header row: title + decorative line */
 .category-header {
   display: flex;
   align-items: center;
@@ -579,141 +930,52 @@ footer > hr:first-child {
   white-space: nowrap;
 }
 
+/* Horizontal rule that stretches after the title */
 .category-line {
   flex: 1;
   border: none;
   border-top: 1.5px solid rgba(255, 255, 255, 0.35);
 }
 
-/* SLIDER WRAPPER */
-.slider-wrapper {
-  position: relative;
-  padding: 0 30px;
-}
-
-/* ITEMS DISPLAY */
-.items-display {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;
-  padding: 8px 4px;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
-  padding: 12px;
-  min-width: calc((100% - 48px) / 4);
-  max-width: calc((100% - 48px) / 4);
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
+/* Product card hover on category pages */
 .product-card:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* ITEM IMAGE */
-.item-image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
+/* Product image on category listing pages */
 .item-image img {
   width: 100%;
-  height: 300px ;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-/* ITEM DETAILS — flex column with space-between to push button to bottom */
-.item-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 0;
-}
-
-.item-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 4px;
-
-  /* clamp to 1 line */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.item-description {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.3;
-  margin-bottom: 6px;
-
-  /* clamp to 2 lines */
-  display: -webkit-box;
- line-clamp: 2;
- -webkit-line-clamp: 2;
- -webkit-box-orient: vertical;
- overflow: hidden;
-}
-
+/* Full description hidden by default (shown in popup) */
 .full-description {
   display: none;
 }
 
-/* PRICE & RATING */
-.price-rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  margin-top: auto;
-}
-
+/* Star rating display */
 .rating {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Price display */
 .price {
   font-size: 13px;
   font-weight: 700;
   color: white;
 }
 
-/* FORM & ADD TO CART BUTTON */
+/* Form used inside category page cards */
 form {
   margin: 0;
   display: block;
 }
 
-.add-to-cart-btn {
-  display: block;
-  width: 100%;
-  padding: 9px 0;
-  background: #8DC373;
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
+/* "Add to cart" button on category pages */
 .add-to-cart-btn:hover {
   background: #7A8F6A;
   transform: translateY(-1px);
@@ -724,40 +986,7 @@ form {
   transform: translateY(0);
 }
 
-/* ARROWS */
-.slider-left-arrow,
-.slider-right-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.slider-left-arrow {
-  left: -6px;
-}
-
-.slider-right-arrow {
-  right: -6px;
-}
-
-.arrow-btn {
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
+/* Left/right arrow navigation buttons (carousels) */
 .arrow-btn:hover {
   background: rgba(255, 255, 255, 0.35);
   transform: scale(1.08);
@@ -768,42 +997,18 @@ form {
   transform: scale(0.97);
 }
 
-/* === POPUP OVERLAY === */
-.item-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-}
 
+/* ============================================================
+   PRODUCT POPUP / DETAIL MODAL
+   Opens when a product card is clicked — shows full details
+   ============================================================ */
+
+/* Show popup when .active is added via JS */
 .item-popup.active {
   display: flex;
 }
 
-/* POPUP CARD */
-.popup-content {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-  padding: 24px;
-  width: 90%;
-  max-width: 420px;
-  max-height: 85vh;
-  overflow-y: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* CLOSE BUTTON */
+/* "×" close button inside the popup */
 .close-btn {
   position: absolute;
   top: 14px;
@@ -818,7 +1023,7 @@ form {
   opacity: 0.6;
 }
 
-/* POPUP IMAGE */
+/* Large product image inside popup */
 .popup-image {
   width: 100%;
   height: 260px;
@@ -826,7 +1031,7 @@ form {
   border-radius: 12px;
 }
 
-/* POPUP TITLE */
+/* Popup product name */
 .popup-title {
   font-size: 20px;
   font-weight: 700;
@@ -834,7 +1039,7 @@ form {
   margin: 0;
 }
 
-/* POPUP SUB DESCRIPTION */
+/* Short subtitle/description line */
 .popup-subdescription {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
@@ -842,7 +1047,7 @@ form {
   margin: 0;
 }
 
-/* POPUP PRICE & RATING */
+/* Rating and price inside popup */
 .popup-rating {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
@@ -854,7 +1059,7 @@ form {
   color: white;
 }
 
-/* DESCRIPTION HEADING & TEXT */
+/* "Description" heading inside popup */
 .popup-content h3 {
   font-size: 15px;
   font-weight: 700;
@@ -862,6 +1067,7 @@ form {
   margin: 0;
 }
 
+/* Full description text inside popup */
 .popup-description {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.8);
@@ -869,7 +1075,7 @@ form {
   margin: 0;
 }
 
-/* QUANTITY CONTROLS */
+/* ── Quantity selector (− count +) ── */
 .quantity {
   display: flex;
   align-items: center;
@@ -898,6 +1104,7 @@ form {
   background: rgba(255, 255, 255, 0.35);
 }
 
+/* The number shown between − and + */
 .quantity .count {
   font-size: 16px;
   font-weight: 700;
@@ -906,7 +1113,7 @@ form {
   text-align: center;
 }
 
-/* POPUP BUTTONS ROW */
+/* ── Popup action buttons (Save to wishlist | Add to cart) ── */
 .card-btn,
 .add-btn {
   flex: 1;
@@ -919,6 +1126,7 @@ form {
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
+/* "Save" / wishlist button (ghost style) */
 .card-btn {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -930,6 +1138,7 @@ form {
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* "Add to cart" button (green) */
 .add-btn {
   background: #8DC373;
   color: white;
@@ -945,7 +1154,7 @@ form {
   transform: translateY(0);
 }
 
-/* BUTTONS ROW WRAPPER */
+/* Inline-flex alignment for buttons inside popup */
 .popup-content .card-btn,
 .popup-content .add-btn {
   display: inline-flex;
@@ -954,9 +1163,214 @@ form {
   width: auto;
 }
 
-/* make the two buttons sit side by side */
 .popup-content > .card-btn,
 .popup-content > .add-btn {
   align-self: stretch;
 }
 
+
+/* ============================================================
+   SHOPPING CART SIDEBAR
+   Slides in from the right when the cart icon is clicked.
+   Controlled via JS by toggling .open class.
+   ============================================================ */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;        /* hidden off-screen by default */
+  width: 400px;
+  height: 100vh;
+  background: rgba(185, 80, 113, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 500;
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  padding: 24px;
+}
+
+/* Slides into view when .open is added */
+.cart-sidebar.open {
+  right: 0;
+}
+
+/* Dark overlay behind the cart sidebar */
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 499;
+}
+
+.cart-overlay.open {
+  display: block;
+}
+
+
+/* ============================================================
+   HEADER NAV PILL (new semantic class — replaces table nav)
+   ============================================================ */
+.header-nav {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  padding: 5px 8px;
+  gap: 2px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Header right-side button group */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Green "Sign In" button */
+.btn-signin {
+  padding: 8px 22px;
+  background: #8DC373;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Transparent icon buttons (cart, profile) */
+.btn-icon {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* Profile button wrapper — contains dropdown */
+.profile-btn {
+  position: relative;
+}
+
+/* Profile dropdown menu */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: rgba(185, 80, 113, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 200;
+  flex-direction: column;
+}
+
+.profile-btn:hover .profile-dropdown {
+  display: flex;
+}
+
+.profile-dropdown a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+
+/* ============================================================
+   AUTH OVERLAY
+   Full-screen dark blur overlay that wraps the login card.
+   Shown/hidden via JS toggling display on #authOverlay.
+   ============================================================ */
+.auth-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Always show the glass card when overlay is visible */
+.auth-overlay .logipage {
+  display: block;
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+   Large centered white headings used for "Categories", "Features"
+   ============================================================ */
+.section-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+/* "Our Best Sellers:" label above the products grid */
+.bestsellers-label {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  padding: 0 60px 16px;
+}
+
+
+/* ============================================================
+   COMMENT SECTION
+   Input box at the bottom of the main page for user comments
+   ============================================================ */
+.comment-section {
+  padding: 50px 60px 70px;
+  text-align: center;
+}
+
+.comment-section h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+}
+
+/* Comment text input field */
+.comment-section input[type="text"] {
+  width: 55%;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
