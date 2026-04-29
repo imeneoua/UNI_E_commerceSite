@@ -3,51 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet"/>
     <title>Ecommerce website</title>
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      href="style.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- login page -->
+    <div class="bg"></div>
+
+    <!-- Login page -->
     <div id="logpg" class="logipage">
-      <h2>Login</h2>
-      <form method="post">
+      <div class="page-header">
+        <span class="back-arrow">&#8592;</span>
+        <h2>Login</h2>
+      </div>
+      <form method="post" onsubmit="return false">
         <label>Email</label>
-        <input type="email" required placeholder="Enter your email" />
-        <i class="bx bx-envelope bx-remove-padding"></i>
-        <br />
+        <div class="input-wrapper">
+          <input type="email" required placeholder="Enter your email" />
+          <i class="bx bx-envelope"></i>
+        </div>
+
         <label>Password</label>
-        <input type="password" required placeholder="Enter your password" />
-        <i class="bx bx-lock"></i>
-        <br />
-        <label><input type="checkbox" />Remember Me</label>
-        <a href="#">Forgot password?</a>
-        <br />
-        <input type="submit" value="login" />
-        <!-- OR Divider -->
-        <table>
-          <tr>
-            <td width="45%"><hr /></td>
-            <td width="1%" align="center">or</td>
-            <td width="45%"><hr /></td>
-          </tr>
-        </table>
-        <button><i class="bx bxl-google"></i>Connect with google</button>
-        <p>D'ont have an account? <a href="#"> Sign in</a></p>
+        <div class="input-wrapper">
+          <input type="password" required placeholder="Enter your password" />
+          <i class="bx bx-lock"></i>
+        </div>
+
+        <div class="remember-row">
+          <label><input type="checkbox" /> Remember Me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <input type="submit" value="Login" />
+
+        <div class="divider"><span>or</span></div>
+
+        <button><i class="bx bxl-google"></i> Connect with google</button>
+        <p>Don't have an account? <a href="#"> Sign in</a></p>
       </form>
     </div>
 
-    <!--Sign in -->
+    <!-- Sign in page -->
     <div id="singpg" class="logipage">
-      <h2>Sign in</h2>
-      <form method="post">
+      <div class="page-header">
+        <span class="back-arrow">&#8592;</span>
+        <h2>Sign in</h2>
+      </div>
+      <form method="post" onsubmit="return false">
         <label>Email</label>
-        <input type="email" required placeholder="Enter your email" />
-        <i class="bx bx-envelope bx-remove-padding"></i>
-        <br />
+        <div class="input-wrapper">
+          <input type="email" required placeholder="Enter your email" />
+          <i class="bx bx-envelope"></i>
+        </div>
+
         <label>Password</label>
+<<<<<<< HEAD
         <input type="password" required placeholder="Enter your password">
         <i class="bx bx-lock"></i>
       </br>
@@ -62,10 +76,25 @@
             <td width="45%"><hr /></td>
           </tr>
         </table>
+=======
+        <div class="input-wrapper">
+          <input type="password" required placeholder="Enter your password" />
+          <i class="bx bx-lock"></i>
+        </div>
+
+        <div class="remember-row">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <input type="submit" value="Sign in" />
+
+        <div class="divider"><span>or</span></div>
+
+>>>>>>> a8bde66acc36f0155aa8addd7347693d7bc489c6
         <button><i class="bx bxl-google"></i> Connect with Google</button>
-        <p>Already have an account <a href="#">Login</a></p>
+        <p>Already have an account? <a href="#">Login</a></p>
       </form>
     </div>
-    <br />
+
   </body>
 </html>
