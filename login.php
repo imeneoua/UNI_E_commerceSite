@@ -3,9 +3,7 @@ include 'database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // =========================================================
-    // LOGIN
-    // =========================================================
+    // login
     if (isset($_POST['login'])) {
 
         // handle "Remember Me" BEFORE session_start()
@@ -69,9 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    // =========================================================
-    // REGISTER (SIGN UP)
-    // =========================================================
+    // regiister( sign up)
     if (isset($_POST['action']) && $_POST['action'] === 'register') {
 
         session_start();
