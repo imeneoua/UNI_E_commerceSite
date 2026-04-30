@@ -1,4 +1,4 @@
-/*CART HELPERS */
+/*CART HELPERS  (localStorage)*/
 
 function getCart() {
   return JSON.parse(localStorage.getItem("cart") || "[]");
@@ -57,13 +57,14 @@ function showToast(text, type = "success") {
   setTimeout(() => div.remove(), 3000);
 }
 
-/*PAGE DETECTION*/
+/*PAGE DETECTION — run the right init on load*/
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("logpg"))              initLogin();
   else if (document.querySelector(".hero-section"))  initMain();
   else if (document.querySelector(".items-display")) initCategory();
 });
+
 
 /*LOGIN PAGE  (index.html)*/
 
@@ -108,17 +109,20 @@ function initLogin() {
       `);
   }
 
-  /* set PHP action targets on both forms */
+  /* ✅ FIXED: set action + method on login form so it reaches PHP */
   loginPage.querySelector("form").setAttribute("action", "login.php");
   loginPage.querySelector("form").setAttribute("method", "POST");
   loginPage.querySelector("form").removeAttribute("onsubmit");
 
-  /* ✅ FIX: sign-up also posts to login.php (register.php does not exist)
-     A hidden input tells login.php this is a registration request          */
+  /* ✅ ADDED: give the login submit button name="login" so PHP can detect it */
+  loginPage.querySelector("input[type='submit']").setAttribute("name", "login");
+
+  /* ✅ FIXED: set action + method on sign-up form */
   signPage.querySelector("form").setAttribute("action", "login.php");
   signPage.querySelector("form").setAttribute("method", "POST");
   signPage.querySelector("form").removeAttribute("onsubmit");
 
+  /* ✅ ADDED: hidden input so PHP knows this is a registration request */
   if (!signPage.querySelector("input[name='action']")) {
     const hidden = document.createElement("input");
     hidden.type  = "hidden";
@@ -127,13 +131,13 @@ function initLogin() {
     signPage.querySelector("form").appendChild(hidden);
   }
 
-  /* add name attributes so PHP receives the fields */
+  /* ✅ FIXED: add name attributes so PHP receives email + password */
   loginPage.querySelector("input[type='email']").setAttribute("name", "email");
   loginPage.querySelector("input[type='password']").setAttribute("name", "password");
   signPage.querySelector("input[type='email']").setAttribute("name", "email");
   signPage.querySelector("input[type='password']").setAttribute("name", "password");
 
-  /* client-side password match check (UX only) */
+  /* client-side password match check */
   const signPass    = signPage.querySelector("input[type='password']");
   const confirmPass = document.getElementById("confirmPass");
   const passMsg     = document.getElementById("passMsg");
@@ -162,19 +166,24 @@ function initLogin() {
     }
   });
 
-  /* show PHP error messages passed via URL (?error=...) */
+  /* ✅ ADDED: show PHP error messages passed via URL (?error=...) */
   const params = new URLSearchParams(window.location.search);
   const error  = params.get("error");
   const errorMessages = {
-    wrong_password:  "Wrong email or password",
-    email_exists:    "Email already registered",
-    missing_fields:  "Please fill all fields",
-    server_error:    "Something went wrong, try again",
+    invalid_login:       "Wrong email or password ❌",  // ✅ ADD THIS
+    wrong_password:      "Wrong email or password ❌",
+    email_exists:        "Email already registered ❌",
+    missing_fields:      "Please fill all fields ❌",
+    invalid_email:       "Invalid email format ❌",      // ✅ ADD THIS
+    short_password:      "Password must be 8+ characters ❌", // ✅ ADD THIS
+    registration_failed: "Registration failed, try again ❌", // ✅ ADD THIS
+    server_error:        "Something went wrong, try again ❌",
   };
   if (error && errorMessages[error]) {
     showToast(errorMessages[error], "error");
   }
 }
+
 
 /*MAIN PAGE  (main.html)*/
 
@@ -183,35 +192,41 @@ let promoUsed     = false;
 
 function initMain() {
 
-  /*Email avatar on Sign In button*/
-  const sessionEmail =
-    document.body.dataset.userEmail ||
-    document.getElementById("sessionEmail")?.value ||
-    "";
+  /* Email avatar on Sign In button */
+// ✅ REPLACE WITH THIS
+fetch('get_session.php')
+  .then(res => res.json())
+  .then(data => {
+    const signinBtn    = document.querySelector(".btn-signin");
+    const profileBtn   = document.querySelector(".profile-btn");
 
-  const signinBtn = document.querySelector(".btn-signin");
+    if (data.logged_in) {
+      const firstLetter = data.email[0].toUpperCase();
 
-  if (sessionEmail && signinBtn) {
-    const firstLetter = sessionEmail[0].toUpperCase();
+      // ✅ Hide the Sign In button completely
+      if (signinBtn) signinBtn.style.display = "none";
 
-    /* replace button text with a circular avatar */
-    signinBtn.innerHTML = `
-      <span style="
-        display:inline-flex;align-items:center;justify-content:center;
-        width:32px;height:32px;border-radius:50%;
-        background:white;color:#B95071;
-        font-size:15px;font-weight:800;line-height:1;
-      ">${firstLetter}</span>
-    `;
-    signinBtn.title = sessionEmail;
+      // ✅ Replace profile icon with first letter circle
+      if (profileBtn) {
+        profileBtn.querySelector("i").style.display = "none";
+        profileBtn.insertAdjacentHTML("afterbegin", `
+          <span style="
+            display:inline-flex;align-items:center;justify-content:center;
+            width:34px;height:34px;border-radius:50%;
+            background:white;color:#B95071;
+            font-size:15px;font-weight:800;line-height:1;
+            pointer-events:none;
+          ">${firstLetter}</span>
+        `);
+      }
 
-    /* clicking avatar → logout.php  (PHP destroys the session) */
-    signinBtn.onclick = () => window.location.href = "logout.php";
-
-  } else if (signinBtn) {
-    /* not logged in → go to login page */
-    signinBtn.addEventListener("click", () => window.location.href = "index.html");
-  }
+    } else {
+      // ✅ Not logged in → Sign In goes to login page
+      if (signinBtn) {
+        signinBtn.addEventListener("click", () => window.location.href = "index.html");
+      }
+    }
+  });
 
   /* nav links smooth scroll */
   document.querySelectorAll(".header-nav a").forEach(link => {
@@ -269,11 +284,47 @@ function initMain() {
       showToast(`"${title}" added to cart 🛒`);
     });
   });
+  // ✅ ADD — profile dropdown toggle on click
+  const profileBtn = document.querySelector('.profile-btn');
+  const profileDropdown = document.querySelector('.profile-dropdown');
 
+  profileBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    profileDropdown?.classList.toggle('show');
+  });
+
+  // close when clicking anywhere else
+  document.addEventListener('click', () => {
+    profileDropdown?.classList.remove('show');
+  });
+  
   renderCart();
+
+  /* ✅ ADDED: checkout button submits cart to save_order.php */
+  document.querySelector('.checkout-btn')?.addEventListener('click', () => {
+    const cart = getCart();
+
+    if (cart.length === 0) {
+      showToast('Your cart is empty', 'error');
+      return;
+    }
+
+    const form  = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'save_order.php';
+
+    const input = document.createElement('input');
+    input.type  = 'hidden';
+    input.name  = 'cart_data';
+    input.value = JSON.stringify(cart);
+
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();
+  });
 }
 
-/* open/close cart */
+/* open/close cart — called from HTML onclick */
 function openCart() {
   renderCart();
   document.getElementById("cartSidebar")?.classList.add("open");
@@ -313,7 +364,7 @@ function applyPromo() {
   updateSummary();
 }
 
-/* render cart items into the sidebar */
+/* render all cart items into the sidebar */
 function renderCart() {
   const sidebar = document.getElementById("cartSidebar");
   if (!sidebar) return;
@@ -387,7 +438,8 @@ function updateBadge() {
   badge.style.display = count ? "flex" : "none";
 }
 
-/*CATEGORY PAGE (books/flowers/study-product)*/
+
+/*CATEGORY PAGES (books/flowers/study-product)*/
 
 function initCategory() {
 
@@ -419,6 +471,10 @@ function initCategory() {
       popup.querySelector(".popup-rating").textContent         = card.querySelector(".rating")?.textContent || "";
       popup.querySelector(".popup-price").textContent          = card.querySelector(".price")?.textContent  || "";
       if (countEl) countEl.textContent = "1";
+
+      /* ✅ ADDED: store the product's numeric id on the popup so addFromPopup() can use it */
+      popup.dataset.productId = card.dataset.id || slugify(card.querySelector(".item-title")?.textContent);
+
       popup.classList.add("active");
       document.body.style.overflow = "hidden";
     });
@@ -444,7 +500,8 @@ function initCategory() {
     const title = popup.querySelector(".popup-title").textContent.trim();
     const price = parseInt(popup.querySelector(".popup-price").textContent.replace(/[^\d]/g, ""));
     const qty   = parseInt(countEl?.textContent) || 1;
-    addToCart(slugify(title), title, price, "🛍️", qty);
+    /* ✅ CHANGED: was slugify(title) — now uses the real product id stored when popup opened */
+    addToCart(popup.dataset.productId, title, price, "🛍️", qty);
     showToast(`${qty}× "${title}" added to cart 🛒`);
     closePopup();
   }
@@ -452,14 +509,17 @@ function initCategory() {
   popup?.querySelector(".add-btn")?.addEventListener("click",  addFromPopup);
   popup?.querySelector(".card-btn")?.addEventListener("click", addFromPopup);
 
+  /* inline add-to-cart buttons on cards */
   document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       e.preventDefault();
-      const card  = btn.closest(".product-card");
-      const title = card.querySelector(".item-title")?.textContent.trim() || "Item";
-      const price = parseInt(card.querySelector(".price")?.textContent.replace(/[^\d]/g, "") || "0");
-      addToCart(slugify(title), title, price, "🛍️");
+      const card      = btn.closest(".product-card");
+      const title     = card.querySelector(".item-title")?.textContent.trim() || "Item";
+      const price     = parseInt(card.querySelector(".price")?.textContent.replace(/[^\d]/g, "") || "0");
+      /* ✅ CHANGED: was slugify(title) — now uses data-id from the card HTML */
+      const productId = card.dataset.id || slugify(title);
+      addToCart(productId, title, price, "🛍️");
       showToast(`"${title}" added to cart 🛒`);
     });
   });

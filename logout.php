@@ -1,8 +1,8 @@
 <?php
 session_start();
-session_unset();
 session_destroy();
-header('location: main.html');
-exit();
-
 ?>
+<script>
+  localStorage.removeItem('cart');
+  window.location.href = 'main.html';
+</script>
