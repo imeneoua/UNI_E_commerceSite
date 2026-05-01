@@ -1,5 +1,4 @@
-/*CART HELPERS  (localStorage)*/
-
+//cart helper (localstorage)
 function getCart() {
   return JSON.parse(localStorage.getItem("cart") || "[]");
 }
@@ -37,7 +36,7 @@ function slugify(str) {
   return str.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 }
 
-/*TOAST*/
+//toast
 
 function showToast(text, type = "success") {
   document.getElementById("toast")?.remove();
@@ -57,7 +56,7 @@ function showToast(text, type = "success") {
   setTimeout(() => div.remove(), 3000);
 }
 
-/*PAGE DETECTION — run the right init on load*/
+//page detection, run the right init on load
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("logpg"))              initLogin();
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/*LOGIN PAGE  (index.html)*/
+//login page  (index.html)
 
 function initLogin() {
   const loginPage = document.getElementById("logpg");
@@ -75,7 +74,7 @@ function initLogin() {
   loginPage.classList.add("active");
   signPage.classList.remove("active");
 
-  /* slide animation between panels */
+  // slide animation between panels 
   function goTo(show, hide, fromRight) {
     hide.classList.remove("active");
     show.style.transform  = `translateX(${fromRight ? "120%" : "-120%"}) translateY(-50%)`;
@@ -92,10 +91,18 @@ function initLogin() {
   loginPage.querySelector("p a").onclick = e => { e.preventDefault(); goTo(signPage, loginPage, true);  };
   signPage.querySelector("p a").onclick  = e => { e.preventDefault(); goTo(loginPage, signPage, false); };
   document.querySelectorAll(".back-arrow").forEach(el => {
-    el.onclick = () => goTo(loginPage, signPage, false);
-  });
+    el.onclick = () => {
+        // if we're on the sign page, go back to login
+        if (signPage.classList.contains("active")) {
+            goTo(loginPage, signPage, false);
+        } else {
+            // if we're on the login page, go back to main
+            window.location.href = "main.html";
+        }
+    };
+});
 
-  /* inject confirm password field into sign-up form */
+  // inject confirm password field into sign-up form 
   if (!document.getElementById("confirmPass")) {
     signPage.querySelector("input[type='password']")
       .closest(".input-wrapper")
@@ -109,20 +116,20 @@ function initLogin() {
       `);
   }
 
-  /* ✅ FIXED: set action + method on login form so it reaches PHP */
+  //set action & method on login form so it reaches PHP
   loginPage.querySelector("form").setAttribute("action", "login.php");
   loginPage.querySelector("form").setAttribute("method", "POST");
   loginPage.querySelector("form").removeAttribute("onsubmit");
 
-  /* ✅ ADDED: give the login submit button name="login" so PHP can detect it */
+  //give the login submit button name="login" so PHP can detect it
   loginPage.querySelector("input[type='submit']").setAttribute("name", "login");
 
-  /* ✅ FIXED: set action + method on sign-up form */
+  //set action + method on sign-up form 
   signPage.querySelector("form").setAttribute("action", "login.php");
   signPage.querySelector("form").setAttribute("method", "POST");
   signPage.querySelector("form").removeAttribute("onsubmit");
 
-  /* ✅ ADDED: hidden input so PHP knows this is a registration request */
+  /*hidden input so PHP knows this is a registration request */
   if (!signPage.querySelector("input[name='action']")) {
     const hidden = document.createElement("input");
     hidden.type  = "hidden";
@@ -131,7 +138,7 @@ function initLogin() {
     signPage.querySelector("form").appendChild(hidden);
   }
 
-  /* ✅ FIXED: add name attributes so PHP receives email + password */
+  /*add name attributes so PHP receives email + password */
   loginPage.querySelector("input[type='email']").setAttribute("name", "email");
   loginPage.querySelector("input[type='password']").setAttribute("name", "password");
   signPage.querySelector("input[type='email']").setAttribute("name", "email");
@@ -166,17 +173,17 @@ function initLogin() {
     }
   });
 
-  /* ✅ ADDED: show PHP error messages passed via URL (?error=...) */
+  /* show PHP error messages passed via URL (?error=...) */
   const params = new URLSearchParams(window.location.search);
   const error  = params.get("error");
   const errorMessages = {
-    invalid_login:       "Wrong email or password ❌",  // ✅ ADD THIS
+    invalid_login:       "Wrong email or password ❌",
     wrong_password:      "Wrong email or password ❌",
     email_exists:        "Email already registered ❌",
     missing_fields:      "Please fill all fields ❌",
-    invalid_email:       "Invalid email format ❌",      // ✅ ADD THIS
-    short_password:      "Password must be 8+ characters ❌", // ✅ ADD THIS
-    registration_failed: "Registration failed, try again ❌", // ✅ ADD THIS
+    invalid_email:       "Invalid email format ❌",      
+    short_password:      "Password must be 8+ characters ❌", 
+    registration_failed: "Registration failed, try again ❌", 
     server_error:        "Something went wrong, try again ❌",
   };
   if (error && errorMessages[error]) {
@@ -185,7 +192,7 @@ function initLogin() {
 }
 
 
-/*MAIN PAGE  (main.html)*/
+/* main page (main.html)*/
 
 let promoDiscount = 0;
 let promoUsed     = false;
@@ -284,7 +291,7 @@ fetch('get_session.php')
       showToast(`"${title}" added to cart 🛒`);
     });
   });
-  // ✅ ADD — profile dropdown toggle on click
+  //profile dropdown toggle on click
   const profileBtn = document.querySelector('.profile-btn');
   const profileDropdown = document.querySelector('.profile-dropdown');
 
@@ -300,7 +307,7 @@ fetch('get_session.php')
   
   renderCart();
 
-  /* ✅ ADDED: checkout button submits cart to save_order.php */
+  /*checkout button submits cart to save_order.php */
   document.querySelector('.checkout-btn')?.addEventListener('click', () => {
     const cart = getCart();
 
@@ -439,7 +446,7 @@ function updateBadge() {
 }
 
 
-/*CATEGORY PAGES (books/flowers/study-product)*/
+/*category page(books/flowers/study-product)*/
 
 function initCategory() {
 
@@ -472,7 +479,7 @@ function initCategory() {
       popup.querySelector(".popup-price").textContent          = card.querySelector(".price")?.textContent  || "";
       if (countEl) countEl.textContent = "1";
 
-      /* ✅ ADDED: store the product's numeric id on the popup so addFromPopup() can use it */
+      /*store the product's numeric id on the popup so addFromPopup() can use it */
       popup.dataset.productId = card.dataset.id || slugify(card.querySelector(".item-title")?.textContent);
 
       popup.classList.add("active");
@@ -500,7 +507,7 @@ function initCategory() {
     const title = popup.querySelector(".popup-title").textContent.trim();
     const price = parseInt(popup.querySelector(".popup-price").textContent.replace(/[^\d]/g, ""));
     const qty   = parseInt(countEl?.textContent) || 1;
-    /* ✅ CHANGED: was slugify(title) — now uses the real product id stored when popup opened */
+    /*uses the real product id stored when popup opened */
     addToCart(popup.dataset.productId, title, price, "🛍️", qty);
     showToast(`${qty}× "${title}" added to cart 🛒`);
     closePopup();
@@ -517,7 +524,7 @@ function initCategory() {
       const card      = btn.closest(".product-card");
       const title     = card.querySelector(".item-title")?.textContent.trim() || "Item";
       const price     = parseInt(card.querySelector(".price")?.textContent.replace(/[^\d]/g, "") || "0");
-      /* ✅ CHANGED: was slugify(title) — now uses data-id from the card HTML */
+      /*now uses data-id from the card HTML */
       const productId = card.dataset.id || slugify(title);
       addToCart(productId, title, price, "🛍️");
       showToast(`"${title}" added to cart 🛒`);

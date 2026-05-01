@@ -2,13 +2,13 @@
 include 'database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    // login
+    
+    //login
     if (isset($_POST['login'])) {
 
-        // handle "Remember Me" BEFORE session_start()
+        // handle "Remember Me" brfore session_start()
         if (isset($_POST['remember'])) {
-            $lifetime = 30 * 24 * 60 * 60; // 30 days
+            $lifetime = 30 * 24 * 60 * 60; // 30 days (save sessin)
             session_set_cookie_params($lifetime);
         } else {
             session_set_cookie_params(0);
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email    = trim($_POST['email']);
         $password = $_POST['password'];
 
-        // validate fields
+        // validate fieldss
         if (empty($email) || empty($password)) {
             header('Location: index.html?error=empty_fields');
             exit();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        // check account exists
+        //check it the account exists
         $stmt = $conn->prepare("SELECT account_id, email, password FROM account WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $account = $result->fetch_assoc();
 
-        // verify password
+        //verify password
         if (!password_verify($password, $account['password'])) {
             header('Location: index.html?error=invalid_login');
             exit();
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cust_result = $stmt2->get_result();
         $cust_row    = $cust_result->fetch_assoc();
 
-        // save session
+        //save session
         $_SESSION['account_id']  = $account['account_id'];
         $_SESSION['customer_id'] = $cust_row['customer_id'] ?? $account['account_id'];
         $_SESSION['email']       = $account['email'];
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        // hash password and insert into account table
+        //hash password and insert into account table
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
         $stmt = $conn->prepare("INSERT INTO account (email, password) VALUES (?, ?)");
