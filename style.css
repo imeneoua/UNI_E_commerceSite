@@ -883,7 +883,14 @@ footer > hr:first-child { display: none; }
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.15s ease;
 }
+#ftpart a {
+  text-decoration: none;
+  color: white;
+}
 
+#ftpart a:hover {
+  opacity: 0.75;
+}
 #ftpart i:hover { opacity: 0.65; transform: translateY(-2px); }
 
 #ftpart hr {
