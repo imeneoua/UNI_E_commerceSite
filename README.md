@@ -14,10 +14,10 @@ We wanted to build something that felt like a real store — not just a demo. NO
 
 | Name             | Email                          |
 | ---------------- | ------------------------------ |
-| Grib Zeina       | alaebouya07@gmail.com          |
+| Grib Zeina       | zeinagrib850@gmail.com         |
 | Kouni Douaa      | douaa.kh1617@gmail.com         |
 | Adadoua Randa    | r.adadoua.fs@univ-boumerdes.dz |
-| Bouyahiaoui Alae | zeinagrib850@gmail.com         |
+| Bouyahiaoui Alae | alaebouya07@gmail.com |
 
 ---
 
