@@ -200,7 +200,6 @@ let promoUsed     = false;
 function initMain() {
 
   /* Email avatar on Sign In button */
-// ✅ REPLACE WITH THIS
 fetch('get_session.php')
   .then(res => res.json())
   .then(data => {
@@ -210,10 +209,10 @@ fetch('get_session.php')
     if (data.logged_in) {
       const firstLetter = data.email[0].toUpperCase();
 
-      // ✅ Hide the Sign In button completely
+      // hide the Sign In button completely
       if (signinBtn) signinBtn.style.display = "none";
 
-      // ✅ Replace profile icon with first letter circle
+      // replace profile icon with first letter circle
       if (profileBtn) {
         profileBtn.querySelector("i").style.display = "none";
         profileBtn.insertAdjacentHTML("afterbegin", `
@@ -228,7 +227,7 @@ fetch('get_session.php')
       }
 
     } else {
-      // ✅ Not logged in → Sign In goes to login page
+      //not logged in =Sign In goes to login page
       if (signinBtn) {
         signinBtn.addEventListener("click", () => window.location.href = "index.html");
       }
@@ -251,7 +250,7 @@ fetch('get_session.php')
     });
   });
 
-  /* Shop Now button */
+  /* shop Now button */
   document.querySelector(".btn-shopnow")?.addEventListener("click", () => {
     document.querySelector(".categories-grid")?.scrollIntoView({ behavior: "smooth" });
   });
