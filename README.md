@@ -1,19 +1,23 @@
 # NOKHBA — E-Commerce Web Platform
 
-NOKHBA is a full-stack e-commerce web platform built for the **OpenNova Hackathon**. It brings together three curated product categories — Books, Flowers, and Study Products — behind a single storefront with real user accounts, a persistent shopping cart, and a secure checkout flow.
+NOKHBA is a full-stack e-commerce web application that brings together three distinct product worlds — books, flowers, and study essentials — into one clean and intuitive shopping experience. Built from scratch during the OpenNova Hackathon, the project covers everything from user authentication to real-time cart management and database-backed order processing.
 
-The stack is deliberately simple and transparent: vanilla HTML, CSS, and JavaScript on the front end, PHP on the back end, and MySQL for storage — no frameworks, no build step. Under the hood it handles the details that separate a real store from a mockup: bcrypt-hashed passwords, prepared SQL statements against injection, server-side price verification at checkout (so the cart total can never be tampered with client-side), and session-based auth that syncs live across static HTML pages via a small JSON endpoint.
+---
+
+## The Idea
+
+We wanted to build something that felt like a real store — not just a demo. NOKHBA lets users browse curated products across three categories, add items to a persistent cart, apply discount codes, and place orders that are saved to a database linked to their account. The name NOKHBA (نخبة) means "the elite" in Arabic — reflecting our focus on a curated, quality selection.
 
 ---
 
 ## Team Members
 
-| Name | Email |
-|------|-------|
-| Grib Zeina | alaebouya07@gmail.com |
-| Kouni Douaa | douaa.kh1617@gmail.com |
-| Adadoua Randa | r.adadoua.fs@univ-boumerdes.dz |
-| Bouyahiaoui Alae | zeinagrib850@gmail.com |
+| Name             | Email                          |
+| ---------------- | ------------------------------ |
+| Grib Zeina       | alaebouya07@gmail.com          |
+| Kouni Douaa      | douaa.kh1617@gmail.com         |
+| Adadoua Randa    | r.adadoua.fs@univ-boumerdes.dz |
+| Bouyahiaoui Alae | zeinagrib850@gmail.com         |
 
 ---
 
@@ -39,154 +43,110 @@ E_Commerce_Project/
 
 ---
 
-## Database Structure
-
-The database `ecommerce_db` contains 4 tables as required by the assignment.
-
-### account
-Stores login credentials for each user.
-
-| Column | Type | Description |
-|--------|------|-------------|
-| account_id | INT AUTO_INCREMENT | Primary key |
-| email | VARCHAR(255) | Unique email address |
-| password | VARCHAR(255) | Hashed password using bcrypt |
-
-### custumer
-Stores customer information linked to their account.
-
-| Column | Type | Description |
-|--------|------|-------------|
-| customer_id | INT AUTO_INCREMENT | Primary key |
-| account_id | INT | Foreign key referencing account |
-| name | VARCHAR(255) | Customer full name |
-| address | TEXT | Delivery address |
-| phone | VARCHAR(255) | Phone number |
-
-### product
-Stores all 54 products across 3 categories.
-
-| Column | Type | Description |
-|--------|------|-------------|
-| product_id | INT AUTO_INCREMENT | Primary key |
-| name | VARCHAR(255) | Product name |
-| price | DECIMAL(10,2) | Product price in DA |
-| category | VARCHAR(255) | Product category |
-| image | VARCHAR(255) | Image file path |
-| description | TEXT | Short description |
-
-### orders
-Saves every checkout order.
-
-| Column | Type | Description |
-|--------|------|-------------|
-| order_id | INT AUTO_INCREMENT | Primary key |
-| customer_id | INT | Foreign key referencing custumer |
-| product_id | INT | Foreign key referencing product |
-| quantity | INT | Quantity ordered |
-| order_date | DATETIME | Date and time of order |
-| total_price | DECIMAL(10,2) | Total price for this item |
-
----
-
 ## Technologies Used
 
-| Technology | Usage |
-|-----------|-------|
-| HTML5 | Page structure and semantic markup |
-| CSS3 | Styling, animations, glassmorphism effects |
-| JavaScript (vanilla) | Cart logic, session check, form handling |
-| PHP 8 | Authentication, session management, order saving |
-| MySQL | Database storage |
-| localStorage | Client-side cart persistence between page reloads |
-| WAMP | Local development server |
+| Technology           | Usage                                             |
+| -------------------- | ------------------------------------------------- |
+| HTML5                | Page structure and semantic markup                |
+| CSS3                 | Styling, animations, glassmorphism effects        |
+| JavaScript (vanilla) | Cart logic, session check, form handling          |
+| PHP 8                | Authentication, session management, order saving  |
+| MySQL                | Database storage                                  |
+| localStorage         | Client-side cart persistence between page reloads |
+| WAMP                 | Local development server                          |
 
 ---
 
-## Features
+## What It Does
 
 ### Authentication
 
-The login and registration forms are on the same page with a smooth slide animation between them. Passwords are never stored as plain text — they are hashed using PHP's `password_hash()` function with bcrypt. When the user checks Remember Me, the session cookie is set to last 30 days. If not checked, the session ends when the browser closes. Errors like wrong password or email not found are passed back through the URL and displayed as toast notifications by JavaScript.
+Users can register and log in from the same page. The two forms slide between each other with a smooth animation. Passwords are hashed with bcrypt before being stored — plain text passwords never touch the database. A Remember Me option keeps the session alive for 30 days. Errors are shown as toast notifications without exposing which field specifically was wrong.
 
-### Main Page
+### Product Catalog
 
-The main page shows a hero section, three category cards that navigate to Books, Flowers, and Study Products, and a best sellers grid with 8 featured products. When the user is logged in, JavaScript calls `get_session.php` — a small PHP file that reads the session and returns JSON — and replaces the Sign In button with a circle showing the first letter of the user's email. The profile dropdown has a smooth animation and includes a Logout link.
+The main page greets the user with a hero section and three category cards. Each card navigates to a dedicated category page. There is also a best sellers section showing 8 handpicked products. When the user is logged in, JavaScript fetches their session data from a PHP bridge file and replaces the Sign In button with a circle avatar showing the first letter of their email.
 
 ### Category Pages
 
-Each category page has a horizontal product slider built with CSS `overflow-x: auto`. The arrow buttons use JavaScript to scroll the strip. Clicking a product card opens a popup modal with the full description, price, rating, and a quantity selector. The user can add to cart from both the card button and the popup.
+Books, Flowers, and Study Products each have their own page with horizontal sliders organized by sub-category. Clicking a product opens a modal popup with the full description, rating, price, and a quantity selector. Products can be added to cart from either the card button or the popup.
 
 ### Shopping Cart
 
-The cart sidebar slides in from the right using a CSS transition. It shows two panels side by side — the item list on the left and the order summary on the right. The quantity controls update in real time, items can be removed, and promo codes can be applied. All cart data is stored in `localStorage`, which means it persists between page reloads but is cleared when the user logs out.
+The cart lives as a slide-in sidebar with two panels — the item list and the order summary. It is powered entirely by JavaScript and localStorage, which means the cart persists between page reloads and works without any server calls until checkout. Users can adjust quantities, remove items, and apply promo codes in real time.
 
-Available promo codes: `SAVE10` (10% off), `BLOOM20` (20% off), `WELCOME` (5% off).
+Promo codes available: `SAVE10` for 10% off, `BLOOM20` for 20% off, and `WELCOME` for 5% off.
 
 ### Checkout and Orders
 
-When the user clicks Checkout, JavaScript converts the cart to JSON and submits it to `save_order.php` via a hidden form. PHP then reads each item, looks up the real price from the database — never trusting the price sent from the browser — and inserts one row per item into the orders table. After a successful checkout, the cart is cleared from localStorage and a success toast is shown.
+When the user clicks Checkout, JavaScript serializes the cart as JSON and submits it to the server. PHP then looks up the real price of each item from the database — ignoring whatever price was in the browser — and saves one row per product into the orders table. This means prices cannot be tampered with from the client side. After a successful order, the cart is cleared and a confirmation toast appears.
 
 ### Logout
 
-Logout calls `logout.php` which runs `session_unset()` and `session_destroy()` to fully clear the PHP session. JavaScript then removes the cart from localStorage and redirects to the login page.
+Logging out destroys the PHP session completely and clears the cart from localStorage. The user is redirected to the login page with a clean slate.
 
 ---
 
-## How to Run Locally
+## Database Structure
 
-1. Make sure WAMP is installed and running
+Four tables power the backend:
+
+**account** stores email and hashed password for each registered user.
+
+**custumer** stores customer details linked to their account. A row is automatically created here every time a new account is registered.
+
+**product** holds all 54 products with their name, price, category, image path, and description.
+
+**orders** records every checkout. Each row represents one product from one order, linked to the customer and the product by foreign keys.
+
+---
+
+## Product Catalog — 54 Products
+
+### Books
+
+Fantasy, Horror, and Crime Fiction — 18 books including Harry Potter, Murder on the Orient Express, The Silent Patient, Fear, and more.
+
+### Flowers
+
+Romantic Bouquets, Home Decor Flowers, and Exotic & Luxury selections — 18 arrangements including Ghost Orchid, Cherry Blossom, Black Bacaara Rose, Lavender, and more.
+
+### Study Products
+
+Smart Desk Gadgets, Desk Organization, and Stationery & Paper — 18 items including the Retro Mechanical Keyboard, Mini Photo Printer, Morandi Gel Pens, and more.
+
+---
+
+## How to Run
+
+1. Install and start WAMP
 2. Copy the project folder to `C:\wamp64\www\`
-3. Open phpMyAdmin at `http://localhost/phpmyadmin`
-4. Create a database called `ecommerce_db`
-5. Import `ecommerce_db.sql` using the Import tab
-6. Open `http://localhost/E_Commerce_project/index.html` in your browser
+3. Open phpMyAdmin and create a database called `ecommerce_db`
+4. Import `ecommerce_db.sql`
+5. Open `http://localhost/E_Commerce_project/index.html`
 
-The database connection uses default WAMP credentials — host: `localhost`, user: `root`, password: empty.
-
----
-
-## Product Categories
-
-### Books — 18 products
-
-**Fantasy:** Amareta, Laws of Jartin, Searraush, Harry Potter, The Name of The Wind, Dead Until Dark
-
-**Horror:** Write Lest The Devil Devour Me, It Happens at Night in the Locked Room, Fear, I Am Rotting with Fear, The Abyss, The Far Lady's House
-
-**Crime Fiction:** The Streets Murderer, Murder on the Orient Express, The Silent Patient, And Then There Were None, Blood on the Red Carpet, A Study In Scarlet
-
-### Flowers — 18 products
-
-**Romantic Bouquets:** Red Roses, White Lilies, Pink Peonies, Red Tulips, Purple Orchids, Sunflowers
-
-**Home Decor:** Lavender, Hydrangea, White Daisy, Yellow Chrysanthemum, Red Anthurium, Gardenia
-
-**Exotic & Luxury:** Black Bacaara Rose, Ghost Orchid, Bird of Paradise, Blue Poppy, King Protea, Cherry Blossom
-
-### Study Products — 18 products
-
-**Smart Desk Gadgets:** Retro Mechanical Keyboard, Sunset Projection Lamp, Digital Flip Clock, Wireless Bluetooth Mouse, Aesthetic Desk Humidifier, Mini Photo Printer
-
-**Desk Organization:** Aesthetic Storage Crate, Acrylic Monitor Stand, Pegboard Desk Organizer, Minimalist Pen Holder, Transparent Desk Mat, Kawaii Storage Drawers
-
-**Stationery & Paper:** Morandi Gel Pens, Vintage Scrapbook Paper, Aesthetic Spiral Planner, Flower Petal Washi Tape, Clear Acrylic Clipboard, Pastel Sticky Notes
+Default WAMP credentials are used — host: `localhost`, user: `root`, password: empty.
 
 ---
 
-## Security
+## Security Highlights
 
-Passwords are hashed with bcrypt and never stored as plain text. All database queries use prepared statements with bound parameters, which makes SQL injection impossible. Product prices are always fetched from the database on the server side during checkout — a user cannot change the price by editing the HTML or JavaScript. The session is verified before every protected action, and error messages never reveal which specific field was wrong to avoid giving information to potential attackers.
-
----
-
-## Notes
-
-- The table name `custumer` contains a typo — this is kept intentionally to match the existing database schema that was already in use during development.
-- PHP and HTML files are kept completely separate as required. PHP never mixes with HTML templates. The only connection between them is through form submissions and the `get_session.php` fetch call.
-- The `get_session.php` file exists because `main.html` is a plain HTML file and cannot read PHP sessions directly. JavaScript calls this file using `fetch()` to check whether the user is logged in.
-- Cart logic is fully client-side using JavaScript and localStorage, as specified in the assignment requirements.
+- Passwords hashed with bcrypt — never stored as plain text
+- All SQL queries use prepared statements — SQL injection is not possible
+- Prices are verified server-side on every checkout — client-side values are ignored
+- Sessions are checked before every protected action
+- Error messages are generic — they do not reveal which field was wrong
 
 ---
 
+## A Few Technical Decisions Worth Mentioning
 
+We kept PHP and HTML completely separate throughout the project. There is no mixed PHP and HTML templating — the two communicate only through form submissions and a single `fetch()` call to `get_session.php`. This was a deliberate choice to keep the code clean and the responsibilities clear.
+
+The cart is fully client-side as it should be for performance and user experience. It only touches the server at the moment of checkout, which is when the data actually needs to be permanent.
+
+Product prices are never trusted from the browser. Even if someone modified the JavaScript or the localStorage values, the server always fetches the real price from the database before saving the order.
+
+---
+
+_Built for the OpenNova Hackathon — 2026_
