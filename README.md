@@ -1,18 +1,19 @@
 # NOKHBA — E-Commerce Web Platform
 
-A full-stack e-commerce web application built for the WAD L2 2025/2026 homework assignment at UMBB, Faculty of Science, Department of Computer Science.
+NOKHBA is a full-stack e-commerce web platform built for the **OpenNova Hackathon**. It brings together three curated product categories — Books, Flowers, and Study Products — behind a single storefront with real user accounts, a persistent shopping cart, and a secure checkout flow.
+
+The stack is deliberately simple and transparent: vanilla HTML, CSS, and JavaScript on the front end, PHP on the back end, and MySQL for storage — no frameworks, no build step. Under the hood it handles the details that separate a real store from a mockup: bcrypt-hashed passwords, prepared SQL statements against injection, server-side price verification at checkout (so the cart total can never be tampered with client-side), and session-based auth that syncs live across static HTML pages via a small JSON endpoint.
 
 ---
 
 ## Team Members
 
-| Name | Group | Email |
-|------|-------|-------|
-| Houti Selma | — | — |
-| Bourahla Fatma el zohra | — | — |
-| Ouakli Imene | — | — |
-| Adadoua Randa | — | — |
-| Bouyahiaoui Alae | — | — |
+| Name | Email |
+|------|-------|
+| Grib Zeina | alaebouya07@gmail.com |
+| Kouni Douaa | douaa.kh1617@gmail.com |
+| Adadoua Randa | r.adadoua.fs@univ-boumerdes.dz |
+| Bouyahiaoui Alae | zeinagrib850@gmail.com |
 
 ---
 
@@ -188,4 +189,4 @@ Passwords are hashed with bcrypt and never stored as plain text. All database qu
 
 ---
 
-*UMBB — Faculty of Science — Department of Computer Science — WAD Homework L2 2025/2026*
+
