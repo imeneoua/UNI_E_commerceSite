@@ -56,6 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cust_result = $stmt2->get_result();
         $cust_row    = $cust_result->fetch_assoc();
 
+        if (!session_regenerate_id(true)) {
+            error_log('Failed to regenerate the session ID after login.');
+            header('Location: index.html?error=server_error');
+            exit();
+        }
+
         //save session
         $_SESSION['account_id']  = $account['account_id'];
         $_SESSION['customer_id'] = $cust_row['customer_id'] ?? $account['account_id'];
@@ -119,6 +125,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt2->execute();
             $customer_id = $conn->insert_id;
 
+            if (!session_regenerate_id(true)) {
+                error_log('Failed to regenerate the session ID after registration.');
+                header('Location: index.html?error=server_error');
+                exit();
+            }
             
             // save session
             $_SESSION['account_id']  = $account_id;
